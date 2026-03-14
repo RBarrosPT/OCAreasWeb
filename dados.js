@@ -1,4 +1,4 @@
-const dadosOc = [
+var dadosOc = [
 	{
 		dataName: "1CC1",
 		pathData: "M398.51,208.14l76-.5-1.1,26.5-74.6.5-.3-26.5Z",
