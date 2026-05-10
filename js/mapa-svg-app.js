@@ -1193,6 +1193,16 @@ export class MapaSVGApp {
 		return totalArea.toFixed(2);
 	}
 
+	getColorPlants(color) {
+		const selectedItems = Object.keys(this.itemColors).filter((itemName) => this.itemColors[itemName] === color);
+		const totalPlants = selectedItems.reduce((sum, itemName) => {
+			const item = getDataItems().find((dataItem) => dataItem.dataName === itemName);
+			const plants = parseInt(item?.nPlantas, 10) || 0;
+			return sum + plants;
+		}, 0);
+		return totalPlants;
+	}
+
 	getTotalArea() {
 		return getDataItems().reduce((sum, item) => {
 			const area = parseFloat(item?.area) || 0;

@@ -852,6 +852,12 @@ button:disabled {
 	font-style: italic;
 }
 
+.color-plants {
+	font-size: 10px;
+	color: #2e7d32;
+	font-weight: 600;
+}
+
 .color-percentage {
 	font-size: 10px;
 	color: #1976d2;
@@ -885,6 +891,20 @@ button:disabled {
 	display: inline-block;
 	margin-top: 8px;
 	padding: 10px;
+}
+
+.modal-footer-note {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 0 10px 8px;
+	gap: 12px;
+}
+
+.modal-footer-note .footer-note {
+	margin-top: 0;
+	padding: 0;
 }
 
 .home-maps-table tbody td {

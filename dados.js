@@ -10,6 +10,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "40",
 		area: "1.2997",
+		nPlantas: "1500",
 	},
 	{
 		dataName: "1TS3",
@@ -22,6 +23,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "30",
 		area: "1.1884",
+		nPlantas: "1371",
 	},
 	{
 		dataName: "1IV4",
@@ -34,6 +36,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "29",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1IV8",
@@ -46,6 +49,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "7",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1IV11",
@@ -58,6 +62,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "6",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1IV12",
@@ -70,6 +75,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "8",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1IV9",
@@ -82,6 +88,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "9",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1AC7",
@@ -94,6 +101,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "10",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1AC8",
@@ -106,6 +114,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "12",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1AC5",
@@ -118,6 +127,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "13",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1AC4",
@@ -130,6 +140,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "11",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1AC2",
@@ -142,6 +153,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "35",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1AC1",
@@ -154,6 +166,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "33",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1IV5",
@@ -166,6 +179,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "31",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1TS4",
@@ -178,6 +192,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "32",
 		area: "1.2110",
+		nPlantas: "1397",
 	},
 	{
 		dataName: "1TS5",
@@ -190,6 +205,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "34",
 		area: "1.2330",
+		nPlantas: "1423",
 	},
 	{
 		dataName: "1TS6",
@@ -202,6 +218,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "36",
 		area: "1.2551",
+		nPlantas: "1448",
 	},
 	{
 		dataName: "1AC9",
@@ -214,6 +231,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "14",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1AC6",
@@ -226,6 +244,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "15",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1AC3",
@@ -238,6 +257,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "37",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1TS7",
@@ -250,6 +270,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "38",
 		area: "1.2777",
+		nPlantas: "1474",
 	},
 	{
 		dataName: "1AL1",
@@ -262,6 +283,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "39",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1AL3",
@@ -274,6 +296,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "17",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1AL5",
@@ -286,6 +309,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "16",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1CC2",
@@ -298,6 +322,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "42",
 		area: "0.8837",
+		nPlantas: "1020",
 	},
 	{
 		dataName: "1SC1",
@@ -310,6 +335,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "45",
 		area: "1.1975",
+		nPlantas: "1382",
 	},
 	{
 		dataName: "1SC2",
@@ -322,6 +348,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "44",
 		area: "1.5093",
+		nPlantas: "1741",
 	},
 	{
 		dataName: "1SC3",
@@ -334,6 +361,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "43",
 		area: "0.7147",
+		nPlantas: "825",
 	},
 	{
 		dataName: "1SC4",
@@ -346,6 +374,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "21",
 		area: "0.8563",
+		nPlantas: "988",
 	},
 	{
 		dataName: "1SC6",
@@ -358,6 +387,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "20",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1SC7",
@@ -370,6 +400,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "22",
 		area: "0.8891",
+		nPlantas: "1026",
 	},
 	{
 		dataName: "1SC8",
@@ -382,6 +413,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "24",
 		area: "0.3122",
+		nPlantas: "360",
 	},
 	{
 		dataName: "1AL6",
@@ -394,6 +426,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "18",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1AL4",
@@ -406,6 +439,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "19",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1AL2",
@@ -418,6 +452,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "41",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1SC5",
@@ -430,6 +465,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "23",
 		area: "0.2215",
+		nPlantas: "256",
 	},
 	{
 		dataName: "1IV10",
@@ -442,6 +478,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "3",
 		area: "0.4058",
+		nPlantas: "468",
 	},
 	{
 		dataName: "1IV7",
@@ -454,6 +491,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "4",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1IV6",
@@ -466,6 +504,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "5",
 		area: "0.4664",
+		nPlantas: "538",
 	},
 	{
 		dataName: "1IV3",
@@ -478,6 +517,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "27",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1IV2",
@@ -490,6 +530,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "25",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "1TS1",
@@ -502,6 +543,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "26",
 		area: "1.1443",
+		nPlantas: "1320",
 	},
 	{
 		dataName: "1TS2",
@@ -514,6 +556,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "28",
 		area: "1.1664",
+		nPlantas: "1346",
 	},
 	{
 		dataName: "1SWG1",
@@ -526,6 +569,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "1",
 		area: "1.7218",
+		nPlantas: "1987",
 	},
 	{
 		dataName: "1IV1",
@@ -538,6 +582,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "2",
 		area: "0.5340",
+		nPlantas: "616",
 	},
 	{
 		dataName: "2MB11",
@@ -550,6 +595,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "80",
 		area: "1.2997",
+		nPlantas: "1500",
 	},
 	{
 		dataName: "2SC8",
@@ -562,6 +608,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "81",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "2SC2",
@@ -574,6 +621,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "82",
 		area: "0.5102",
+		nPlantas: "589",
 	},
 	{
 		dataName: "2MB12",
@@ -586,6 +634,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "83",
 		area: "1.4606",
+		nPlantas: "1685",
 	},
 	{
 		dataName: "2SC9",
@@ -598,6 +647,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "84",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "2SC3",
@@ -610,6 +660,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "85",
 		area: "0.7409",
+		nPlantas: "855",
 	},
 	{
 		dataName: "2CS4",
@@ -622,6 +673,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "88",
 		area: "0.4497",
+		nPlantas: "519",
 	},
 	{
 		dataName: "2SWG1",
@@ -634,6 +686,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "87",
 		area: "0.8967",
+		nPlantas: "1035",
 	},
 	{
 		dataName: "2SC10",
@@ -646,6 +699,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "86",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "2SC4",
@@ -658,6 +712,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "91",
 		area: "0.9773",
+		nPlantas: "1128",
 	},
 	{
 		dataName: "2SWG2",
@@ -670,6 +725,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "90",
 		area: "0.1685",
+		nPlantas: "194",
 	},
 	{
 		dataName: "2SC11",
@@ -682,6 +738,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "89",
 		area: "0.7412",
+		nPlantas: "855",
 	},
 	{
 		dataName: "2S48",
@@ -694,6 +751,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "92",
 		area: "1.2090",
+		nPlantas: "1395",
 	},
 	{
 		dataName: "2SG1",
@@ -706,6 +764,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "93",
 		area: "0.7101",
+		nPlantas: "819",
 	},
 	{
 		dataName: "2SWG3",
@@ -718,6 +777,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "94",
 		area: "0.3745",
+		nPlantas: "432",
 	},
 	{
 		dataName: "2SWG4",
@@ -730,6 +790,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "95",
 		area: "0.7595",
+		nPlantas: "876",
 	},
 	{
 		dataName: "2SG2",
@@ -742,6 +803,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "96",
 		area: "1.5564",
+		nPlantas: "1796",
 	},
 	{
 		dataName: "2SUC4",
@@ -754,6 +816,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "66",
 		area: "0.8729",
+		nPlantas: "1007",
 	},
 	{
 		dataName: "2MB3",
@@ -766,6 +829,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "67",
 		area: "1.0204",
+		nPlantas: "1177",
 	},
 	{
 		dataName: "2SUC5",
@@ -778,6 +842,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "68",
 		area: "0.8880",
+		nPlantas: "1025",
 	},
 	{
 		dataName: "2MB4",
@@ -790,6 +855,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "69",
 		area: "0.9991",
+		nPlantas: "1153",
 	},
 	{
 		dataName: "2EXP",
@@ -802,6 +868,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "68",
 		area: "0.0855",
+		nPlantas: "99",
 	},
 	{
 		dataName: "2SUC6",
@@ -814,6 +881,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "70",
 		area: "0.5235",
+		nPlantas: "604",
 	},
 	{
 		dataName: "2MB5",
@@ -826,6 +894,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "71",
 		area: "0.9778",
+		nPlantas: "1128",
 	},
 	{
 		dataName: "2MB6",
@@ -838,6 +907,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "72",
 		area: "0.7877",
+		nPlantas: "909",
 	},
 	{
 		dataName: "2MB7",
@@ -850,6 +920,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "72",
 		area: "0.1910",
+		nPlantas: "220",
 	},
 	{
 		dataName: "2MB8",
@@ -862,6 +933,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "73",
 		area: "0.3944",
+		nPlantas: "455",
 	},
 	{
 		dataName: "2SC5",
@@ -874,6 +946,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "74",
 		area: "0.4444",
+		nPlantas: "513",
 	},
 	{
 		dataName: "2MB9",
@@ -886,6 +959,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "75",
 		area: "0.8310",
+		nPlantas: "959",
 	},
 	{
 		dataName: "2SC6",
@@ -898,6 +972,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "76",
 		area: "0.9715",
+		nPlantas: "1121",
 	},
 	{
 		dataName: "2MB10",
@@ -910,6 +985,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "77",
 		area: "1.1389",
+		nPlantas: "1314",
 	},
 	{
 		dataName: "2SC7",
@@ -922,6 +998,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "78",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "2SC1",
@@ -934,6 +1011,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "79",
 		area: "0.2796",
+		nPlantas: "323",
 	},
 	{
 		dataName: "2IV8",
@@ -946,6 +1024,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "57",
 		area: "0.4576",
+		nPlantas: "528",
 	},
 	{
 		dataName: "2IV7",
@@ -958,6 +1037,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "55",
 		area: "1.0196",
+		nPlantas: "1176",
 	},
 	{
 		dataName: "2IV3",
@@ -970,6 +1050,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "56",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "2MB2",
@@ -982,6 +1063,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "65",
 		area: "0.9660",
+		nPlantas: "1115",
 	},
 	{
 		dataName: "2IV6",
@@ -994,6 +1076,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "53",
 		area: "0.9810",
+		nPlantas: "1132",
 	},
 	{
 		dataName: "2IV2",
@@ -1006,6 +1089,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "54",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "2IV5",
@@ -1018,6 +1102,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "51",
 		area: "0.9433",
+		nPlantas: "1088",
 	},
 	{
 		dataName: "2IV1",
@@ -1030,6 +1115,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "52",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "2SUC2",
@@ -1042,6 +1128,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "62",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "2SUC1",
@@ -1054,6 +1141,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "60",
 		area: "0.8895",
+		nPlantas: "1026",
 	},
 	{
 		dataName: "2AL5",
@@ -1066,6 +1154,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "49",
 		area: "0.9069",
+		nPlantas: "1046",
 	},
 	{
 		dataName: "2S53B",
@@ -1078,6 +1167,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "59",
 		area: "0.2893",
+		nPlantas: "334",
 	},
 	{
 		dataName: "2S53A",
@@ -1090,6 +1180,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "61",
 		area: "0.1280",
+		nPlantas: "148",
 	},
 	{
 		dataName: "2AL3",
@@ -1102,6 +1193,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "46",
 		area: "0.4096",
+		nPlantas: "473",
 	},
 	{
 		dataName: "2AL4",
@@ -1114,6 +1206,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "47",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "2AL1",
@@ -1126,6 +1219,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "48",
 		area: "0.3504",
+		nPlantas: "404",
 	},
 	{
 		dataName: "2SUC3",
@@ -1138,6 +1232,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "64",
 		area: "0.8394",
+		nPlantas: "969",
 	},
 	{
 		dataName: "2MB1",
@@ -1150,6 +1245,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "63",
 		area: "0.1860",
+		nPlantas: "215",
 	},
 	{
 		dataName: "2IV4",
@@ -1162,6 +1258,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "58",
 		area: "0.6578",
+		nPlantas: "759",
 	},
 	{
 		dataName: "2AL2",
@@ -1174,6 +1271,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "50",
 		area: "0.8947",
+		nPlantas: "1032",
 	},
 	{
 		dataName: "3R702",
@@ -1186,6 +1284,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "43",
 		area: "0.7000",
+		nPlantas: "808",
 	},
 	{
 		dataName: "3S48B",
@@ -1198,6 +1297,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "4",
 		area: "0.8978",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "3S48A",
@@ -1210,6 +1310,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "2",
 		area: "0.5384",
+		nPlantas: "621",
 	},
 	{
 		dataName: "3S41C",
@@ -1222,6 +1323,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "5",
 		area: "0.8891",
+		nPlantas: "1026",
 	},
 	{
 		dataName: "3S41B",
@@ -1234,6 +1336,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "3",
 		area: "0.8904",
+		nPlantas: "1027",
 	},
 	{
 		dataName: "3S41D",
@@ -1246,6 +1349,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "7",
 		area: "0.8915",
+		nPlantas: "1029",
 	},
 	{
 		dataName: "3S48C",
@@ -1258,6 +1362,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "6",
 		area: "0.8959",
+		nPlantas: "1034",
 	},
 	{
 		dataName: "3S53A",
@@ -1270,6 +1375,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "41",
 		area: "0.8947",
+		nPlantas: "1032",
 	},
 	{
 		dataName: "3S53B",
@@ -1282,6 +1388,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "39",
 		area: "0.8983",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "3TS1",
@@ -1294,6 +1401,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "8",
 		area: "0.8979",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "3S53C",
@@ -1306,6 +1414,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "37",
 		area: "0.8999",
+		nPlantas: "1038",
 	},
 	{
 		dataName: "3S53D",
@@ -1318,6 +1427,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "35",
 		area: "0.8998",
+		nPlantas: "1038",
 	},
 	{
 		dataName: "3TS3",
@@ -1330,6 +1440,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "12",
 		area: "0.8968",
+		nPlantas: "1035",
 	},
 	{
 		dataName: "3TS2",
@@ -1342,6 +1453,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "10",
 		area: "0.8985",
+		nPlantas: "1037",
 	},
 	{
 		dataName: "3SWG3",
@@ -1354,6 +1466,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "13",
 		area: "0.8899",
+		nPlantas: "1027",
 	},
 	{
 		dataName: "3SWG2",
@@ -1366,6 +1479,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "11",
 		area: "0.8894",
+		nPlantas: "1026",
 	},
 	{
 		dataName: "3SWG1",
@@ -1378,6 +1492,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "9",
 		area: "0.8923",
+		nPlantas: "1030",
 	},
 	{
 		dataName: "3AC2",
@@ -1390,6 +1505,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "33",
 		area: "0.8960",
+		nPlantas: "1034",
 	},
 	{
 		dataName: "3TS4",
@@ -1402,6 +1518,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "14",
 		area: "0.8972",
+		nPlantas: "1035",
 	},
 	{
 		dataName: "3SWG4",
@@ -1414,6 +1531,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "15",
 		area: "0.8907",
+		nPlantas: "1028",
 	},
 	{
 		dataName: "3SWG5",
@@ -1426,6 +1544,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "17",
 		area: "0.8893",
+		nPlantas: "1026",
 	},
 	{
 		dataName: "3TS5",
@@ -1438,6 +1557,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "16",
 		area: "0.8953",
+		nPlantas: "1033",
 	},
 	{
 		dataName: "3AC3",
@@ -1450,6 +1570,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "31",
 		area: "0.8954",
+		nPlantas: "1033",
 	},
 	{
 		dataName: "3S54",
@@ -1462,6 +1583,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "21",
 		area: "0.9408",
+		nPlantas: "1085",
 	},
 	{
 		dataName: "3MB1",
@@ -1474,6 +1596,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "20",
 		area: "0.6952",
+		nPlantas: "802",
 	},
 	{
 		dataName: "3MB3",
@@ -1486,6 +1609,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "27",
 		area: "0.8978",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "3MB4",
@@ -1498,6 +1622,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "25",
 		area: "0.8994",
+		nPlantas: "1038",
 	},
 	{
 		dataName: "3MB5",
@@ -1510,6 +1635,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "23",
 		area: "0.3859",
+		nPlantas: "445",
 	},
 	{
 		dataName: "3AC4",
@@ -1522,6 +1648,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "29",
 		area: "0.8967",
+		nPlantas: "1035",
 	},
 	{
 		dataName: "3AC1",
@@ -1534,6 +1661,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "18",
 		area: "0.8982",
+		nPlantas: "1036",
 	},
 	{
 		dataName: "3SWG6",
@@ -1546,6 +1674,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "19",
 		area: "0.8881",
+		nPlantas: "1025",
 	},
 	{
 		dataName: "3S41A",
@@ -1558,6 +1687,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "1",
 		area: "0.3176",
+		nPlantas: "366",
 	},
 	{
 		dataName: "3B516A",
@@ -1570,6 +1700,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "42",
 		area: "0.5532",
+		nPlantas: "638",
 	},
 	{
 		dataName: "3B516B",
@@ -1582,6 +1713,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "40",
 		area: "0.5564",
+		nPlantas: "642",
 	},
 	{
 		dataName: "3SWG7",
@@ -1594,6 +1726,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "38",
 		area: "0.5483",
+		nPlantas: "633",
 	},
 	{
 		dataName: "3SWG8",
@@ -1606,6 +1739,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "36",
 		area: "0.5380",
+		nPlantas: "621",
 	},
 	{
 		dataName: "3SWG9",
@@ -1618,6 +1752,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "34",
 		area: "0.5283",
+		nPlantas: "610",
 	},
 	{
 		dataName: "3SWG10",
@@ -1630,6 +1765,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "32",
 		area: "0.5200",
+		nPlantas: "600",
 	},
 	{
 		dataName: "3AC6",
@@ -1642,6 +1778,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "28",
 		area: "0.4528",
+		nPlantas: "522",
 	},
 	{
 		dataName: "3AC7",
@@ -1654,6 +1791,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "26",
 		area: "0.3893",
+		nPlantas: "449",
 	},
 	{
 		dataName: "3SWG11",
@@ -1666,6 +1804,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "30",
 		area: "0.5055",
+		nPlantas: "583",
 	},
 	{
 		dataName: "3AC8",
@@ -1678,6 +1817,7 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "24",
 		area: "0.2864",
+		nPlantas: "330",
 	},
 	{
 		dataName: "3MB2",
@@ -1690,5 +1830,6 @@ var dadosOc = [
 		setorTspanY: "0",
 		setorData: "22",
 		area: "0.5237",
+		nPlantas: "604",
 	},
 ];

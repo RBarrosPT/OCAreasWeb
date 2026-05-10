@@ -32,7 +32,10 @@ function renderModal(app) {
           <input type="file" id="import-sets-modal" class="visually-hidden" accept="application/json,.json">
           -->
           </div>
-        <span class="color-percentage footer-note">@RB 2025 v1.1</span>
+        <div class="modal-footer-note">
+          <span class="color-percentage footer-note">@RB 2025 v1.1</span>
+          <span class="color-percentage footer-note">Atualizado 10/05/2026</span>
+        </div>
       </div>
     </div>
   `;
@@ -114,6 +117,7 @@ function renderMap(app) {
 function renderColorRow(app, colorItem) {
   const count = app.getColorCount(colorItem.color);
   const area = app.getColorArea(colorItem.color);
+  const plants = app.getColorPlants(colorItem.color);
   const percentage = app.getColorPercentage(colorItem.color);
   const isSelected = app.selectedColor === colorItem.color;
   const colorName = escapeHtml(app.colorNames[colorItem.color] || "");
@@ -134,6 +138,7 @@ function renderColorRow(app, colorItem) {
       <div class="color-stats">
         <span class="color-count">(${count})</span>
         <span class="color-area">${area} ha</span>
+        <span class="color-plants">${plants} plantas</span>
         <span class="color-percentage">${percentage}%</span>
       </div>
     </div>
