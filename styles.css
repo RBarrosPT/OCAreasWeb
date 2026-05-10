@@ -1040,4 +1040,11 @@ button:disabled {
 		max-width: 100% !important;
 		height: auto !important;
 	}
+
+	.color-palette {
+		break-before: page;
+		page-break-before: always;
+		width: 100% !important;
+		flex: 0 0 100% !important;
+	}
 }
