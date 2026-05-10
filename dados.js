@@ -434,7 +434,7 @@ var dadosOc = [
 	{
 		dataName: "1IV10",
 		pathData: "M229.51,382.74l52.5.7c.2,8.4.3,16.9.5,25.3l-53-26Z",
-		textTransform: "translate(253.61 391.24)",
+		textTransform: "translate(248.61 400.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(274.61 404.24)",
@@ -516,9 +516,9 @@ var dadosOc = [
 		area: "1.1664",
 	},
 	{
-		dataName: "1SN1",
+		dataName: "1SWG1",
 		pathData: "M401.51,438.74l64.9,1,1.1,27.5-32.7,23.5-33.3-19.1v-32.9h0Z",
-		textTransform: "translate(426.21 466.24)",
+		textTransform: "translate(415.21 466.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(451.31 462.24)",
@@ -614,7 +614,7 @@ var dadosOc = [
 	{
 		dataName: "2CS4",
 		pathData: "M240.31,816.74l38.2.4v28.6l-42-14.9h0l3.8-14.1Z",
-		textTransform: "translate(255.11 829.54)",
+		textTransform: "translate(245.11 829.54)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(261.41 843.04)",
@@ -624,7 +624,7 @@ var dadosOc = [
 		area: "0.4497",
 	},
 	{
-		dataName: "2CS1",
+		dataName: "2SWG1",
 		pathData: "M282.51,817.74l55,1.1-.4,28.9-50.1-.4-4.5-1.5v-28.2h0v.1Z",
 		textTransform: "translate(293.38 833.68)",
 		nomeTspanX: "0",
@@ -660,9 +660,9 @@ var dadosOc = [
 		area: "0.9773",
 	},
 	{
-		dataName: "2CS2",
+		dataName: "2SWG2",
 		pathData: "M295.51,849.74l42,1.6c-.1,4.8-.3,9.6-.4,14.4l-41.6-16Z",
-		textTransform: "translate(304.96 857.15)",
+		textTransform: "translate(293.96 861.15)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(321.51 865.04)",
@@ -698,7 +698,7 @@ var dadosOc = [
 	{
 		dataName: "2SG1",
 		pathData: "M481.11,885.54l.4,31.2-84-29.3.4-2.7,83.2.8h0Z",
-		textTransform: "translate(436.41 895.74)",
+		textTransform: "translate(445.41 900.74)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(461.01 907.04)",
@@ -708,9 +708,9 @@ var dadosOc = [
 		area: "0.7101",
 	},
 	{
-		dataName: "2CS3",
+		dataName: "2SWG3",
 		pathData: "M282.51,849.74v6.7l55,33.3c-.1-6.7-.3-13.3-.4-20l-54.6-20Z",
-		textTransform: "translate(301.22 871.74)",
+		textTransform: "translate(290.22 880.74)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(320.41 883.04)",
@@ -720,9 +720,9 @@ var dadosOc = [
 		area: "0.3745",
 	},
 	{
-		dataName: "2SC12",
+		dataName: "2SWG4",
 		pathData: "M340.31,871.74l55.2,20-.8,32-55.2-32,.8-20Z",
-		textTransform: "translate(346.51 889.54)",
+		textTransform: "translate(346.51 905.54)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(376.81 913.04)",
@@ -794,7 +794,7 @@ var dadosOc = [
 	{
 		dataName: "2EXP",
 		pathData: "M324.51,603.74l18.6.4c.1,6.9.3,13.8.4,20.6l-19-21Z",
-		textTransform: "translate(322.46 614.71)",
+		textTransform: "translate(315.46 622.71)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(325.49 629.04)",
@@ -806,7 +806,7 @@ var dadosOc = [
 	{
 		dataName: "2SUC6",
 		pathData: "M354.51,633.74l48,.3v24.7h-19.2l-28.8-25Z",
-		textTransform: "translate(373.31 646.64)",
+		textTransform: "translate(360.31 646.64)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(385.71 656.04)",
@@ -842,7 +842,7 @@ var dadosOc = [
 	{
 		dataName: "2MB7",
 		pathData: "M435.51,692.74h25v13l-25-13Z",
-		textTransform: "translate(446.31 698.24)",
+		textTransform: "translate(435.31 710.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(451.01 712.04)",
@@ -854,7 +854,7 @@ var dadosOc = [
 	{
 		dataName: "2MB8",
 		pathData: "M327.21,653.74h12.3l-.4,28-35.6-.7,23.7-27.3Z",
-		textTransform: "translate(317.71 670.54)",
+		textTransform: "translate(305.71 670.54)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(323.31 680.04)",
@@ -1178,7 +1178,7 @@ var dadosOc = [
 	{
 		dataName: "3R702",
 		pathData: "M59.51,295.74l48.6.7c0,8.4.3,16.9.4,25.3l-49-26Z",
-		textTransform: "translate(76.11 304.24)",
+		textTransform: "translate(65.11 310.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(93.31 315.24)",
@@ -1190,7 +1190,7 @@ var dadosOc = [
 	{
 		dataName: "3S48B",
 		pathData: "M110.51,295.74h53.6c.1,8.4.3,16.9.4,25.3l-53.1.7-.9-26Z",
-		textTransform: "translate(127.51 310.24)",
+		textTransform: "translate(120.51 310.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(155.11 315.24)",
@@ -1202,7 +1202,7 @@ var dadosOc = [
 	{
 		dataName: "3S48A",
 		pathData: "M113.51,324.74l49.7.7,1.3,25.3h-3.4l-47.6-26h0Z",
-		textTransform: "translate(135.51 336.14)",
+		textTransform: "translate(120.51 340.14)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(155.51 344.24)",
@@ -1346,7 +1346,7 @@ var dadosOc = [
 	{
 		dataName: "3SWG3",
 		pathData: "M165.51,178.94l55.4-.2c.2,8.5.4,17,.6,25.5l-55.1.5-.9-25.8Z",
-		textTransform: "translate(182.41 193.24)",
+		textTransform: "translate(175.41 193.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(207.41 201.24)",
@@ -1358,7 +1358,7 @@ var dadosOc = [
 	{
 		dataName: "3SWG2",
 		pathData: "M166.51,208.14l55-.5v25h-55c0-8.2.2-16.4,0-24.5Z",
-		textTransform: "translate(182.91 221.24)",
+		textTransform: "translate(175.91 221.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(206.71 230.24)",
@@ -1370,7 +1370,7 @@ var dadosOc = [
 	{
 		dataName: "3SWG1",
 		pathData: "M166.51,234.94l55.1-.2.9,24.3-56,.7v-24.8Z",
-		textTransform: "translate(183.31 249.24)",
+		textTransform: "translate(175.31 249.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(213.81 253.24)",
@@ -1406,7 +1406,7 @@ var dadosOc = [
 	{
 		dataName: "3SWG4",
 		pathData: "M165.51,150.74h54.7c0,8.1.2,16.2.3,24.4l-54.4.6c-.2-8.3-.4-16.7-.6-25Z",
-		textTransform: "translate(182.01 165.24)",
+		textTransform: "translate(175.01 165.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(205.41 173.24)",
@@ -1418,7 +1418,7 @@ var dadosOc = [
 	{
 		dataName: "3SWG5",
 		pathData: "M165.51,121.74l54.7.2.3,25.5-54.4.2c0-8.6-.2-17.2-.6-26h0v.1Z",
-		textTransform: "translate(181.81 136.24)",
+		textTransform: "translate(175.81 136.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(205.91 144.24)",
@@ -1454,7 +1454,7 @@ var dadosOc = [
 	{
 		dataName: "3S54",
 		pathData: "M164.51,51.74h19.7l36.3,25.7-.9,13.2-54,1-1.1-40h0v.1Z",
-		textTransform: "translate(184.91 77.24)",
+		textTransform: "translate(178.91 77.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(203.91 88.24)",
@@ -1538,7 +1538,7 @@ var dadosOc = [
 	{
 		dataName: "3SWG6",
 		pathData: "M165.51,95.34l53.9-.6,1.1,23.6-54.7.4-.3-23.4Z",
-		textTransform: "translate(181.81 108.24)",
+		textTransform: "translate(175.81 108.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(205.61 117.24)",
@@ -1562,7 +1562,7 @@ var dadosOc = [
 	{
 		dataName: "3B516A",
 		pathData: "M11.51,262.74h39.6c0,8.3.3,16.7.4,25H12.51l-1-25Z",
-		textTransform: "translate(20.01 277.24)",
+		textTransform: "translate(5.01 277.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(37.71 288.24)",
@@ -1574,7 +1574,7 @@ var dadosOc = [
 	{
 		dataName: "3B516B",
 		pathData: "M10.51,234.94l39-.2v24.5l-38.8.5c0-8.3-.1-16.5-.2-24.8Z",
-		textTransform: "translate(18.91 248.24)",
+		textTransform: "translate(5.91 248.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(36.51 258.24)",
@@ -1584,9 +1584,9 @@ var dadosOc = [
 		area: "0.5564",
 	},
 	{
-		dataName: "3SC1",
+		dataName: "3SWG7",
 		pathData: "M10.51,207.74h40v24.8l-40,.2v-25Z",
-		textTransform: "translate(22.31 221.24)",
+		textTransform: "translate(10.31 221.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(35.41 230.24)",
@@ -1596,9 +1596,9 @@ var dadosOc = [
 		area: "0.5483",
 	},
 	{
-		dataName: "3SC2",
+		dataName: "3SWG8",
 		pathData: "M10.51,177.74l40,.2v26.8l-39.8-.9c0-8.7-.1-17.4-.2-26.1Z",
-		textTransform: "translate(22.31 193.24)",
+		textTransform: "translate(10.31 193.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(36.51 203.24)",
@@ -1608,9 +1608,9 @@ var dadosOc = [
 		area: "0.5380",
 	},
 	{
-		dataName: "3SC3",
+		dataName: "3SWG9",
 		pathData: "M10.51,150.34l39-.7v24.8l-38.8.2-.2-24.3Z",
-		textTransform: "translate(25.01 164.24)",
+		textTransform: "translate(10.01 164.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(35.01 172.24)",
@@ -1620,9 +1620,9 @@ var dadosOc = [
 		area: "0.5283",
 	},
 	{
-		dataName: "3SC4",
+		dataName: "3SWG10",
 		pathData: "M9.51,121.64l40-.9v26.3l-39.6.7c-.1-8.7-.3-17.4-.4-26.1Z",
-		textTransform: "translate(21.21 136.24)",
+		textTransform: "translate(3.31 136.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(34.51 146.24)",
@@ -1632,9 +1632,9 @@ var dadosOc = [
 		area: "0.5200",
 	},
 	{
-		dataName: "3MB6",
+		dataName: "3AC6",
 		pathData: "M13.51,65.14l35-.5v25.9l-39,1.1,4-26.5Z",
-		textTransform: "translate(20.61 79.24)",
+		textTransform: "translate(15.61 79.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(33.41 89.24)",
@@ -1644,9 +1644,9 @@ var dadosOc = [
 		area: "0.4528",
 	},
 	{
-		dataName: "3MB7",
+		dataName: "3AC7",
 		pathData: "M17.11,37.04l32.4-.3v24.6l-36,1.4,3.6-25.7Z",
-		textTransform: "translate(22.81 51.24)",
+		textTransform: "translate(15.81 51.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(34.31 61.24)",
@@ -1656,9 +1656,9 @@ var dadosOc = [
 		area: "0.3893",
 	},
 	{
-		dataName: "3SC5",
+		dataName: "3SWG11",
 		pathData: "M9.51,94.14l39.6-.4c0,8.3.3,16.7.4,25l-39.8-.2c0-8.1-.1-16.2-.2-24.3h0v-.1Z",
-		textTransform: "translate(21.41 108.24)",
+		textTransform: "translate(3.41 108.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(35.41 117.24)",
@@ -1668,9 +1668,9 @@ var dadosOc = [
 		area: "0.5055",
 	},
 	{
-		dataName: "3MB8",
+		dataName: "3AC8",
 		pathData: "M21.11,8.74l29.4,2.6c0,7.1-.4,15.8-.4,22.9l-31.6.4,2.6-26h0v.1Z",
-		textTransform: "translate(25.61 23.24)",
+		textTransform: "translate(15.61 23.24)",
 		nomeTspanX: "0",
 		nomeTspanY: "0",
 		setorTransform: "translate(36.51 33.24)",
