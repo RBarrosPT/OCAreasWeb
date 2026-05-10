@@ -13,6 +13,19 @@ function renderModal(app) {
           <button type="button" class="modal-action-button toggle-button btn btn-primary" id="toggle-setores" aria-pressed="${app.showSetores}">
             ${app.showSetores ? "Esconder Setores de Rega" : "Mostrar Setores de Rega"}
           </button>
+          <button type="button" class="modal-action-button toggle-button btn btn-danger" id="clear-selection">Limpar seleção</button>
+          <label class="modal-action-button form-check d-flex align-items-center gap-2" for="toggle-phase1">
+            <input type="checkbox" class="form-check-input mt-0" id="toggle-phase1" ${app.showPhase1 ? "checked" : ""}>
+            <span>Mostrar APENAS FASE 1</span>
+          </label>
+          <label class="modal-action-button form-check d-flex align-items-center gap-2" for="toggle-phase2">
+            <input type="checkbox" class="form-check-input mt-0" id="toggle-phase2" ${app.showPhase2 ? "checked" : ""}>
+            <span>Mostrar APENAS FASE 2</span>
+          </label>
+          <label class="modal-action-button form-check d-flex align-items-center gap-2" for="toggle-phase3">
+            <input type="checkbox" class="form-check-input mt-0" id="toggle-phase3" ${app.showPhase3 ? "checked" : ""}>
+            <span>Mostrar APENAS FASE 3</span>
+          </label>
           <!--
           <button type="button" class="modal-action-button secondary-button btn btn-outline-secondary" id="export-sets">Exportar JSON</button>
           <label class="modal-action-button import-button btn btn-outline-secondary" for="import-sets-modal">Importar JSON</label>
@@ -31,7 +44,15 @@ function renderSVGItems(app) {
     return '<text x="50" y="50" fill="red">Dados não carregados</text>';
   }
 
-  return dataItems
+  const activePhases = [];
+  if (app.showPhase1) activePhases.push("1");
+  if (app.showPhase2) activePhases.push("2");
+  if (app.showPhase3) activePhases.push("3");
+  const filteredItems = activePhases.length
+    ? dataItems.filter((item) => activePhases.some((phase) => item.dataName.startsWith(phase)))
+    : dataItems;
+
+  return filteredItems
     .map((item) => {
       const itemColor = app.itemColors[item.dataName] || "#f9f9f9ff";
       const colorObj = app.colors.find((colorItem) => colorItem.color === itemColor);

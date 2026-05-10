@@ -8,6 +8,9 @@ import { renderEditorPage } from "./pages/editor-page.js?v=__ASSET_VERSION__";
 export class MapaSVGApp {
 	constructor() {
 		this.showSetores = false;
+		this.showPhase1 = false;
+		this.showPhase2 = false;
+		this.showPhase3 = false;
 		this.zoomLevel = 1.4;
 		this.colors = COLORS;
 		this.selectedColor = "#FFFFFF";
@@ -862,6 +865,10 @@ export class MapaSVGApp {
 		document.getElementById("zoom-in")?.addEventListener("click", () => this.handleZoomIn());
 		document.getElementById("zoom-out")?.addEventListener("click", () => this.handleZoomOut());
 		document.getElementById("toggle-setores")?.addEventListener("click", () => this.toggleSetores());
+		document.getElementById("clear-selection")?.addEventListener("click", () => this.clearSelection());
+		document.getElementById("toggle-phase1")?.addEventListener("change", (event) => this.togglePhase1(event.target.checked));
+		document.getElementById("toggle-phase2")?.addEventListener("change", (event) => this.togglePhase2(event.target.checked));
+		document.getElementById("toggle-phase3")?.addEventListener("change", (event) => this.togglePhase3(event.target.checked));
 		document.getElementById("new-set")?.addEventListener("click", () => this.handleNewSet());
 		document.getElementById("save-set")?.addEventListener("click", async () => {
 			await this.persistCurrentSet(false);
@@ -1057,6 +1064,30 @@ export class MapaSVGApp {
 
 	toggleSetores() {
 		this.showSetores = !this.showSetores;
+		this.render();
+	}
+
+	clearSelection() {
+		const whiteColor = "#FFFFFF";
+		getDataItems().forEach((item) => {
+			this.itemColors[item.dataName] = whiteColor;
+		});
+		this.selectedColor = whiteColor;
+		this.render();
+	}
+
+	togglePhase1(forceValue = null) {
+		this.showPhase1 = typeof forceValue === "boolean" ? forceValue : !this.showPhase1;
+		this.render();
+	}
+
+	togglePhase2(forceValue = null) {
+		this.showPhase2 = typeof forceValue === "boolean" ? forceValue : !this.showPhase2;
+		this.render();
+	}
+
+	togglePhase3(forceValue = null) {
+		this.showPhase3 = typeof forceValue === "boolean" ? forceValue : !this.showPhase3;
 		this.render();
 	}
 
