@@ -1,0 +1,22 @@
+# docker-compose.override.yml
+# Este arquivo é carregado automaticamente em desenvolvimento local
+# Permite sobrescrever configurações do docker-compose.yml sem afetar produção
+# Não fazer commit deste arquivo
+
+version: '3.8'
+
+services:
+  app:
+    environment:
+      NODE_ENV: development
+      DEBUG: "ocmapas:*"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run dev
+    stdin_open: true
+    tty: true
+
+  db:
+    # Não expor porta do DB localmente por segurança
+    ports: []

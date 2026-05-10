@@ -1,0 +1,44 @@
+# Dependências
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Ambiente e Configuração
+.env
+.env.local
+.env.*.local
+.env.production
+.env.production.local
+
+# IDE e Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs e Dados Temporários
+logs/
+*.log
+tmp/
+temp/
+
+# Backups
+backups/
+*.sql
+*.backup
+
+# Docker
+.dockerignore
+.docker/
+
+# Build e Dist
+dist/
+build/
+coverage/
+
+# Dados sensíveis
+secrets.json
+config.local.js
