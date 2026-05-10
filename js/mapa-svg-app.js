@@ -1,49 +1,101 @@
-import { COLORS } from "./config.js";
-import { loadSavedSets, saveSavedSets } from "./storage.js";
-import { createSetId, downloadJsonFile, escapeHtml, formatDate, getDataItems, normalizeStateSignature, readFileAsText } from "./utils.js";
+import { COLORS } from "./config.js?v=__ASSET_VERSION__";
+import { api } from "./api.js?v=__ASSET_VERSION__";
+import { downloadJsonFile, getDataItems, normalizeStateSignature, readFileAsText } from "./utils.js?v=__ASSET_VERSION__";
+import { renderAuthPage } from "./pages/auth-page.js?v=__ASSET_VERSION__";
+import { renderHomePage } from "./pages/home-page.js?v=__ASSET_VERSION__";
+import { renderEditorPage } from "./pages/editor-page.js?v=__ASSET_VERSION__";
 
 export class MapaSVGApp {
 	constructor() {
 		this.showSetores = false;
 		this.zoomLevel = 1.4;
-		this.selectedColor = "#f9f9f9ff";
+		this.colors = COLORS;
+		this.selectedColor = "#FFFFFF";
 		this.itemColors = {};
 		this.colorNames = {};
 		this.notes = "";
 		this.savedSets = [];
 		this.currentSetId = null;
 		this.currentSetName = "";
+		this.currentPermission = "owner";
+		this.currentIsPublic = false;
+		this.viewMode = "home";
 		this.lastSavedSignature = "";
-		this.colors = COLORS;
+		this.user = null;
+		this.shares = [];
+		this.availableUsers = [];
+		this.shareUserFilter = "";
+		this.shareDraft = {};
+		this.authMode = "login";
+		this.authError = "";
+		this.isSaving = false;
+		this.flashMessage = null;
+		this.flashMessageTimeout = null;
+		this.handleAppClick = this.handleAppClick.bind(this);
 		this.handleBeforeUnload = this.handleBeforeUnload.bind(this);
+		this.handleHashChange = this.handleHashChange.bind(this);
 		this.init();
 	}
 
-	init() {
+	async init() {
 		this.resetWorkingSet();
-		this.savedSets = this.sortSavedSets(loadSavedSets());
+		this.authMode = this.getAuthModeFromHash();
+		document.getElementById("app")?.addEventListener("click", this.handleAppClick);
 		window.addEventListener("beforeunload", this.handleBeforeUnload);
+		window.addEventListener("hashchange", this.handleHashChange);
+		this.render();
 
-		if (this.savedSets.length > 0) {
-			this.loadSet(this.savedSets[0].id, false, true);
-		} else {
-			this.markCurrentStateAsSaved();
+		try {
+			this.user = await api.me();
+		} catch {
+			api.logout();
+			this.user = null;
+		}
+
+		if (this.user) {
+			await this.refreshMaps();
 		}
 
 		this.render();
 	}
 
-	resetWorkingSet() {
-		this.selectedColor = "#f9f9f9ff";
-		this.itemColors = this.createDefaultItemColors();
-		this.colorNames = {};
-		this.notes = "";
-		this.currentSetId = null;
-		this.currentSetName = this.generateSetName();
+	getAuthModeFromHash() {
+		return window.location.hash === "#register" ? "register" : "login";
+	}
+
+	setAuthMode(mode) {
+		this.authMode = mode === "register" ? "register" : "login";
+		const targetHash = this.authMode === "register" ? "#register" : "#login";
+		if (window.location.hash !== targetHash) {
+			window.history.replaceState(null, "", targetHash);
+		}
+	}
+
+	handleHashChange() {
+		if (this.user) {
+			return;
+		}
+
+		const nextMode = this.getAuthModeFromHash();
+		if (nextMode === this.authMode) {
+			return;
+		}
+
+		this.authMode = nextMode;
+		this.authError = "";
+		this.render();
+	}
+
+	get isReadOnly() {
+		return this.currentPermission === "read";
+	}
+
+	get isOwner() {
+		return this.currentPermission === "owner";
 	}
 
 	createDefaultItemColors() {
-		const defaultColor = this.colors.find((colorItem) => colorItem.id === 2)?.color || "#FFFFFF";
+		const defaultColor = this.colors.find((colorItem) => colorItem.id === 2)?.color || "#f3a8a8";
 		const itemColors = {};
 
 		getDataItems().forEach((item) => {
@@ -51,6 +103,44 @@ export class MapaSVGApp {
 		});
 
 		return itemColors;
+	}
+
+	normalizeObject(value, fallback = {}) {
+		if (value && typeof value === "object" && !Array.isArray(value)) {
+			return value;
+		}
+
+		if (typeof value === "string") {
+			try {
+				const parsed = JSON.parse(value);
+				if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+					return parsed;
+				}
+			} catch {
+				return fallback;
+			}
+		}
+
+		return fallback;
+	}
+
+	resetWorkingSet() {
+		const shouldKeepAvailableUsers = Boolean(this.user);
+		this.selectedColor = "#FFFFFF";
+		this.itemColors = this.createDefaultItemColors();
+		this.colorNames = {};
+		this.notes = "";
+		this.currentSetId = null;
+		this.currentSetName = this.generateSetName();
+		this.currentPermission = "owner";
+		this.currentIsPublic = false;
+		this.shares = [];
+		if (!shouldKeepAvailableUsers) {
+			this.availableUsers = [];
+		}
+		this.shareUserFilter = "";
+		this.shareDraft = {};
+		this.markCurrentStateAsSaved();
 	}
 
 	sortSavedSets(savedSets) {
@@ -81,7 +171,19 @@ export class MapaSVGApp {
 		return {
 			currentSetName: this.currentSetName,
 			...this.createSnapshot(),
+			shareDraft: this.getShareDraftComparable(),
 		};
+	}
+
+	getShareDraftComparable() {
+		if (!this.isOwner) {
+			return [];
+		}
+
+		return Object.entries(this.shareDraft)
+			.filter(([, config]) => Boolean(config?.shared))
+			.map(([username, config]) => ({ username, canEdit: Boolean(config?.canEdit) }))
+			.sort((left, right) => left.username.localeCompare(right.username));
 	}
 
 	markCurrentStateAsSaved() {
@@ -89,104 +191,126 @@ export class MapaSVGApp {
 	}
 
 	hasUnsavedChanges() {
+		if (this.viewMode !== "editor") {
+			return false;
+		}
+
 		return normalizeStateSignature(this.createComparableState()) !== this.lastSavedSignature;
 	}
 
-	applySnapshot(snapshot) {
-		this.itemColors = { ...this.createDefaultItemColors(), ...(snapshot?.itemColors || {}) };
-		this.colorNames = { ...(snapshot?.colorNames || {}) };
-		this.notes = snapshot?.notes || "";
-	}
-
-	persistSavedSets() {
-		saveSavedSets(this.savedSets);
-	}
-
-	loadSet(setId, shouldRender = true, skipDirtyCheck = false) {
-		if (!skipDirtyCheck && !this.confirmDiscardUnsavedChanges()) {
-			return;
-		}
-
-		const selectedSet = this.savedSets.find((item) => item.id === setId);
-		if (!selectedSet) {
-			return;
-		}
-
-		this.currentSetId = selectedSet.id;
-		this.currentSetName = selectedSet.name;
-		this.selectedColor = "#f9f9f9ff";
-		this.applySnapshot(selectedSet);
+	applyMap(map) {
+		this.currentSetId = map.id;
+		this.currentSetName = map.name;
+		this.currentPermission = map.permission || "read";
+		this.currentIsPublic = Boolean(map.isPublic);
+		this.selectedColor = "#FFFFFF";
+		const itemColors = this.normalizeObject(map.itemColors, {});
+		const colorNames = this.normalizeObject(map.colorNames, {});
+		this.itemColors = { ...this.createDefaultItemColors(), ...itemColors };
+		this.colorNames = { ...colorNames };
+		this.notes = map.notes || "";
+		this.shareDraft = {};
 		this.markCurrentStateAsSaved();
-
-		if (shouldRender) {
-			this.render();
-		}
 	}
 
-	persistCurrentSet(asNew = false) {
-		const now = new Date().toISOString();
-		const trimmedName = (this.currentSetName || "").trim();
-		const setName = trimmedName || this.generateSetName();
-		const snapshot = this.createSnapshot();
+	buildShareDraftFromCurrentShares() {
+		const nextDraft = {};
+		this.availableUsers.forEach((user) => {
+			nextDraft[user.username] = { shared: false, canEdit: false };
+		});
 
-		if (!this.currentSetId || asNew) {
-			const newSet = {
-				id: createSetId(),
-				name: setName,
-				createdAt: now,
-				updatedAt: now,
-				...snapshot,
+		this.shares.forEach((share) => {
+			nextDraft[share.username] = {
+				shared: true,
+				canEdit: Boolean(share.canEdit),
 			};
+		});
 
-			this.savedSets = [newSet, ...this.savedSets];
-			this.currentSetId = newSet.id;
-			this.currentSetName = newSet.name;
-		} else {
-			this.savedSets = this.savedSets.map((item) => {
-				if (item.id !== this.currentSetId) {
-					return item;
-				}
+		this.shareDraft = nextDraft;
+	}
 
-				return {
-					...item,
-					name: setName,
-					updatedAt: now,
-					...snapshot,
-				};
-			});
+	async syncMapShares(mapId) {
+		if (!this.isOwner || !mapId) {
+			return;
 		}
 
-		this.savedSets = this.sortSavedSets(this.savedSets);
-		this.persistSavedSets();
+		const currentShares = await api.listShares(mapId);
+		const desiredEntries = Object.entries(this.shareDraft).filter(([, config]) => Boolean(config?.shared));
+		const desiredUsernames = new Set(desiredEntries.map(([username]) => username));
+
+		for (const [username, config] of desiredEntries) {
+			const targetUser = this.availableUsers.find((user) => user.username === username);
+			if (!targetUser) {
+				continue;
+			}
+
+			await api.upsertShare(
+				mapId,
+				{ userId: targetUser.id, username: targetUser.username },
+				Boolean(config?.canEdit),
+			);
+		}
+
+		for (const share of currentShares) {
+			if (!desiredUsernames.has(share.username)) {
+				await api.deleteShare(mapId, share.id);
+			}
+		}
+
+		this.shares = await api.listShares(mapId);
+		this.buildShareDraftFromCurrentShares();
 		this.markCurrentStateAsSaved();
-		this.render();
 	}
 
-	deleteCurrentSet() {
-		if (this.currentSetId) {
-			this.deleteSet(this.currentSetId);
-		}
-	}
+	async refreshMaps(selectMapId = null) {
+		const [maps, users] = await Promise.all([api.listMaps(), api.listUsers()]);
+		this.savedSets = this.sortSavedSets(maps);
+		this.availableUsers = Array.isArray(users) ? users : [];
 
-	deleteSet(setId) {
-		const target = this.savedSets.find((item) => item.id === setId);
-		if (!target) {
-			return;
-		}
-
-		const shouldDelete = window.confirm(`Apagar o mapa "${target.name}"?`);
-		if (!shouldDelete) {
-			return;
-		}
-
-		this.savedSets = this.savedSets.filter((item) => item.id !== setId);
-		this.persistSavedSets();
-
-		if (setId === this.currentSetId) {
+		if (!this.savedSets.length) {
 			this.resetWorkingSet();
-			this.markCurrentStateAsSaved();
+			this.viewMode = "home";
+			return;
 		}
-		this.render();
+
+		if (selectMapId) {
+			const selected = this.savedSets.find((item) => item.id === selectMapId) || this.savedSets[0];
+			this.applyMap(selected);
+			if (this.isOwner && this.currentSetId) {
+				this.shares = await api.listShares(this.currentSetId);
+				this.buildShareDraftFromCurrentShares();
+				this.markCurrentStateAsSaved();
+			} else {
+				this.shares = [];
+				this.shareDraft = {};
+			}
+			this.viewMode = "editor";
+			return;
+		}
+
+		if (this.viewMode === "editor" && this.currentSetId) {
+			const current = this.savedSets.find((item) => item.id === this.currentSetId);
+			if (current) {
+				this.applyMap(current);
+				if (this.isOwner) {
+					this.shares = await api.listShares(current.id);
+					this.buildShareDraftFromCurrentShares();
+					this.markCurrentStateAsSaved();
+				} else {
+					this.shares = [];
+					this.shareDraft = {};
+				}
+				return;
+			}
+		}
+
+		this.currentSetId = null;
+		this.currentSetName = "";
+		this.currentPermission = "owner";
+		this.currentIsPublic = false;
+		this.shares = [];
+		this.shareDraft = {};
+		this.viewMode = "home";
 	}
 
 	confirmDiscardUnsavedChanges() {
@@ -197,18 +321,209 @@ export class MapaSVGApp {
 		return window.confirm("Existem alterações por guardar. Pretende descartá-las?");
 	}
 
+	async loadSet(setId, skipDirtyCheck = false) {
+		if (!skipDirtyCheck && !this.confirmDiscardUnsavedChanges()) {
+			return;
+		}
+
+		const selected = this.savedSets.find((item) => item.id === setId);
+		if (!selected) {
+			return;
+		}
+
+		this.applyMap(selected);
+		this.viewMode = "editor";
+		if (this.isOwner) {
+			this.shares = await api.listShares(selected.id);
+			this.buildShareDraftFromCurrentShares();
+			this.markCurrentStateAsSaved();
+		} else {
+			this.shares = [];
+			this.shareDraft = {};
+		}
+		this.render();
+	}
+
+	async persistCurrentSet(asNew = false) {
+		if (!this.user) {
+			return;
+		}
+
+		if (this.isReadOnly) {
+			window.alert("Este mapa é só de leitura.");
+			return;
+		}
+
+		this.syncEditorFieldsToState();
+
+		const payload = {
+			name: (this.currentSetName || "").trim() || this.generateSetName(),
+			...this.createSnapshot(),
+		};
+
+		const isCreating = !this.currentSetId || asNew;
+		this.isSaving = true;
+		this.render();
+
+		try {
+			let saved;
+			if (isCreating) {
+				saved = await api.createMap(payload);
+			} else {
+				saved = await api.updateMap(this.currentSetId, payload);
+			}
+
+			if (saved?.id && (this.isOwner || isCreating)) {
+				await this.syncMapShares(saved.id);
+			}
+
+			this.viewMode = "home";
+			await this.refreshMaps();
+			this.setFlashMessage("success", isCreating ? "Mapa guardado com sucesso." : "Mapa atualizado com sucesso.");
+		} catch (error) {
+			window.alert(error.message || "Não foi possível guardar o mapa.");
+		} finally {
+			this.isSaving = false;
+			this.render();
+		}
+	}
+
+	async deleteSet(setId) {
+		const target = this.savedSets.find((item) => item.id === setId);
+		if (!target) {
+			return;
+		}
+
+		if (!target.canDelete) {
+			window.alert("Só o proprietário pode apagar o mapa.");
+			return;
+		}
+
+		const shouldDelete = window.confirm(`Apagar o mapa "${target.name}"?`);
+		if (!shouldDelete) {
+			return;
+		}
+
+		await api.deleteMap(setId);
+		await this.refreshMaps();
+		this.render();
+	}
+
+	async copyCurrentMap() {
+		if (!this.currentSetId || !this.isOwner) {
+			window.alert("Só pode copiar mapas seus.");
+			return;
+		}
+
+		const copied = await api.copyMap(this.currentSetId);
+		await this.refreshMaps(copied.id);
+		this.render();
+	}
+
+	async backupMaps() {
+		if (!this.user) {
+			return;
+		}
+
+		try {
+			const payload = await api.backupMaps();
+			const stamp = new Date().toISOString().slice(0, 19).replace(/[T:]/g, "-");
+			downloadJsonFile(`ocmapas-backup-${stamp}.json`, payload);
+			this.setFlashMessage("success", "Backup descarregado com sucesso.");
+			this.render();
+		} catch (error) {
+			window.alert(error.message || "Não foi possível criar o backup dos mapas.");
+		}
+	}
+
+	async restoreMapsFromBackupFile(file) {
+		if (!file || !this.user) {
+			return;
+		}
+
+		try {
+			const fileText = await readFileAsText(file);
+			const parsed = JSON.parse(fileText);
+			const mapsToRestore = Array.isArray(parsed)
+				? parsed
+				: Array.isArray(parsed?.maps)
+					? parsed.maps
+					: Array.isArray(parsed?.savedSets)
+						? parsed.savedSets
+						: [];
+
+			if (!mapsToRestore.length) {
+				throw new Error("O ficheiro não contém mapas para restaurar.");
+			}
+
+			let firstCreatedId = null;
+			let restoredCount = 0;
+			for (let index = 0; index < mapsToRestore.length; index += 1) {
+				const item = mapsToRestore[index] || {};
+				const created = await api.createMap({
+					name: (item.name || `Restaurado ${index + 1}`).trim(),
+					itemColors: item.itemColors || item.item_colors || {},
+					colorNames: item.colorNames || item.color_names || {},
+					notes: typeof item.notes === "string" ? item.notes : "",
+				});
+
+				if (!firstCreatedId) {
+					firstCreatedId = created.id;
+				}
+
+				if (item.isPublic === true) {
+					await api.updateVisibility(created.id, true);
+				}
+
+				const shares = Array.isArray(item.shares) ? item.shares : [];
+				for (const share of shares) {
+					const username = String(share?.username || "").trim();
+					if (!username) {
+						continue;
+					}
+
+					const targetUser = this.availableUsers.find((user) => user.username === username);
+					if (!targetUser || targetUser.username === this.user.username) {
+						continue;
+					}
+
+					await api.upsertShare(
+						created.id,
+						{ userId: targetUser.id, username: targetUser.username },
+						Boolean(share?.canEdit),
+					);
+				}
+
+				restoredCount += 1;
+			}
+
+			await this.refreshMaps(firstCreatedId || undefined);
+			this.setFlashMessage("success", `Restauro concluído: ${restoredCount} mapa(s) importado(s).`);
+			this.render();
+		} catch (error) {
+			window.alert(error.message || "Não foi possível restaurar o backup.");
+		}
+	}
+
 	exportSavedSets() {
 		const payload = {
-			app: "OCAreasWeb",
-			version: 1.1,
+			app: "OCMapas",
+			version: 2.0,
 			exportedAt: new Date().toISOString(),
-			savedSets: this.savedSets,
+			savedSets: this.savedSets.map((item) => ({
+				name: item.name,
+				itemColors: item.itemColors,
+				colorNames: item.colorNames,
+				notes: item.notes,
+				createdAt: item.createdAt,
+				updatedAt: item.updatedAt,
+			})),
 		};
-		downloadJsonFile("ocareasweb-mapas.json", payload);
+		downloadJsonFile("ocmapas-mapas.json", payload);
 	}
 
 	async importSavedSets(file) {
-		if (!file) {
+		if (!file || !this.user) {
 			return;
 		}
 
@@ -221,215 +536,160 @@ export class MapaSVGApp {
 				throw new Error("O ficheiro não contém uma lista válida de mapas.");
 			}
 
-			const reservedNames = new Set(this.savedSets.map((item) => item.name));
-			const normalizedSets = importedSets.map((item, index) => this.normalizeImportedSet(item, index, reservedNames));
-			this.savedSets = this.sortSavedSets([...normalizedSets, ...this.savedSets]);
-			this.persistSavedSets();
-			this.loadSet(normalizedSets[0]?.id, true, true);
+			let firstId = null;
+			for (let index = 0; index < importedSets.length; index += 1) {
+				const item = importedSets[index] || {};
+				const created = await api.createMap({
+					name: (item.name || `Importado ${index + 1}`).trim(),
+					itemColors: item.itemColors || {},
+					colorNames: item.colorNames || {},
+					notes: typeof item.notes === "string" ? item.notes : "",
+				});
+				if (!firstId) {
+					firstId = created.id;
+				}
+			}
+
+			await this.refreshMaps(firstId || undefined);
+			this.render();
 		} catch (error) {
 			window.alert(error.message || "Não foi possível importar o ficheiro selecionado.");
 		}
 	}
 
-	normalizeImportedSet(item, index, reservedNames) {
-		const now = new Date().toISOString();
-		const baseName = typeof item?.name === "string" && item.name.trim() ? item.name.trim() : `Importado ${index + 1}`;
-		const itemColors = item?.itemColors && typeof item.itemColors === "object" ? item.itemColors : {};
-		const colorNames = item?.colorNames && typeof item.colorNames === "object" ? item.colorNames : {};
-		const notes = typeof item?.notes === "string" ? item.notes : "";
+	async handleAuthSubmit(mode) {
+		const username = document.getElementById("auth-username")?.value || "";
+		const email = document.getElementById("auth-email")?.value || "";
+		const password = document.getElementById("auth-password")?.value || "";
+		const passwordConfirm = document.getElementById("auth-password-confirm")?.value || "";
 
-		return {
-			id: createSetId(),
-			name: this.createUniqueImportedName(baseName, reservedNames),
-			createdAt: item?.createdAt || now,
-			updatedAt: now,
-			itemColors: { ...this.createDefaultItemColors(), ...itemColors },
-			colorNames,
-			notes,
-		};
+		this.authError = "";
+		this.render();
+
+		if (mode === "register" && password !== passwordConfirm) {
+			this.authError = "A confirmação da password não coincide.";
+			this.render();
+			return;
+		}
+
+		try {
+			this.user = mode === "register"
+				? await api.register(username, email, password)
+				: await api.login(username, password);
+			await this.refreshMaps();
+			this.render();
+		} catch (error) {
+			this.authError = error.message || "Falha de autenticação.";
+			this.render();
+		}
 	}
 
-	createUniqueImportedName(baseName, reservedNames) {
-		if (!reservedNames.has(baseName)) {
-			reservedNames.add(baseName);
-			return baseName;
+	logout() {
+		api.logout();
+		this.user = null;
+		this.setAuthMode("login");
+		this.authError = "";
+		this.clearFlashMessage();
+		this.savedSets = [];
+		this.resetWorkingSet();
+		this.viewMode = "home";
+		this.render();
+	}
+
+	setFlashMessage(type, text) {
+		if (this.flashMessageTimeout) {
+			window.clearTimeout(this.flashMessageTimeout);
+			this.flashMessageTimeout = null;
 		}
 
-		let suffix = 2;
-		while (reservedNames.has(`${baseName} (${suffix})`)) {
-			suffix += 1;
+		this.flashMessage = { type, text };
+		this.flashMessageTimeout = window.setTimeout(() => {
+			this.flashMessage = null;
+			this.flashMessageTimeout = null;
+			this.render();
+		}, 4000);
+	}
+
+	clearFlashMessage() {
+		if (this.flashMessageTimeout) {
+			window.clearTimeout(this.flashMessageTimeout);
+			this.flashMessageTimeout = null;
 		}
 
-		const uniqueName = `${baseName} (${suffix})`;
-		reservedNames.add(uniqueName);
-		return uniqueName;
+		this.flashMessage = null;
+	}
+
+	goHome() {
+		if (this.viewMode === "editor" && !this.confirmDiscardUnsavedChanges()) {
+			return;
+		}
+
+		this.viewMode = "home";
+		this.render();
 	}
 
 	render() {
 		const app = document.getElementById("app");
-		app.innerHTML = `
-			<div class="container">
-				${this.renderHeader()}
-				<div class="main-content">
-					${this.renderMap()}
-					${this.renderSidebar()}
-				</div>
-			</div>
-			${this.renderModal()}
-		`;
+
+		if (!this.user) {
+			app.innerHTML = renderAuthPage(this);
+			this.attachEventListeners();
+			return;
+		}
+
+		if (this.viewMode === "home") {
+			app.innerHTML = renderHomePage(this);
+			this.attachEventListeners();
+			this.initializeHomeDataTables();
+			return;
+		}
+
+		app.innerHTML = renderEditorPage(this);
+
 		this.attachEventListeners();
 	}
 
-	renderHeader() {
-		return `
-			<div class="header">
-				<div class="title">Outro Chão - Agricultura Biológica, Lda.</div>
-				<div class="header-controls">
-					<button type="button" class="gear-button" id="open-settings" aria-label="Definições" aria-haspopup="dialog">&#x26ED;</button>
-				</div>
-			</div>
-		`;
-	}
-
-	renderModal() {
-		return `
-			<div class="modal-overlay" id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title" hidden>
-				<div class="modal-panel">
-					<div class="modal-header">
-						<span class="modal-title" id="settings-modal-title">Definições</span>
-						<button type="button" class="modal-close" id="close-settings" aria-label="Fechar definições">✕</button>
-					</div>
-					<div class="modal-body">
-						<button type="button" class="modal-action-button toggle-button" id="toggle-setores" aria-pressed="${this.showSetores}">
-							${this.showSetores ? "Esconder Setores de Rega" : "Mostrar Setores de Rega"}
-						</button>
-						<button type="button" class="modal-action-button secondary-button" id="export-sets">Exportar JSON</button>
-						<label class="modal-action-button import-button" for="import-sets-modal">Importar JSON</label>
-						<input type="file" id="import-sets-modal" class="visually-hidden" accept="application/json,.json">
-					</div>
-
-                    
-                <span class="color-percentage footer-note">@RB 2025 v1.1</span>
-				</div>
-			</div>
-		`;
-	}
-
-	renderMap() {
-		const baseViewBoxWidth = 900;
-		const baseViewBoxHeight = 1000;
-		const viewBoxWidth = baseViewBoxWidth; /// this.zoomLevel;
-		const viewBoxHeight = baseViewBoxHeight; // / this.zoomLevel;
-		const mapTitle = escapeHtml((this.currentSetName || "Mapa sem nome").trim() || "Mapa sem nome");
-
-		return `
-			<div class="map-container">
-				<div class="map-current-title">Mapa: ${mapTitle}</div>
-                <svg class="map-svg" viewBox="0 0 ${viewBoxWidth} ${viewBoxHeight}" role="img" aria-label="Mapa interativo de áreas">
-                    ${this.renderSVGItems()}
-                </svg>
-			</div>
-		`;
-	}
-
-	renderSVGItems() {
-		const dataItems = getDataItems();
-		if (!dataItems.length) {
-			return '<text x="50" y="50" fill="red">Dados não carregados</text>';
+	initializeHomeDataTables() {
+		if (this.viewMode !== "home") {
+			return;
 		}
 
-		return dataItems
-			.map((item) => {
-				const itemColor = this.itemColors[item.dataName] || "#f9f9f9ff";
-				const colorObj = this.colors.find((colorItem) => colorItem.color === itemColor);
-				const textColor = colorObj ? colorObj.text : "#000000";
+		const jq = window.jQuery;
+		if (!jq || !jq.fn || !jq.fn.DataTable) {
+			return;
+		}
 
-				return `
-					<g>
-						<path d="${item.pathData}"
-							fill="${itemColor}"
-							stroke="#000000"
-							stroke-width="1"
-							data-item="${item.dataName}"
-							style="cursor: pointer;"
-							aria-label="Área ${item.dataName}" />
-						<text transform="${item.textTransform}" font-size="11" fill="${textColor}">
-							<tspan x="${item.nomeTspanX}" y="${item.nomeTspanY}">${item.dataName}</tspan>
-						</text>
-						${
-							this.showSetores
-								? `
-							<text transform="${item.setorTransform}" font-size="10" font-weight="bold" fill="#ff0000">
-								<tspan x="${item.setorTspanX}" y="${item.setorTspanY}">${item.setorData}</tspan>
-							</text>
-						`
-								: ""
-						}
-					</g>
-				`;
-			})
-			.join("");
-	}
+		["own-maps-table", "shared-maps-table"].forEach((tableId) => {
+			const table = document.getElementById(tableId);
+			if (!table) {
+				return;
+			}
 
-	renderSidebar() {
-		return `
-			<div class="color-palette">
-				<div class="color-palette-title">Legenda</div>
-				${this.colors.map((colorItem) => this.renderColorRow(colorItem)).join("")}
-				${this.renderNotesSection()}
-                ${this.renderSavedSetsSection()}
-			</div>
-		`;
-	}
+			if (jq.fn.dataTable.isDataTable(table)) {
+				jq(table).DataTable().destroy();
+			}
 
-	renderSavedSetsSection() {
-		const currentName = escapeHtml(this.currentSetName);
-		const saveStatus = this.hasUnsavedChanges() ? "Alterações por guardar" : "Tudo guardado";
-
-		return `
-			<section class="saved-sets-section" aria-labelledby="saved-sets-heading">
-				<div class="saved-sets-header">
-					<div class="color-palette-title saved-sets-title" id="saved-sets-heading">Lista de Mapas</div>
-					<div class="saved-sets-toolbar">
-						<div>
-							<div class="saved-sets-status-label">Status</div>
-							<div class="saved-sets-status ${this.hasUnsavedChanges() ? "dirty" : ""}" aria-live="polite">${saveStatus}</div>
-						</div>
-						<button type="button" class="secondary-button" id="new-set">Limpar Mapa</button>
-					</div>
-				</div>
-				<label class="set-name-label" for="set-name">Nome do mapa</label>
-				<input type="text" id="set-name" class="set-name-input" maxlength="80" placeholder="Nome do mapa" value="${currentName}">
-				<div class="saved-sets-actions">
-					<button type="button" class="toggle-button" id="save-set">Guardar</button>
-					<button type="button" class="secondary-button" id="save-as-set">Guardar Como Novo</button>
-				</div>
-
-                <div class="saved-sets-list" role="list" aria-label="Lista de mapas guardados">
-					${this.savedSets.length > 0 ? this.savedSets.map((item) => this.renderSavedSetRow(item)).join("") : '<div class="empty-saved-sets">Sem mapas guardados.</div>'}
-				</div>
-
-			</section>
-		`;
-	}
-
-	renderSavedSetRow(item) {
-		const isActive = item.id === this.currentSetId;
-		const itemName = escapeHtml(item.name);
-		const updatedAt = escapeHtml(formatDate(item.updatedAt));
-		const { count, area } = this.getSavedSetSummary(item);
-		const summary = `${count} | ${area} ha`;
-
-		return `
-			<div class="saved-set-item ${isActive ? "active" : ""}" role="listitem">
-				<button type="button" class="saved-set-load" data-set-id="${item.id}" aria-pressed="${isActive}">
-					<span class="saved-set-name">${itemName}</span>
-					<span class="saved-set-meta">Atualizado ${updatedAt}</span>
-					<span class="saved-set-meta">${summary}</span>
-				</button>
-				<button type="button" class="saved-set-delete" data-delete-id="${item.id}" aria-label="Apagar ${itemName}">&#x78;</button>
-			</div>
-		`;
+			jq(table).DataTable({
+				pageLength: 10,
+				lengthChange: true,
+				lengthMenu: [[10, 20, -1], [10, 20, "Todos"]],
+				order: [[1, "desc"]],
+				columnDefs: [{ targets: [6], orderable: false, searchable: false }],
+				language: {
+					search: "Pesquisar:",
+					lengthMenu: "Mostrar _MENU_ mapas",
+					zeroRecords: "Sem resultados",
+					info: "A mostrar _START_ a _END_ de _TOTAL_ mapas",
+					infoEmpty: "Sem mapas",
+					paginate: {
+						first: "Primeira",
+						last: "Última",
+						next: "Seguinte",
+						previous: "Anterior",
+					},
+				},
+			});
+		});
 	}
 
 	getSavedSetSummary(savedSet) {
@@ -456,15 +716,16 @@ export class MapaSVGApp {
 		const groupId = `group-color-${colorItem.id}`;
 		const sampleStyle = `background-color: ${colorItem.color}; color: ${colorItem.text};`;
 
+		const disabled = this.isReadOnly ? "disabled" : "";
 		return `
 			<div class="color-row">
 				<button type="button" class="color-select-button ${isSelected ? "selected" : ""}" data-color="${colorItem.color}" aria-label="Selecionar grupo ${colorItem.id}" aria-pressed="${isSelected}">
 					${isSelected ? '<div class="radio-button-inner"></div>' : ""}
 				</button>
-				<button type="button" class="color-sample" style="${sampleStyle}" data-color="${colorItem.color}" aria-label="Aplicar cor do grupo ${colorItem.id}"></button>
+				<button type="button" class="color-sample" style="${sampleStyle}" data-color="${colorItem.color}" aria-label="Aplicar cor do grupo ${colorItem.id}" ${disabled}></button>
 				<div>
 					<label class="visually-hidden" for="${groupId}">Notas da cor ${colorItem.id}</label>
-					<input type="text" id="${groupId}" class="color-input" placeholder="Notas para esta cor" value="${colorName}" data-color="${colorItem.color}">
+					<input type="text" id="${groupId}" class="color-input" placeholder="Notas para esta cor" value="${colorName}" data-color="${colorItem.color}" ${disabled}>
 				</div>
 				<div class="color-stats">
 					<span class="color-count">(${count})</span>
@@ -477,22 +738,143 @@ export class MapaSVGApp {
 
 	renderNotesSection() {
 		const notes = escapeHtml(this.notes);
+		const disabled = this.isReadOnly ? "disabled" : "";
 		return `
 			<div class="notes-section">
                 <label class="set-name-label" for="notes-input">Notas do mapa</label>
-				<textarea id="notes-input" class="notes-input" placeholder="Adicione suas notas aqui...">${notes}</textarea>
+				<textarea id="notes-input" class="notes-input" placeholder="Adicione suas notas aqui..." ${disabled}>${notes}</textarea>
 			</div>
 			
 		`;
 	}
 
+	async handleAppClick(event) {
+		const target = event.target instanceof Element ? event.target : event.target?.parentElement;
+		if (!target) {
+			return;
+		}
+
+		const deleteButton = target.closest(".home-maps-table [data-delete-id]");
+		if (deleteButton) {
+			event.preventDefault();
+			event.stopPropagation();
+			const setId = deleteButton.getAttribute("data-delete-id");
+			await this.deleteSet(setId);
+			return;
+		}
+
+		const openButton = target.closest("button[data-home-open-button-id]");
+		if (openButton) {
+			event.preventDefault();
+			event.stopPropagation();
+			const setId = openButton.getAttribute("data-home-open-button-id");
+			await this.loadSet(setId);
+			return;
+		}
+
+		const openRow = target.closest("tr[data-home-open-id]");
+		if (!openRow || target.closest("button, a, input, label")) {
+			return;
+		}
+
+		const setId = openRow.getAttribute("data-home-open-id");
+		await this.loadSet(setId);
+	}
+
 	attachEventListeners() {
+		document.getElementById("auth-submit")?.addEventListener("click", () => this.handleAuthSubmit(this.authMode));
+		document.getElementById("auth-switch-mode")?.addEventListener("click", () => {
+			this.setAuthMode(this.authMode === "register" ? "login" : "register");
+			this.authError = "";
+			this.render();
+		});
+
+		const setRule = (id, ok) => {
+			document.querySelector(`[data-rule="${id}"]`)?.classList.toggle("rule-ok", ok);
+		};
+
+		document.getElementById("auth-password-toggle")?.addEventListener("click", () => {
+			const input = document.getElementById("auth-password");
+			const btn = document.getElementById("auth-password-toggle");
+			if (!input || !btn) return;
+			const isVisible = input.type === "text";
+			input.type = isVisible ? "password" : "text";
+			btn.setAttribute("aria-pressed", String(!isVisible));
+			btn.setAttribute("aria-label", isVisible ? "Mostrar password" : "Esconder password");
+		});
+
+		document.getElementById("auth-password-confirm-toggle")?.addEventListener("click", () => {
+			const input = document.getElementById("auth-password-confirm");
+			const btn = document.getElementById("auth-password-confirm-toggle");
+			if (!input || !btn) return;
+			const isVisible = input.type === "text";
+			input.type = isVisible ? "password" : "text";
+			btn.setAttribute("aria-pressed", String(!isVisible));
+			btn.setAttribute("aria-label", isVisible ? "Mostrar confirmação da password" : "Esconder confirmação da password");
+		});
+
+		document.getElementById("auth-username")?.addEventListener("input", (e) => {
+			const v = e.target.value.trim().toLowerCase();
+			setRule("u-min",     v.length >= 6);
+			setRule("u-chars",   /^[a-z0-9._]+$/.test(v) && v.length > 0);
+			setRule("u-nospace", !/\s/.test(e.target.value) && v.length > 0);
+			setRule("u-case",    v.length > 0);
+		});
+
+		document.getElementById("auth-password")?.addEventListener("input", (e) => {
+			const v = e.target.value;
+			setRule("p-min",    v.length >= 9);
+			setRule("p-upper",  /[A-Z]/.test(v));
+			setRule("p-lower",  /[a-z]/.test(v));
+			setRule("p-digit",  /[0-9]/.test(v));
+			setRule("p-symbol", /[^a-zA-Z0-9]/.test(v));
+			const confirmValue = document.getElementById("auth-password-confirm")?.value || "";
+			const hasConfirmField = Boolean(document.querySelector('[data-rule="p-match"]'));
+			if (hasConfirmField) {
+				setRule("p-match", v.length > 0 && confirmValue.length > 0 && v === confirmValue);
+			}
+		});
+
+		document.getElementById("auth-password-confirm")?.addEventListener("input", (e) => {
+			const passwordValue = document.getElementById("auth-password")?.value || "";
+			const confirmValue = e.target.value;
+			setRule("p-match", passwordValue.length > 0 && confirmValue.length > 0 && passwordValue === confirmValue);
+		});
+		document.getElementById("logout-button")?.addEventListener("click", () => this.logout());
+		document.getElementById("go-home-button")?.addEventListener("click", () => this.goHome());
+		document.getElementById("home-backup-maps")?.addEventListener("click", async () => {
+			await this.backupMaps();
+		});
+		document.getElementById("home-restore-maps")?.addEventListener("click", () => {
+			document.getElementById("home-restore-file")?.click();
+		});
+		document.getElementById("home-restore-file")?.addEventListener("change", async (event) => {
+			const [file] = event.target.files || [];
+			await this.restoreMapsFromBackupFile(file);
+			event.target.value = "";
+		});
+		document.getElementById("home-new-map")?.addEventListener("click", () => this.handleNewSet());
+
+		if (!this.user) {
+			return;
+		}
+
 		document.getElementById("zoom-in")?.addEventListener("click", () => this.handleZoomIn());
 		document.getElementById("zoom-out")?.addEventListener("click", () => this.handleZoomOut());
 		document.getElementById("toggle-setores")?.addEventListener("click", () => this.toggleSetores());
 		document.getElementById("new-set")?.addEventListener("click", () => this.handleNewSet());
-		document.getElementById("save-set")?.addEventListener("click", () => this.persistCurrentSet(false));
-		document.getElementById("save-as-set")?.addEventListener("click", () => this.persistCurrentSet(true));
+		document.getElementById("save-set")?.addEventListener("click", async () => {
+			await this.persistCurrentSet(false);
+		});
+		document.getElementById("save-as-set")?.addEventListener("click", async () => {
+			await this.persistCurrentSet(true);
+		});
+		document.getElementById("copy-own-map")?.addEventListener("click", async () => {
+			await this.copyCurrentMap();
+		});
+		document.getElementById("print-share-map")?.addEventListener("click", async () => {
+			await this.handlePrintAndShareMap();
+		});
 		document.getElementById("open-settings")?.addEventListener("click", () => this.openModal());
 		document.getElementById("close-settings")?.addEventListener("click", () => this.closeModal());
 		document.getElementById("settings-modal")?.addEventListener("click", (event) => {
@@ -506,31 +888,89 @@ export class MapaSVGApp {
 			this.closeModal();
 		});
 		document.querySelectorAll("[data-delete-id]").forEach((btn) => {
-			btn.addEventListener("click", (event) => {
+			if (btn.closest(".home-maps-table")) {
+				return;
+			}
+			btn.addEventListener("click", async (event) => {
 				event.stopPropagation();
 				const setId = btn.getAttribute("data-delete-id");
-				this.deleteSet(setId);
+				await this.deleteSet(setId);
+			});
+		});
+
+		document.getElementById("toggle-public")?.addEventListener("change", async (event) => {
+			if (!this.currentSetId || !this.isOwner) {
+				return;
+			}
+
+			const updated = await api.updateVisibility(this.currentSetId, Boolean(event.target.checked));
+			await this.refreshMaps(updated.id);
+			this.render();
+		});
+
+		document.getElementById("share-user-filter")?.addEventListener("input", (event) => {
+			this.shareUserFilter = event.target.value;
+			this.render();
+		});
+
+		document.querySelectorAll("[data-share-user]").forEach((element) => {
+			element.addEventListener("change", (event) => {
+				const username = event.currentTarget.getAttribute("data-share-user");
+				const isChecked = Boolean(event.currentTarget.checked);
+				const current = this.shareDraft[username] || { shared: false, canEdit: false };
+				this.shareDraft[username] = {
+					shared: isChecked,
+					canEdit: isChecked ? current.canEdit : false,
+				};
+				this.updateDirtyState();
+				this.render();
+			});
+		});
+
+		document.querySelectorAll("[data-share-edit-user]").forEach((element) => {
+			element.addEventListener("change", (event) => {
+				const username = event.currentTarget.getAttribute("data-share-edit-user");
+				const current = this.shareDraft[username] || { shared: false, canEdit: false };
+				if (!current.shared) {
+					return;
+				}
+				this.shareDraft[username] = {
+					shared: true,
+					canEdit: Boolean(event.currentTarget.checked),
+				};
+				this.updateDirtyState();
+			});
+		});
+
+		document.querySelectorAll("[data-share-id]").forEach((button) => {
+			button.addEventListener("click", async () => {
+				if (!this.currentSetId || !this.isOwner) {
+					return;
+				}
+				const shareId = button.getAttribute("data-share-id");
+				await api.deleteShare(this.currentSetId, shareId);
+				this.shares = await api.listShares(this.currentSetId);
+				this.buildShareDraftFromCurrentShares();
+				this.render();
 			});
 		});
 		document.getElementById("set-name")?.addEventListener("input", (event) => {
 			this.currentSetName = event.target.value;
 			this.updateDirtyState();
 		});
-		document.getElementById("import-sets")?.addEventListener("change", async (event) => {
-			const [file] = event.target.files || [];
-			await this.importSavedSets(file);
-			event.target.value = "";
-		});
 
 		document.querySelectorAll("[data-set-id]").forEach((element) => {
-			element.addEventListener("click", (event) => {
+			element.addEventListener("click", async (event) => {
 				const setId = event.currentTarget.getAttribute("data-set-id");
-				this.loadSet(setId);
+				await this.loadSet(setId);
 			});
 		});
 
 		document.querySelectorAll("path[data-item]").forEach((path) => {
 			path.addEventListener("click", (event) => {
+				if (this.isReadOnly) {
+					return;
+				}
 				const itemName = event.target.getAttribute("data-item");
 				this.handleItemPress(itemName);
 			});
@@ -538,19 +978,33 @@ export class MapaSVGApp {
 
 		document.querySelectorAll("button[data-color]").forEach((element) => {
 			element.addEventListener("click", (event) => {
+				if (this.isReadOnly) {
+					return;
+				}
 				const color = event.currentTarget.getAttribute("data-color");
 				this.selectColor(color);
 			});
 		});
 
-		document.querySelectorAll(".color-input").forEach((input) => {
-			input.addEventListener("input", (event) => {
-				const color = event.target.getAttribute("data-color");
-				this.updateColorName(color, event.target.value);
-			});
+		document.querySelectorAll("input[data-color]").forEach((element) => {
+			const handleColorInput = (event) => {
+				if (this.isReadOnly) {
+					return;
+				}
+				const color = event.currentTarget.getAttribute("data-color");
+				if (!color) {
+					return;
+				}
+				this.updateColorName(color, event.currentTarget.value);
+			};
+			element.addEventListener("input", handleColorInput);
+			element.addEventListener("change", handleColorInput);
 		});
 
 		document.querySelector(".notes-input")?.addEventListener("input", (event) => {
+			if (this.isReadOnly) {
+				return;
+			}
 			this.updateNotes(event.target.value);
 		});
 	}
@@ -626,14 +1080,72 @@ export class MapaSVGApp {
 		this.updateDirtyState();
 	}
 
+	syncEditorFieldsToState() {
+		if (this.viewMode !== "editor") {
+			return;
+		}
+
+		const setNameInput = document.getElementById("set-name");
+		if (setNameInput) {
+			this.currentSetName = setNameInput.value;
+		}
+
+		const notesInput = document.getElementById("notes-input");
+		if (notesInput) {
+			this.notes = notesInput.value;
+		}
+
+		document.querySelectorAll("input[data-color]").forEach((element) => {
+			const color = element.getAttribute("data-color");
+			if (!color) {
+				return;
+			}
+			this.colorNames[color] = element.value;
+		});
+	}
+
 	handleNewSet() {
 		if (!this.confirmDiscardUnsavedChanges()) {
 			return;
 		}
 
 		this.resetWorkingSet();
+		this.viewMode = "editor";
 		this.markCurrentStateAsSaved();
 		this.render();
+	}
+
+	async handlePrintAndShareMap() {
+		const mapName = (this.currentSetName || "Mapa sem nome").trim() || "Mapa sem nome";
+		window.print();
+
+		const shareText = `Mapa ${mapName}`;
+		const shareUrl = window.location.href;
+
+		if (navigator.share) {
+			try {
+				await navigator.share({
+					title: mapName,
+					text: shareText,
+					url: shareUrl,
+				});
+				return;
+			} catch {
+				return;
+			}
+		}
+
+		if (navigator.clipboard?.writeText) {
+			try {
+				await navigator.clipboard.writeText(shareUrl);
+				window.alert("Ligação do mapa copiada para a área de transferência.");
+				return;
+			} catch {
+				return;
+			}
+		}
+
+		window.alert(`Partilhe esta ligação: ${shareUrl}`);
 	}
 
 	getColorCount(color) {

@@ -1,4 +1,4 @@
-import { STORAGE_KEY } from "./config.js";
+import { STORAGE_KEY } from "./config.js?v=__ASSET_VERSION__";
 
 export function loadSavedSets() {
 	try {

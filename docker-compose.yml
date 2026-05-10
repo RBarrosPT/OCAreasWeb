@@ -1,0 +1,36 @@
+services:
+  app:
+    build: .
+    container_name: ocmapas-app
+    restart: unless-stopped
+    depends_on:
+      - db
+    env_file:
+      - .env
+    environment:
+      BUILD_VERSION: ${BUILD_VERSION:-dev}
+    ports:
+      - "127.0.0.1:${APP_HOST_PORT:-8091}:3000"
+
+  db:
+    image: postgres:16-alpine
+    container_name: ocmapas-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-ocmapas}
+      POSTGRES_USER: ${POSTGRES_USER:-ocmapas}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ocmapas}
+    volumes:
+      - ocmapas_db_data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer:latest
+    container_name: ocmapas-adminer
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "127.0.0.1:${ADMINER_HOST_PORT:-8081}:8080"
+
+volumes:
+  ocmapas_db_data:

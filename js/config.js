@@ -1,4 +1,4 @@
-export const STORAGE_KEY = "ocareasweb.savedSets";
+export const STORAGE_KEY = "ocmapas.savedSets";
 
 export const COLORS = [
 	{ id: 2, color: "#FFFFFF", text: "#000000" },
