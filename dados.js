@@ -11,6 +11,44 @@ var dadosOc = [
 		setorData: "40",
 		area: "1.2997",
 		nPlantas: "1500",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1TS3",
@@ -24,6 +62,44 @@ var dadosOc = [
 		setorData: "30",
 		area: "1.1884",
 		nPlantas: "1371",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1IV4",
@@ -37,6 +113,44 @@ var dadosOc = [
 		setorData: "29",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1IV8",
@@ -50,6 +164,44 @@ var dadosOc = [
 		setorData: "7",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1IV11",
@@ -63,6 +215,44 @@ var dadosOc = [
 		setorData: "6",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1IV12",
@@ -76,6 +266,44 @@ var dadosOc = [
 		setorData: "8",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1IV9",
@@ -89,6 +317,44 @@ var dadosOc = [
 		setorData: "9",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1AC7",
@@ -102,6 +368,44 @@ var dadosOc = [
 		setorData: "10",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1AC8",
@@ -115,6 +419,44 @@ var dadosOc = [
 		setorData: "12",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1AC5",
@@ -128,6 +470,44 @@ var dadosOc = [
 		setorData: "13",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1AC4",
@@ -141,6 +521,44 @@ var dadosOc = [
 		setorData: "11",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1AC2",
@@ -154,6 +572,44 @@ var dadosOc = [
 		setorData: "35",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1AC1",
@@ -167,6 +623,44 @@ var dadosOc = [
 		setorData: "33",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1IV5",
@@ -180,6 +674,44 @@ var dadosOc = [
 		setorData: "31",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1TS4",
@@ -193,6 +725,44 @@ var dadosOc = [
 		setorData: "32",
 		area: "1.2110",
 		nPlantas: "1397",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1TS5",
@@ -206,6 +776,44 @@ var dadosOc = [
 		setorData: "34",
 		area: "1.2330",
 		nPlantas: "1423",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1TS6",
@@ -219,6 +827,44 @@ var dadosOc = [
 		setorData: "36",
 		area: "1.2551",
 		nPlantas: "1448",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1AC9",
@@ -232,6 +878,44 @@ var dadosOc = [
 		setorData: "14",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1AC6",
@@ -245,6 +929,44 @@ var dadosOc = [
 		setorData: "15",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1AC3",
@@ -258,6 +980,44 @@ var dadosOc = [
 		setorData: "37",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1TS7",
@@ -271,6 +1031,44 @@ var dadosOc = [
 		setorData: "38",
 		area: "1.2777",
 		nPlantas: "1474",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1AL1",
@@ -284,6 +1082,44 @@ var dadosOc = [
 		setorData: "39",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1AL3",
@@ -297,6 +1133,44 @@ var dadosOc = [
 		setorData: "17",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1AL5",
@@ -310,6 +1184,44 @@ var dadosOc = [
 		setorData: "16",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1CC2",
@@ -323,6 +1235,44 @@ var dadosOc = [
 		setorData: "42",
 		area: "0.8837",
 		nPlantas: "1020",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1SC1",
@@ -336,6 +1286,44 @@ var dadosOc = [
 		setorData: "45",
 		area: "1.1975",
 		nPlantas: "1382",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1SC2",
@@ -349,6 +1337,44 @@ var dadosOc = [
 		setorData: "44",
 		area: "1.5093",
 		nPlantas: "1741",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1SC3",
@@ -362,6 +1388,44 @@ var dadosOc = [
 		setorData: "43",
 		area: "0.7147",
 		nPlantas: "825",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1SC4",
@@ -375,6 +1439,44 @@ var dadosOc = [
 		setorData: "21",
 		area: "0.8563",
 		nPlantas: "988",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1SC6",
@@ -388,6 +1490,44 @@ var dadosOc = [
 		setorData: "20",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1SC7",
@@ -401,6 +1541,44 @@ var dadosOc = [
 		setorData: "22",
 		area: "0.8891",
 		nPlantas: "1026",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1SC8",
@@ -414,6 +1592,44 @@ var dadosOc = [
 		setorData: "24",
 		area: "0.3122",
 		nPlantas: "360",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1AL6",
@@ -427,6 +1643,44 @@ var dadosOc = [
 		setorData: "18",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1AL4",
@@ -440,6 +1694,44 @@ var dadosOc = [
 		setorData: "19",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1AL2",
@@ -453,6 +1745,44 @@ var dadosOc = [
 		setorData: "41",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1SC5",
@@ -466,6 +1796,44 @@ var dadosOc = [
 		setorData: "23",
 		area: "0.2215",
 		nPlantas: "256",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1IV10",
@@ -479,6 +1847,44 @@ var dadosOc = [
 		setorData: "3",
 		area: "0.4058",
 		nPlantas: "468",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1IV7",
@@ -492,6 +1898,44 @@ var dadosOc = [
 		setorData: "4",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1IV6",
@@ -505,6 +1949,44 @@ var dadosOc = [
 		setorData: "5",
 		area: "0.4664",
 		nPlantas: "538",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1IV3",
@@ -518,6 +2000,44 @@ var dadosOc = [
 		setorData: "27",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1IV2",
@@ -531,6 +2051,44 @@ var dadosOc = [
 		setorData: "25",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1TS1",
@@ -544,6 +2102,44 @@ var dadosOc = [
 		setorData: "26",
 		area: "1.1443",
 		nPlantas: "1320",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1TS2",
@@ -557,6 +2153,44 @@ var dadosOc = [
 		setorData: "28",
 		area: "1.1664",
 		nPlantas: "1346",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1SWG1",
@@ -570,6 +2204,44 @@ var dadosOc = [
 		setorData: "1",
 		area: "1.7218",
 		nPlantas: "1987",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "1IV1",
@@ -583,6 +2255,44 @@ var dadosOc = [
 		setorData: "2",
 		area: "0.5340",
 		nPlantas: "616",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2MB11",
@@ -596,6 +2306,44 @@ var dadosOc = [
 		setorData: "80",
 		area: "1.2997",
 		nPlantas: "1500",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SC8",
@@ -609,6 +2357,44 @@ var dadosOc = [
 		setorData: "81",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SC2",
@@ -622,6 +2408,44 @@ var dadosOc = [
 		setorData: "82",
 		area: "0.5102",
 		nPlantas: "589",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2MB12",
@@ -635,6 +2459,44 @@ var dadosOc = [
 		setorData: "83",
 		area: "1.4606",
 		nPlantas: "1685",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SC9",
@@ -648,6 +2510,44 @@ var dadosOc = [
 		setorData: "84",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SC3",
@@ -661,6 +2561,44 @@ var dadosOc = [
 		setorData: "85",
 		area: "0.7409",
 		nPlantas: "855",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2CS4",
@@ -674,6 +2612,44 @@ var dadosOc = [
 		setorData: "88",
 		area: "0.4497",
 		nPlantas: "519",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SWG1",
@@ -687,6 +2663,44 @@ var dadosOc = [
 		setorData: "87",
 		area: "0.8967",
 		nPlantas: "1035",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SC10",
@@ -700,6 +2714,44 @@ var dadosOc = [
 		setorData: "86",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SC4",
@@ -713,6 +2765,44 @@ var dadosOc = [
 		setorData: "91",
 		area: "0.9773",
 		nPlantas: "1128",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SWG2",
@@ -726,6 +2816,44 @@ var dadosOc = [
 		setorData: "90",
 		area: "0.1685",
 		nPlantas: "194",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SC11",
@@ -739,6 +2867,44 @@ var dadosOc = [
 		setorData: "89",
 		area: "0.7412",
 		nPlantas: "855",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2S48",
@@ -752,6 +2918,44 @@ var dadosOc = [
 		setorData: "92",
 		area: "1.2090",
 		nPlantas: "1395",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SG1",
@@ -765,6 +2969,44 @@ var dadosOc = [
 		setorData: "93",
 		area: "0.7101",
 		nPlantas: "819",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SWG3",
@@ -778,6 +3020,44 @@ var dadosOc = [
 		setorData: "94",
 		area: "0.3745",
 		nPlantas: "432",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SWG4",
@@ -791,6 +3071,44 @@ var dadosOc = [
 		setorData: "95",
 		area: "0.7595",
 		nPlantas: "876",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SG2",
@@ -804,6 +3122,44 @@ var dadosOc = [
 		setorData: "96",
 		area: "1.5564",
 		nPlantas: "1796",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SUC4",
@@ -817,6 +3173,44 @@ var dadosOc = [
 		setorData: "66",
 		area: "0.8729",
 		nPlantas: "1007",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2MB3",
@@ -830,6 +3224,44 @@ var dadosOc = [
 		setorData: "67",
 		area: "1.0204",
 		nPlantas: "1177",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SUC5",
@@ -843,6 +3275,44 @@ var dadosOc = [
 		setorData: "68",
 		area: "0.8880",
 		nPlantas: "1025",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2MB4",
@@ -856,6 +3326,44 @@ var dadosOc = [
 		setorData: "69",
 		area: "0.9991",
 		nPlantas: "1153",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2EXP",
@@ -869,6 +3377,44 @@ var dadosOc = [
 		setorData: "68",
 		area: "0.0855",
 		nPlantas: "99",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SUC6",
@@ -882,6 +3428,44 @@ var dadosOc = [
 		setorData: "70",
 		area: "0.5235",
 		nPlantas: "604",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2MB5",
@@ -895,6 +3479,44 @@ var dadosOc = [
 		setorData: "71",
 		area: "0.9778",
 		nPlantas: "1128",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2MB6",
@@ -908,6 +3530,44 @@ var dadosOc = [
 		setorData: "72",
 		area: "0.7877",
 		nPlantas: "909",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2MB7",
@@ -921,6 +3581,44 @@ var dadosOc = [
 		setorData: "72",
 		area: "0.1910",
 		nPlantas: "220",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2MB8",
@@ -934,6 +3632,44 @@ var dadosOc = [
 		setorData: "73",
 		area: "0.3944",
 		nPlantas: "455",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SC5",
@@ -947,6 +3683,44 @@ var dadosOc = [
 		setorData: "74",
 		area: "0.4444",
 		nPlantas: "513",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2MB9",
@@ -960,6 +3734,44 @@ var dadosOc = [
 		setorData: "75",
 		area: "0.8310",
 		nPlantas: "959",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SC6",
@@ -973,6 +3785,44 @@ var dadosOc = [
 		setorData: "76",
 		area: "0.9715",
 		nPlantas: "1121",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2MB10",
@@ -986,6 +3836,44 @@ var dadosOc = [
 		setorData: "77",
 		area: "1.1389",
 		nPlantas: "1314",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SC7",
@@ -999,6 +3887,44 @@ var dadosOc = [
 		setorData: "78",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SC1",
@@ -1012,6 +3938,44 @@ var dadosOc = [
 		setorData: "79",
 		area: "0.2796",
 		nPlantas: "323",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2IV8",
@@ -1025,6 +3989,44 @@ var dadosOc = [
 		setorData: "57",
 		area: "0.4576",
 		nPlantas: "528",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2IV7",
@@ -1038,6 +4040,44 @@ var dadosOc = [
 		setorData: "55",
 		area: "1.0196",
 		nPlantas: "1176",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2IV3",
@@ -1051,6 +4091,44 @@ var dadosOc = [
 		setorData: "56",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2MB2",
@@ -1064,6 +4142,44 @@ var dadosOc = [
 		setorData: "65",
 		area: "0.9660",
 		nPlantas: "1115",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2IV6",
@@ -1077,6 +4193,44 @@ var dadosOc = [
 		setorData: "53",
 		area: "0.9810",
 		nPlantas: "1132",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2IV2",
@@ -1090,6 +4244,44 @@ var dadosOc = [
 		setorData: "54",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2IV5",
@@ -1103,6 +4295,44 @@ var dadosOc = [
 		setorData: "51",
 		area: "0.9433",
 		nPlantas: "1088",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2IV1",
@@ -1116,6 +4346,44 @@ var dadosOc = [
 		setorData: "52",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SUC2",
@@ -1129,6 +4397,44 @@ var dadosOc = [
 		setorData: "62",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SUC1",
@@ -1142,6 +4448,44 @@ var dadosOc = [
 		setorData: "60",
 		area: "0.8895",
 		nPlantas: "1026",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2AL5",
@@ -1155,6 +4499,44 @@ var dadosOc = [
 		setorData: "49",
 		area: "0.9069",
 		nPlantas: "1046",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2S53B",
@@ -1168,6 +4550,44 @@ var dadosOc = [
 		setorData: "59",
 		area: "0.2893",
 		nPlantas: "334",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2S53A",
@@ -1181,6 +4601,44 @@ var dadosOc = [
 		setorData: "61",
 		area: "0.1280",
 		nPlantas: "148",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2AL3",
@@ -1194,6 +4652,44 @@ var dadosOc = [
 		setorData: "46",
 		area: "0.4096",
 		nPlantas: "473",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2AL4",
@@ -1207,6 +4703,44 @@ var dadosOc = [
 		setorData: "47",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2AL1",
@@ -1220,6 +4754,44 @@ var dadosOc = [
 		setorData: "48",
 		area: "0.3504",
 		nPlantas: "404",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2SUC3",
@@ -1233,6 +4805,44 @@ var dadosOc = [
 		setorData: "64",
 		area: "0.8394",
 		nPlantas: "969",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2MB1",
@@ -1246,6 +4856,44 @@ var dadosOc = [
 		setorData: "63",
 		area: "0.1860",
 		nPlantas: "215",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2IV4",
@@ -1259,6 +4907,44 @@ var dadosOc = [
 		setorData: "58",
 		area: "0.6578",
 		nPlantas: "759",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "2AL2",
@@ -1272,6 +4958,44 @@ var dadosOc = [
 		setorData: "50",
 		area: "0.8947",
 		nPlantas: "1032",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3R702",
@@ -1285,6 +5009,44 @@ var dadosOc = [
 		setorData: "43",
 		area: "0.7000",
 		nPlantas: "808",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3S48B",
@@ -1298,6 +5060,44 @@ var dadosOc = [
 		setorData: "4",
 		area: "0.8978",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3S48A",
@@ -1311,6 +5111,44 @@ var dadosOc = [
 		setorData: "2",
 		area: "0.5384",
 		nPlantas: "621",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3S41C",
@@ -1324,6 +5162,44 @@ var dadosOc = [
 		setorData: "5",
 		area: "0.8891",
 		nPlantas: "1026",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3S41B",
@@ -1337,6 +5213,44 @@ var dadosOc = [
 		setorData: "3",
 		area: "0.8904",
 		nPlantas: "1027",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3S41D",
@@ -1350,6 +5264,44 @@ var dadosOc = [
 		setorData: "7",
 		area: "0.8915",
 		nPlantas: "1029",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3S48C",
@@ -1363,6 +5315,44 @@ var dadosOc = [
 		setorData: "6",
 		area: "0.8959",
 		nPlantas: "1034",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3S53A",
@@ -1376,6 +5366,44 @@ var dadosOc = [
 		setorData: "41",
 		area: "0.8947",
 		nPlantas: "1032",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3S53B",
@@ -1389,6 +5417,44 @@ var dadosOc = [
 		setorData: "39",
 		area: "0.8983",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3TS1",
@@ -1402,6 +5468,44 @@ var dadosOc = [
 		setorData: "8",
 		area: "0.8979",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3S53C",
@@ -1415,6 +5519,44 @@ var dadosOc = [
 		setorData: "37",
 		area: "0.8999",
 		nPlantas: "1038",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3S53D",
@@ -1428,6 +5570,44 @@ var dadosOc = [
 		setorData: "35",
 		area: "0.8998",
 		nPlantas: "1038",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3TS3",
@@ -1441,6 +5621,44 @@ var dadosOc = [
 		setorData: "12",
 		area: "0.8968",
 		nPlantas: "1035",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3TS2",
@@ -1454,6 +5672,44 @@ var dadosOc = [
 		setorData: "10",
 		area: "0.8985",
 		nPlantas: "1037",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3SWG3",
@@ -1467,6 +5723,44 @@ var dadosOc = [
 		setorData: "13",
 		area: "0.8899",
 		nPlantas: "1027",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3SWG2",
@@ -1480,6 +5774,44 @@ var dadosOc = [
 		setorData: "11",
 		area: "0.8894",
 		nPlantas: "1026",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3SWG1",
@@ -1493,6 +5825,44 @@ var dadosOc = [
 		setorData: "9",
 		area: "0.8923",
 		nPlantas: "1030",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3AC2",
@@ -1506,6 +5876,44 @@ var dadosOc = [
 		setorData: "33",
 		area: "0.8960",
 		nPlantas: "1034",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3TS4",
@@ -1519,6 +5927,44 @@ var dadosOc = [
 		setorData: "14",
 		area: "0.8972",
 		nPlantas: "1035",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3SWG4",
@@ -1532,6 +5978,44 @@ var dadosOc = [
 		setorData: "15",
 		area: "0.8907",
 		nPlantas: "1028",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3SWG5",
@@ -1545,6 +6029,44 @@ var dadosOc = [
 		setorData: "17",
 		area: "0.8893",
 		nPlantas: "1026",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3TS5",
@@ -1558,6 +6080,44 @@ var dadosOc = [
 		setorData: "16",
 		area: "0.8953",
 		nPlantas: "1033",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3AC3",
@@ -1571,6 +6131,44 @@ var dadosOc = [
 		setorData: "31",
 		area: "0.8954",
 		nPlantas: "1033",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3S54",
@@ -1584,6 +6182,44 @@ var dadosOc = [
 		setorData: "21",
 		area: "0.9408",
 		nPlantas: "1085",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3MB1",
@@ -1597,6 +6233,44 @@ var dadosOc = [
 		setorData: "20",
 		area: "0.6952",
 		nPlantas: "802",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3MB3",
@@ -1610,6 +6284,44 @@ var dadosOc = [
 		setorData: "27",
 		area: "0.8978",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3MB4",
@@ -1623,6 +6335,44 @@ var dadosOc = [
 		setorData: "25",
 		area: "0.8994",
 		nPlantas: "1038",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3MB5",
@@ -1636,6 +6386,44 @@ var dadosOc = [
 		setorData: "23",
 		area: "0.3859",
 		nPlantas: "445",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3AC4",
@@ -1649,6 +6437,44 @@ var dadosOc = [
 		setorData: "29",
 		area: "0.8967",
 		nPlantas: "1035",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3AC1",
@@ -1662,6 +6488,44 @@ var dadosOc = [
 		setorData: "18",
 		area: "0.8982",
 		nPlantas: "1036",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3SWG6",
@@ -1675,6 +6539,44 @@ var dadosOc = [
 		setorData: "19",
 		area: "0.8881",
 		nPlantas: "1025",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3S41A",
@@ -1688,6 +6590,44 @@ var dadosOc = [
 		setorData: "1",
 		area: "0.3176",
 		nPlantas: "366",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3B516A",
@@ -1701,6 +6641,44 @@ var dadosOc = [
 		setorData: "42",
 		area: "0.5532",
 		nPlantas: "638",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3B516B",
@@ -1714,6 +6692,44 @@ var dadosOc = [
 		setorData: "40",
 		area: "0.5564",
 		nPlantas: "642",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3SWG7",
@@ -1727,6 +6743,44 @@ var dadosOc = [
 		setorData: "38",
 		area: "0.5483",
 		nPlantas: "633",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3SWG8",
@@ -1740,6 +6794,44 @@ var dadosOc = [
 		setorData: "36",
 		area: "0.5380",
 		nPlantas: "621",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3SWG9",
@@ -1753,6 +6845,44 @@ var dadosOc = [
 		setorData: "34",
 		area: "0.5283",
 		nPlantas: "610",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3SWG10",
@@ -1766,6 +6896,44 @@ var dadosOc = [
 		setorData: "32",
 		area: "0.5200",
 		nPlantas: "600",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3AC6",
@@ -1779,6 +6947,44 @@ var dadosOc = [
 		setorData: "28",
 		area: "0.4528",
 		nPlantas: "522",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3AC7",
@@ -1792,6 +6998,44 @@ var dadosOc = [
 		setorData: "26",
 		area: "0.3893",
 		nPlantas: "449",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3SWG11",
@@ -1805,6 +7049,44 @@ var dadosOc = [
 		setorData: "30",
 		area: "0.5055",
 		nPlantas: "583",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3AC8",
@@ -1818,6 +7100,44 @@ var dadosOc = [
 		setorData: "24",
 		area: "0.2864",
 		nPlantas: "330",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 	{
 		dataName: "3MB2",
@@ -1831,5 +7151,43 @@ var dadosOc = [
 		setorData: "22",
 		area: "0.5237",
 		nPlantas: "604",
+		linhas: [
+			29, // Linha 1
+			29, // Linha 2
+			29, // Linha 3
+			29, // Linha 4
+			29, // Linha 5
+			29, // Linha 6
+			29, // Linha 7
+			29, // Linha 8
+			29, // Linha 9
+			29, // Linha 10
+			29, // Linha 11
+			29, // Linha 12
+			29, // Linha 13
+			29, // Linha 14
+			29, // Linha 15
+			29, // Linha 16
+			29, // Linha 17
+			29, // Linha 18
+			29, // Linha 19
+			29, // Linha 20
+			29, // Linha 21
+			29, // Linha 22
+			29, // Linha 23
+			29, // Linha 24
+			29, // Linha 25
+			29, // Linha 26
+			29, // Linha 27
+			29, // Linha 28
+			29, // Linha 29
+			29, // Linha 30
+			29, // Linha 31
+			29, // Linha 32
+			29, // Linha 33
+			29, // Linha 34
+			29, // Linha 35
+			29, // Linha 36
+		],
 	},
 ];

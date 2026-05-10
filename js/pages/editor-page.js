@@ -70,13 +70,13 @@ function renderSVGItems(app) {
             data-item="${item.dataName}"
             style="cursor: pointer;"
             aria-label="Área ${item.dataName}" />
-          <text transform="${item.textTransform}" font-size="11" fill="${textColor}">
+          <text transform="${item.textTransform}" font-size="11" fill="${textColor}" style="pointer-events: none;">
             <tspan x="${item.nomeTspanX}" y="${item.nomeTspanY}">${item.dataName}</tspan>
           </text>
           ${
             app.showSetores
               ? `
-            <text transform="${item.setorTransform}" font-size="10" font-weight="bold" fill="#ff0000">
+            <text transform="${item.setorTransform}" font-size="10" font-weight="bold" fill="#ff0000" style="pointer-events: none;">
               <tspan x="${item.setorTspanX}" y="${item.setorTspanY}">${item.setorData}</tspan>
             </text>
           `
@@ -101,6 +101,7 @@ function renderMap(app) {
         <svg class="map-svg" viewBox="0 0 ${baseViewBoxWidth} ${baseViewBoxHeight}" role="img" aria-label="Mapa interativo de áreas">
           ${renderSVGItems(app)}
         </svg>
+        <div id="map-tooltip" class="map-tooltip" role="tooltip" hidden></div>
         <img
           src="assets/editor-overlay-right.svg?v=__ASSET_VERSION__"
           alt=""

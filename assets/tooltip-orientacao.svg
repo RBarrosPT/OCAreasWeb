@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="64" viewBox="0 0 96 64" fill="none">
+  <defs>
+    <marker id="arrow-head" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8V0Z" fill="#37474f" />
+    </marker>
+  </defs>
+  <circle cx="18" cy="46" r="4" fill="#37474f" />
+  <line x1="18" y1="46" x2="76" y2="46" stroke="#37474f" stroke-width="2.5" marker-end="url(#arrow-head)" />
+  <line x1="18" y1="46" x2="18" y2="12" stroke="#37474f" stroke-width="2.5" marker-end="url(#arrow-head)" />
+</svg>

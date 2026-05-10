@@ -1,6 +1,6 @@
 import { COLORS } from "./config.js?v=__ASSET_VERSION__";
 import { api } from "./api.js?v=__ASSET_VERSION__";
-import { downloadJsonFile, getDataItems, normalizeStateSignature, readFileAsText } from "./utils.js?v=__ASSET_VERSION__";
+import { downloadJsonFile, escapeHtml, getDataItems, normalizeStateSignature, readFileAsText } from "./utils.js?v=__ASSET_VERSION__";
 import { renderAuthPage } from "./pages/auth-page.js?v=__ASSET_VERSION__";
 import { renderHomePage } from "./pages/home-page.js?v=__ASSET_VERSION__";
 import { renderEditorPage } from "./pages/editor-page.js?v=__ASSET_VERSION__";
@@ -784,6 +784,75 @@ export class MapaSVGApp {
 		await this.loadSet(setId);
 	}
 
+	buildMapTooltipHtml(item) {
+		const linhasArray = Array.isArray(item?.linhas) ? item.linhas : [];
+		const linhasValue = linhasArray.length ? linhasArray.join(", ") : "Sem dados";
+		const linhasCount = linhasArray.length;
+
+		return `
+			<div class="map-tooltip-content">
+				<div class="map-tooltip-line"><strong>Nome da quadra:</strong> ${escapeHtml(item?.dataName || "-")}</div>
+				<div class="map-tooltip-line"><strong>Área (ha):</strong> ${escapeHtml(item?.area || "-")}</div>
+				<div class="map-tooltip-line"><strong>Número do setor de rega:</strong> ${escapeHtml(item?.setorData || "-")}</div>
+				<div class="map-tooltip-divider"></div>
+				<div class="map-tooltip-construction">(Em construção)</div>
+				<div class="map-tooltip-line"><strong>Número de plantas:</strong> ${escapeHtml(item?.nPlantas || "-")}</div>
+				<div class="map-tooltip-line"><strong>Número de linhas:</strong> ${escapeHtml(linhasCount)}</div>
+				<div class="map-tooltip-line"><strong>Disposição:</strong> ${escapeHtml(linhasValue)}</div>
+				<div class="map-tooltip-orientation-title">Orientação (esquerda->direita, sul->norte):</div>
+				<img src="assets/tooltip-orientacao.svg?v=__ASSET_VERSION__" alt="Orientação de contagem" class="map-tooltip-image">
+			</div>
+		`;
+	}
+
+	positionMapTooltip(event) {
+		const tooltip = document.getElementById("map-tooltip");
+		if (!tooltip || tooltip.hidden) {
+			return;
+		}
+
+		const offset = 14;
+		let left = event.clientX + offset;
+		let top = event.clientY + offset;
+
+		const { innerWidth, innerHeight } = window;
+		const maxLeft = innerWidth - tooltip.offsetWidth - 8;
+		const maxTop = innerHeight - tooltip.offsetHeight - 8;
+
+		left = Math.max(8, Math.min(left, maxLeft));
+		top = Math.max(8, Math.min(top, maxTop));
+
+		tooltip.style.left = `${left}px`;
+		tooltip.style.top = `${top}px`;
+	}
+
+	showMapTooltip(itemName, event) {
+		const tooltip = document.getElementById("map-tooltip");
+		if (!tooltip) {
+			return;
+		}
+
+		const item = getDataItems().find((dataItem) => dataItem.dataName === itemName);
+		if (!item) {
+			tooltip.hidden = true;
+			return;
+		}
+
+		tooltip.innerHTML = this.buildMapTooltipHtml(item);
+		tooltip.hidden = false;
+		this.positionMapTooltip(event);
+	}
+
+	hideMapTooltip() {
+		const tooltip = document.getElementById("map-tooltip");
+		if (!tooltip) {
+			return;
+		}
+
+		tooltip.hidden = true;
+		tooltip.innerHTML = "";
+	}
+
 	attachEventListeners() {
 		document.getElementById("auth-submit")?.addEventListener("click", () => this.handleAuthSubmit(this.authMode));
 		document.getElementById("auth-switch-mode")?.addEventListener("click", () => {
@@ -974,6 +1043,22 @@ export class MapaSVGApp {
 		});
 
 		document.querySelectorAll("path[data-item]").forEach((path) => {
+			path.addEventListener("mouseenter", (event) => {
+				const itemName = event.currentTarget.getAttribute("data-item");
+				if (!itemName) {
+					return;
+				}
+				this.showMapTooltip(itemName, event);
+			});
+
+			path.addEventListener("mousemove", (event) => {
+				this.positionMapTooltip(event);
+			});
+
+			path.addEventListener("mouseleave", () => {
+				this.hideMapTooltip();
+			});
+
 			path.addEventListener("click", (event) => {
 				if (this.isReadOnly) {
 					return;
