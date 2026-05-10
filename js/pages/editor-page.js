@@ -6,7 +6,7 @@ function renderModal(app) {
     <div class="modal-overlay" id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title" hidden>
       <div class="modal-panel card shadow-sm">
         <div class="modal-header">
-          <span class="modal-title" id="settings-modal-title">Definições</span>
+          <span class="modal-title" id="settings-modal-title">Configurações</span>
           <button type="button" class="modal-close btn btn-outline-secondary btn-sm" id="close-settings" aria-label="Fechar definições">✕</button>
         </div>
         <div class="modal-body">
@@ -71,8 +71,7 @@ function renderMap(app) {
   const readOnlyNote = app.isReadOnly ? '<div class="readonly-badge">Mapa partilhado (só leitura)</div>' : "";
 
   return `
-    <div class="map-container col-12 col-xl-8">
-      <div class="map-current-title">Mapa: ${mapTitle}</div>
+    <div class="map-container col-12 col-xl-6">
       ${readOnlyNote}
       <div class="map-stage">
         <svg class="map-svg" viewBox="0 0 ${baseViewBoxWidth} ${baseViewBoxHeight}" role="img" aria-label="Mapa interativo de áreas">
@@ -109,7 +108,7 @@ function renderColorRow(app, colorItem) {
       <button type="button" class="color-sample" style="${sampleStyle}" data-color="${colorItem.color}" aria-label="Aplicar cor do grupo ${colorItem.id}" ${disabled}></button>
       <div>
         <label class="visually-hidden" for="${groupId}">Notas da cor ${colorItem.id}</label>
-        <input type="text" id="${groupId}" class="color-input form-control form-control-sm" placeholder="Notas para esta cor" value="${colorName}" data-color="${colorItem.color}" ${disabled}>
+        <input type="text" id="${groupId}" class="color-input form-control form-control-sm" placeholder="..." value="${colorName}" data-color="${colorItem.color}" ${disabled}>
       </div>
       <div class="color-stats">
         <span class="color-count">(${count})</span>
@@ -240,7 +239,7 @@ function renderSavedSetsSection(app) {
 
 function renderSidebar(app) {
   return `
-    <div class="color-palette col-12 col-xl-4">
+    <div class="color-palette col-12 col-xl-6">
       <div class="color-palette-title">Legenda</div>
       ${renderColoredAreaSummary(app)}
       ${app.colors.map((colorItem) => renderColorRow(app, colorItem)).join("")}
