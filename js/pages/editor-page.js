@@ -74,9 +74,19 @@ function renderMap(app) {
     <div class="map-container col-12 col-xl-8">
       <div class="map-current-title">Mapa: ${mapTitle}</div>
       ${readOnlyNote}
-      <svg class="map-svg" viewBox="0 0 ${baseViewBoxWidth} ${baseViewBoxHeight}" role="img" aria-label="Mapa interativo de áreas">
-        ${renderSVGItems(app)}
-      </svg>
+      <div class="map-stage">
+        <svg class="map-svg" viewBox="0 0 ${baseViewBoxWidth} ${baseViewBoxHeight}" role="img" aria-label="Mapa interativo de áreas">
+          ${renderSVGItems(app)}
+        </svg>
+        <img
+          src="assets/editor-overlay-right.svg?v=__ASSET_VERSION__"
+          alt=""
+          aria-hidden="true"
+          class="editor-right-overlay"
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
     </div>
   `;
 }

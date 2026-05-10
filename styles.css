@@ -451,6 +451,23 @@ button:disabled {
 	background-color: #fff;
 }
 
+.map-stage {
+	position: relative;
+	background-color: #fff;
+}
+
+.editor-right-overlay {
+	position: absolute;
+	right: 500px;
+	top: 12px;
+	width: min(22%, 130px);
+	height: auto;
+	opacity: 0.7;
+	pointer-events: none;
+	z-index: 3;
+	filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+}
+
 .color-palette {
 	width: min(800px, 100%);
 	max-width: 100%;
@@ -958,6 +975,13 @@ button:disabled {
 
 	.color-row > div {
 		width: 100%;
+	}
+
+	.editor-right-overlay {
+		width: min(30%, 140px);
+		right: 130px;
+		top: 8px;
+		opacity: 0.62;
 	}
 
 	.color-stats {
