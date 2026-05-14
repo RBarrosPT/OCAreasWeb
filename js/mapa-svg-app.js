@@ -12,6 +12,7 @@ export class MapaSVGApp {
 		this.showPhase2 = false;
 		this.showPhase3 = false;
 		this.showQuadraInfo = false;
+		this.showSetoresPorCor = false;
 		this.zoomLevel = 1.4;
 		this.colors = COLORS;
 		this.selectedColor = "#FFFFFF";
@@ -940,6 +941,7 @@ export class MapaSVGApp {
 		document.getElementById("toggle-phase2")?.addEventListener("change", (event) => this.togglePhase2(event.target.checked));
 		document.getElementById("toggle-phase3")?.addEventListener("change", (event) => this.togglePhase3(event.target.checked));
 		document.getElementById("toggle-quadra-info")?.addEventListener("change", (event) => this.toggleQuadraInfo(event.target.checked));
+		document.getElementById("toggle-setores-por-cor")?.addEventListener("change", (event) => this.toggleSetoresPorCor(event.target.checked));
 		document.getElementById("new-set")?.addEventListener("click", () => this.handleNewSet());
 		document.getElementById("save-set")?.addEventListener("click", async () => {
 			await this.persistCurrentSet(false);
@@ -1180,6 +1182,11 @@ export class MapaSVGApp {
 
 	toggleQuadraInfo(forceValue = null) {
 		this.showQuadraInfo = typeof forceValue === "boolean" ? forceValue : !this.showQuadraInfo;
+		this.render();
+	}
+
+	toggleSetoresPorCor(forceValue = null) {
+		this.showSetoresPorCor = typeof forceValue === "boolean" ? forceValue : !this.showSetoresPorCor;
 		this.render();
 	}
 

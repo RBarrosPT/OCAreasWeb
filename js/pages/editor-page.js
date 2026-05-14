@@ -2,6 +2,8 @@ import { escapeHtml, formatDate, getDataItems } from "../utils.js?v=__ASSET_VERS
 import { renderHeader } from "./header.js?v=__ASSET_VERSION__";
 
 function renderModal(app) {
+  const showSetoresPorCor = app.showSetoresPorCor === true;
+
   return `
     <div class="modal-overlay" id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title" hidden>
       <div class="modal-panel card shadow-sm">
@@ -29,6 +31,10 @@ function renderModal(app) {
           <label class="modal-action-button form-check d-flex align-items-center gap-2" for="toggle-quadra-info">
             <input type="checkbox" class="form-check-input mt-0" id="toggle-quadra-info" ${app.showQuadraInfo ? "checked" : ""}>
             <span>Mostrar Informações da Quadra</span>
+          </label>
+          <label class="modal-action-button form-check d-flex align-items-center gap-2" for="toggle-setores-por-cor">
+            <input type="checkbox" class="form-check-input mt-0" id="toggle-setores-por-cor" ${showSetoresPorCor ? "checked" : ""}>
+            <span>Mostrar Nome Quadras e Setores por côr</span>
           </label>
           <!--
           <button type="button" class="modal-action-button secondary-button btn btn-outline-secondary" id="export-sets">Exportar JSON</button>
@@ -124,11 +130,19 @@ function renderColorRow(app, colorItem) {
   const area = app.getColorArea(colorItem.color);
   const plants = app.getColorPlants(colorItem.color);
   const percentage = app.getColorPercentage(colorItem.color);
+  const selectedItems = getDataItems().filter((item) => app.itemColors[item.dataName] === colorItem.color);
+  const selectedQuadras = selectedItems.map((item) => escapeHtml(item.dataName));
+  const selectedSetores = [...new Set(selectedItems.map((item) => String(item.setorData || "").trim()).filter(Boolean))]
+    .map((setor) => escapeHtml(/^S/i.test(setor) ? setor.toUpperCase() : `S${setor}`));
+  const quadrasLabel = selectedQuadras.length === 1 ? "Quadra" : "Quadras";
+  const quadrasText = selectedQuadras.length ? selectedQuadras.join(", ") : "--";
+  const setoresText = selectedSetores.length ? selectedSetores.join(", ") : "--";
   const isSelected = app.selectedColor === colorItem.color;
   const colorName = escapeHtml(app.colorNames[colorItem.color] || "");
   const groupId = `group-color-${colorItem.id}`;
   const sampleStyle = `background-color: ${colorItem.color}; color: ${colorItem.text};`;
   const disabled = app.isReadOnly ? "disabled" : "";
+  const showSelectionDetails = app.showSetoresPorCor === true && String(colorItem.color || "").toUpperCase() !== "#FFFFFF";
 
   return `
     <div class="color-row">
@@ -139,6 +153,14 @@ function renderColorRow(app, colorItem) {
       <div>
         <label class="visually-hidden" for="${groupId}">Notas da cor ${colorItem.id}</label>
         <input type="text" id="${groupId}" class="color-input form-control form-control-sm" placeholder="..." value="${colorName}" data-color="${colorItem.color}" ${disabled}>
+        ${
+          showSelectionDetails
+            ? `<div class="color-selection-details" aria-live="polite">
+          <span>${quadrasLabel}: ${quadrasText}</span>
+          <span>Setores: ${setoresText}</span>
+        </div>`
+            : ""
+        }
       </div>
       <div class="color-stats">
         <span class="color-count">(${count})</span>
