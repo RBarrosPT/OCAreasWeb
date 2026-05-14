@@ -26,6 +26,10 @@ function renderModal(app) {
             <input type="checkbox" class="form-check-input mt-0" id="toggle-phase3" ${app.showPhase3 ? "checked" : ""}>
             <span>Mostrar APENAS FASE 3</span>
           </label>
+          <label class="modal-action-button form-check d-flex align-items-center gap-2" for="toggle-quadra-info">
+            <input type="checkbox" class="form-check-input mt-0" id="toggle-quadra-info" ${app.showQuadraInfo ? "checked" : ""}>
+            <span>Mostrar Informações da Quadra</span>
+          </label>
           <!--
           <button type="button" class="modal-action-button secondary-button btn btn-outline-secondary" id="export-sets">Exportar JSON</button>
           <label class="modal-action-button import-button btn btn-outline-secondary" for="import-sets-modal">Importar JSON</label>

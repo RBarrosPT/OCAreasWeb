@@ -1116,4 +1116,9 @@ button:disabled {
 		width: 100% !important;
 		flex: 0 0 100% !important;
 	}
+
+	/* Esconder color-row sem texto, excepto a cor branca */
+	.color-row:has(.color-input[value=""]:not([data-color="#FFFFFF"])) {
+		display: none !important;
+	}
 }

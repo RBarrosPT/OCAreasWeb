@@ -11,6 +11,7 @@ export class MapaSVGApp {
 		this.showPhase1 = false;
 		this.showPhase2 = false;
 		this.showPhase3 = false;
+		this.showQuadraInfo = false;
 		this.zoomLevel = 1.4;
 		this.colors = COLORS;
 		this.selectedColor = "#FFFFFF";
@@ -828,7 +829,7 @@ export class MapaSVGApp {
 
 	showMapTooltip(itemName, event) {
 		const tooltip = document.getElementById("map-tooltip");
-		if (!tooltip) {
+		if (!tooltip || !this.showQuadraInfo) {
 			return;
 		}
 
@@ -938,6 +939,7 @@ export class MapaSVGApp {
 		document.getElementById("toggle-phase1")?.addEventListener("change", (event) => this.togglePhase1(event.target.checked));
 		document.getElementById("toggle-phase2")?.addEventListener("change", (event) => this.togglePhase2(event.target.checked));
 		document.getElementById("toggle-phase3")?.addEventListener("change", (event) => this.togglePhase3(event.target.checked));
+		document.getElementById("toggle-quadra-info")?.addEventListener("change", (event) => this.toggleQuadraInfo(event.target.checked));
 		document.getElementById("new-set")?.addEventListener("click", () => this.handleNewSet());
 		document.getElementById("save-set")?.addEventListener("click", async () => {
 			await this.persistCurrentSet(false);
@@ -1173,6 +1175,11 @@ export class MapaSVGApp {
 
 	togglePhase3(forceValue = null) {
 		this.showPhase3 = typeof forceValue === "boolean" ? forceValue : !this.showPhase3;
+		this.render();
+	}
+
+	toggleQuadraInfo(forceValue = null) {
+		this.showQuadraInfo = typeof forceValue === "boolean" ? forceValue : !this.showQuadraInfo;
 		this.render();
 	}
 
