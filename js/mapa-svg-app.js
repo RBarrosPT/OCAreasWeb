@@ -7,6 +7,7 @@ import { renderEditorPage } from "./pages/editor-page.js?v=__ASSET_VERSION__";
 
 export class MapaSVGApp {
 	constructor() {
+		const defaultEtRequestedDate = new Date().toISOString().slice(0, 10);
 		this.showSetores = false;
 		this.showPhase1 = false;
 		this.showPhase2 = false;
@@ -36,6 +37,32 @@ export class MapaSVGApp {
 		this.isSaving = false;
 		this.flashMessage = null;
 		this.flashMessageTimeout = null;
+		this.etImportCountdownInterval = null;
+		this.weatherStationImportCountdownInterval = null;
+		this.homeSectionCollapsed = {
+			ownMaps: false,
+			sharedMaps: true,
+			etImport: false,
+			weatherStation: false,
+		};
+		this.etImportState = {
+			loading: false,
+			error: "",
+			rows: [],
+			lastImportedAt: "",
+			remainingSeconds: 0,
+			reductionPercent: 20,
+			requestedDate: defaultEtRequestedDate,
+		};
+		this.weatherStationState = {
+			loading: false,
+			error: "",
+			rows: [],
+			lastImportedAt: "",
+			remainingSeconds: 0,
+			reductionPercent: 20,
+			requestedDate: defaultEtRequestedDate,
+		};
 		this.handleAppClick = this.handleAppClick.bind(this);
 		this.handleBeforeUnload = this.handleBeforeUnload.bind(this);
 		this.handleHashChange = this.handleHashChange.bind(this);
@@ -61,6 +88,64 @@ export class MapaSVGApp {
 			await this.refreshMaps();
 		}
 
+		this.render();
+	}
+
+	applyEtHistory(history) {
+		const requestedDate = String(history?.requestedDate || "").trim() || new Date().toISOString().slice(0, 10);
+		const rows = Array.isArray(history?.rows) ? history.rows : [];
+		const lastImportedAt = String(history?.lastImportedAt || "").trim();
+
+		this.etImportState = {
+			...this.etImportState,
+			loading: false,
+			error: "",
+			rows,
+			lastImportedAt,
+			remainingSeconds: 0,
+			reductionPercent: Number.isFinite(Number(this.etImportState?.reductionPercent)) ? Number(this.etImportState.reductionPercent) : 20,
+			requestedDate,
+		};
+	}
+
+	updateEtIdealReductionPercent(value) {
+		const numericValue = Number.parseInt(String(value || "20"), 10);
+		const allowedValues = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
+		const reductionPercent = allowedValues.includes(numericValue) ? numericValue : 20;
+
+		this.etImportState = {
+			...this.etImportState,
+			reductionPercent,
+		};
+		this.render();
+	}
+
+	applyWeatherStationHistory(history) {
+		const requestedDate = String(history?.requestedDate || "").trim() || new Date().toISOString().slice(0, 10);
+		const rows = Array.isArray(history?.rows) ? history.rows : [];
+		const lastImportedAt = String(history?.lastImportedAt || "").trim();
+
+		this.weatherStationState = {
+			...this.weatherStationState,
+			loading: false,
+			error: "",
+			rows,
+			lastImportedAt,
+			remainingSeconds: 0,
+			reductionPercent: Number.isFinite(Number(this.weatherStationState?.reductionPercent)) ? Number(this.weatherStationState.reductionPercent) : 20,
+			requestedDate,
+		};
+	}
+
+	updateWeatherStationIdealReductionPercent(value) {
+		const numericValue = Number.parseInt(String(value || "20"), 10);
+		const allowedValues = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
+		const reductionPercent = allowedValues.includes(numericValue) ? numericValue : 20;
+
+		this.weatherStationState = {
+			...this.weatherStationState,
+			reductionPercent,
+		};
 		this.render();
 	}
 
@@ -268,9 +353,16 @@ export class MapaSVGApp {
 	}
 
 	async refreshMaps(selectMapId = null) {
-		const [maps, users] = await Promise.all([api.listMaps(), api.listUsers()]);
+		const [maps, users, etHistory, weatherStationHistory] = await Promise.all([
+			api.listMaps(),
+			api.listUsers(),
+			api.getEtHistory(),
+			api.getWeatherStationHistory(),
+		]);
 		this.savedSets = this.sortSavedSets(maps);
 		this.availableUsers = Array.isArray(users) ? users : [];
+		this.applyEtHistory(etHistory);
+		this.applyWeatherStationHistory(weatherStationHistory);
 
 		if (!this.savedSets.length) {
 			this.resetWorkingSet();
@@ -441,6 +533,215 @@ export class MapaSVGApp {
 		}
 	}
 
+	async importEtData() {
+		if (!this.user || this.etImportState.loading) {
+			return;
+		}
+
+		const timeoutMs = 90000;
+		const timeoutSeconds = Math.ceil(timeoutMs / 1000);
+		const requestedDate = document.getElementById("home-et-date")?.value || this.etImportState.requestedDate;
+		this.etImportState = {
+			...this.etImportState,
+			loading: true,
+			error: "",
+			remainingSeconds: timeoutSeconds,
+			requestedDate,
+		};
+		this.startEtImportCountdown(timeoutSeconds);
+		this.render();
+
+		try {
+			const history = await api.importEt(requestedDate, timeoutMs);
+			this.applyEtHistory(history);
+			this.setFlashMessage("success", `Importação ET concluída: ${this.etImportState.rows.length} registo(s).`);
+		} catch (error) {
+			this.etImportState = {
+				...this.etImportState,
+				loading: false,
+				error: error.message || "Não foi possível importar dados ET.",
+				remainingSeconds: 0,
+			};
+		} finally {
+			this.stopEtImportCountdown();
+		}
+
+		this.render();
+	}
+
+	async loadEtHistoryData() {
+		if (!this.user || this.etImportState.loading) {
+			return;
+		}
+
+		const requestedDate = document.getElementById("home-et-date")?.value || this.etImportState.requestedDate;
+		this.etImportState = {
+			...this.etImportState,
+			loading: true,
+			error: "",
+			requestedDate,
+		};
+		this.render();
+
+		try {
+			const history = await api.getEtHistory(requestedDate);
+			this.applyEtHistory(history);
+			if (this.etImportState.rows.length) {
+				this.setFlashMessage("success", `Histórico ET carregado: ${this.etImportState.rows.length} registo(s).`);
+			} else {
+				this.setFlashMessage("success", "Sem histórico ET guardado para a data selecionada.");
+			}
+		} catch (error) {
+			this.etImportState = {
+				...this.etImportState,
+				loading: false,
+				error: error.message || "Não foi possível carregar o histórico ET.",
+				remainingSeconds: 0,
+			};
+		}
+
+		this.render();
+	}
+
+	async importWeatherStationData() {
+		if (!this.user || this.weatherStationState.loading) {
+			return;
+		}
+
+		const timeoutMs = 90000;
+		const timeoutSeconds = Math.ceil(timeoutMs / 1000);
+		const requestedDate = document.getElementById("home-weather-station-date")?.value || this.weatherStationState.requestedDate;
+		this.weatherStationState = {
+			...this.weatherStationState,
+			loading: true,
+			error: "",
+			remainingSeconds: timeoutSeconds,
+			requestedDate,
+		};
+		this.startWeatherStationImportCountdown(timeoutSeconds);
+		this.render();
+
+		try {
+			const history = await api.importWeatherStation(requestedDate, timeoutMs);
+			this.applyWeatherStationHistory(history);
+			this.setFlashMessage("success", `Importação da estação meteorológica concluída: ${this.weatherStationState.rows.length} registo(s).`);
+		} catch (error) {
+			this.weatherStationState = {
+				...this.weatherStationState,
+				loading: false,
+				error: error.message || "Não foi possível importar dados da estação meteorológica.",
+				remainingSeconds: 0,
+			};
+		} finally {
+			this.stopWeatherStationImportCountdown();
+		}
+
+		this.render();
+	}
+
+	async loadWeatherStationHistoryData() {
+		if (!this.user || this.weatherStationState.loading) {
+			return;
+		}
+
+		const requestedDate = document.getElementById("home-weather-station-date")?.value || this.weatherStationState.requestedDate;
+		this.weatherStationState = {
+			...this.weatherStationState,
+			loading: true,
+			error: "",
+			requestedDate,
+		};
+		this.render();
+
+		try {
+			const history = await api.getWeatherStationHistory(requestedDate);
+			this.applyWeatherStationHistory(history);
+			if (this.weatherStationState.rows.length) {
+				this.setFlashMessage("success", `Histórico da estação meteorológica carregado: ${this.weatherStationState.rows.length} registo(s).`);
+			} else {
+				this.setFlashMessage("success", "Sem histórico da estação meteorológica guardado para a data selecionada.");
+			}
+		} catch (error) {
+			this.weatherStationState = {
+				...this.weatherStationState,
+				loading: false,
+				error: error.message || "Não foi possível carregar o histórico da estação meteorológica.",
+			};
+		}
+
+		this.render();
+	}
+
+	startEtImportCountdown(startSeconds) {
+		this.stopEtImportCountdown();
+
+		let secondsLeft = Math.max(0, Number(startSeconds) || 0);
+		this.etImportState = {
+			...this.etImportState,
+			remainingSeconds: secondsLeft,
+		};
+
+		this.etImportCountdownInterval = window.setInterval(() => {
+			if (!this.etImportState.loading) {
+				this.stopEtImportCountdown();
+				return;
+			}
+
+			secondsLeft = Math.max(0, secondsLeft - 1);
+			this.etImportState = {
+				...this.etImportState,
+				remainingSeconds: secondsLeft,
+			};
+			this.render();
+
+			if (secondsLeft <= 0) {
+				this.stopEtImportCountdown();
+			}
+		}, 1000);
+	}
+
+	startWeatherStationImportCountdown(startSeconds) {
+		this.stopWeatherStationImportCountdown();
+
+		let secondsLeft = Math.max(0, Number(startSeconds) || 0);
+		this.weatherStationState = {
+			...this.weatherStationState,
+			remainingSeconds: secondsLeft,
+		};
+
+		this.weatherStationImportCountdownInterval = window.setInterval(() => {
+			if (!this.weatherStationState.loading) {
+				this.stopWeatherStationImportCountdown();
+				return;
+			}
+
+			secondsLeft = Math.max(0, secondsLeft - 1);
+			this.weatherStationState = {
+				...this.weatherStationState,
+				remainingSeconds: secondsLeft,
+			};
+			this.render();
+
+			if (secondsLeft <= 0) {
+				this.stopWeatherStationImportCountdown();
+			}
+		}, 1000);
+	}
+
+	stopEtImportCountdown() {
+		if (this.etImportCountdownInterval) {
+			window.clearInterval(this.etImportCountdownInterval);
+			this.etImportCountdownInterval = null;
+		}
+	}
+
+	stopWeatherStationImportCountdown() {
+		if (this.weatherStationImportCountdownInterval) {
+			window.clearInterval(this.weatherStationImportCountdownInterval);
+			this.weatherStationImportCountdownInterval = null;
+		}
+	}
+
 	async restoreMapsFromBackupFile(file) {
 		if (!file || !this.user) {
 			return;
@@ -592,10 +893,30 @@ export class MapaSVGApp {
 	logout() {
 		api.logout();
 		this.user = null;
+		this.stopEtImportCountdown();
+		this.stopWeatherStationImportCountdown();
 		this.setAuthMode("login");
 		this.authError = "";
 		this.clearFlashMessage();
 		this.savedSets = [];
+		this.etImportState = {
+			loading: false,
+			error: "",
+			rows: [],
+			lastImportedAt: "",
+			remainingSeconds: 0,
+			reductionPercent: 20,
+			requestedDate: new Date().toISOString().slice(0, 10),
+		};
+		this.weatherStationState = {
+			loading: false,
+			error: "",
+			rows: [],
+			lastImportedAt: "",
+			remainingSeconds: 0,
+			reductionPercent: 20,
+			requestedDate: new Date().toISOString().slice(0, 10),
+		};
 		this.resetWorkingSet();
 		this.viewMode = "home";
 		this.render();
@@ -759,6 +1080,15 @@ export class MapaSVGApp {
 			return;
 		}
 
+		const collapseButton = target.closest("button[data-home-section-toggle]");
+		if (collapseButton) {
+			event.preventDefault();
+			event.stopPropagation();
+			const sectionKey = collapseButton.getAttribute("data-home-section-toggle");
+			this.toggleHomeSection(sectionKey);
+			return;
+		}
+
 		const deleteButton = target.closest(".home-maps-table [data-delete-id]");
 		if (deleteButton) {
 			event.preventDefault();
@@ -784,6 +1114,18 @@ export class MapaSVGApp {
 
 		const setId = openRow.getAttribute("data-home-open-id");
 		await this.loadSet(setId);
+	}
+
+	toggleHomeSection(sectionKey) {
+		if (!sectionKey || !(sectionKey in this.homeSectionCollapsed)) {
+			return;
+		}
+
+		this.homeSectionCollapsed = {
+			...this.homeSectionCollapsed,
+			[sectionKey]: !this.homeSectionCollapsed[sectionKey],
+		};
+		this.render();
 	}
 
 	buildMapTooltipHtml(item) {
@@ -928,6 +1270,24 @@ export class MapaSVGApp {
 			event.target.value = "";
 		});
 		document.getElementById("home-new-map")?.addEventListener("click", () => this.handleNewSet());
+		document.getElementById("home-import-et")?.addEventListener("click", async () => {
+			await this.importEtData();
+		});
+		document.getElementById("home-load-et-history")?.addEventListener("click", async () => {
+			await this.loadEtHistoryData();
+		});
+		document.getElementById("home-et-reduction-percent")?.addEventListener("change", (event) => {
+			this.updateEtIdealReductionPercent(event.target.value);
+		});
+		document.getElementById("home-import-weather-station")?.addEventListener("click", async () => {
+			await this.importWeatherStationData();
+		});
+		document.getElementById("home-load-weather-station-history")?.addEventListener("click", async () => {
+			await this.loadWeatherStationHistoryData();
+		});
+		document.getElementById("home-weather-station-reduction-percent")?.addEventListener("change", (event) => {
+			this.updateWeatherStationIdealReductionPercent(event.target.value);
+		});
 
 		if (!this.user) {
 			return;
@@ -1097,12 +1457,26 @@ export class MapaSVGApp {
 			element.addEventListener("change", handleColorInput);
 		});
 
-		document.querySelector(".notes-input")?.addEventListener("input", (event) => {
-			if (this.isReadOnly) {
-				return;
-			}
-			this.updateNotes(event.target.value);
-		});
+		const notesInput = document.querySelector(".notes-input");
+		if (notesInput) {
+			this.adjustNotesInputHeight(notesInput);
+			notesInput.addEventListener("input", (event) => {
+				this.adjustNotesInputHeight(event.target);
+				if (this.isReadOnly) {
+					return;
+				}
+				this.updateNotes(event.target.value);
+			});
+		}
+	}
+
+	adjustNotesInputHeight(textareaElement) {
+		if (!(textareaElement instanceof HTMLTextAreaElement)) {
+			return;
+		}
+
+		textareaElement.style.height = "auto";
+		textareaElement.style.height = `${textareaElement.scrollHeight}px`;
 	}
 
 	updateDirtyState() {

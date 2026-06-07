@@ -12,15 +12,24 @@ function setStoredToken(token) {
   }
 }
 
-async function request(path, { method = "GET", body, token } = {}) {
-  const response = await fetch(`/api${path}`, {
-    method,
-    headers: {
-      "Content-Type": "application/json",
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-    },
-    body: body ? JSON.stringify(body) : undefined,
-  });
+async function request(path, { method = "GET", body, token, signal } = {}) {
+  let response;
+  try {
+    response = await fetch(`/api${path}`, {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+      body: body ? JSON.stringify(body) : undefined,
+      signal,
+    });
+  } catch (error) {
+    if (error?.name === "AbortError") {
+      throw new Error("Pedido expirou. Tente novamente.");
+    }
+    throw error;
+  }
 
   if (response.status === 204) {
     return null;
@@ -80,6 +89,76 @@ export const api = {
   async backupMaps() {
     const data = await request("/maps/backup", { token: getStoredToken() });
     return data;
+  },
+
+  async importEt(date, timeoutMs = 90000) {
+    const abortController = new AbortController();
+    const timeoutId = window.setTimeout(() => {
+      abortController.abort();
+    }, timeoutMs);
+
+    try {
+      const data = await request("/maps/importar-et", {
+        method: "POST",
+        token: getStoredToken(),
+        body: { date },
+        signal: abortController.signal,
+      });
+
+      return {
+        requestedDate: data?.requestedDate || date || "",
+        lastImportedAt: data?.lastImportedAt || "",
+        rows: Array.isArray(data?.data) ? data.data : [],
+      };
+    } finally {
+      window.clearTimeout(timeoutId);
+    }
+  },
+
+  async getEtHistory(date = "") {
+    const query = date ? `/maps/et-history?date=${encodeURIComponent(date)}` : "/maps/et-history";
+    const data = await request(query, { token: getStoredToken() });
+    return {
+      requestedDate: data?.requestedDate || "",
+      lastImportedAt: data?.lastImportedAt || "",
+      rows: Array.isArray(data?.data) ? data.data : [],
+    };
+  },
+
+  async importWeatherStation(date, timeoutMs = 90000) {
+    const abortController = new AbortController();
+    const timeoutId = window.setTimeout(() => {
+      abortController.abort();
+    }, timeoutMs);
+
+    try {
+      const data = await request("/maps/importar-estacao-meteorologica", {
+        method: "POST",
+        token: getStoredToken(),
+        body: { date },
+        signal: abortController.signal,
+      });
+
+      return {
+        requestedDate: data?.requestedDate || date || "",
+        lastImportedAt: data?.lastImportedAt || "",
+        rows: Array.isArray(data?.data) ? data.data : [],
+      };
+    } finally {
+      window.clearTimeout(timeoutId);
+    }
+  },
+
+  async getWeatherStationHistory(date = "") {
+    const query = date
+      ? `/maps/weather-station-history?date=${encodeURIComponent(date)}`
+      : "/maps/weather-station-history";
+    const data = await request(query, { token: getStoredToken() });
+    return {
+      requestedDate: data?.requestedDate || "",
+      lastImportedAt: data?.lastImportedAt || "",
+      rows: Array.isArray(data?.data) ? data.data : [],
+    };
   },
 
   async listUsers() {

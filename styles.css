@@ -90,8 +90,84 @@ textarea:focus-visible {
 	gap: 10px;
 }
 
+.home-card-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.home-card-toggle {
+	padding: 0;
+	border: 0;
+	color: #546e7a;
+	text-decoration: none;
+	line-height: 1;
+}
+
+.home-card-toggle:hover {
+	color: #263238;
+}
+
+.home-card-toggle-icon {
+	display: inline-block;
+	font-size: 20px;
+	transition: transform 0.18s ease;
+}
+
+.home-card-toggle-icon.collapsed {
+	transform: rotate(-90deg);
+}
+
 .home-section-title {
 	font-size: 14px;
+}
+
+.home-et-controls .form-control {
+	min-width: 160px;
+}
+
+.home-et-controls .form-select {
+	min-width: 90px;
+}
+
+.home-et-header {
+	flex-wrap: nowrap !important;
+}
+
+.home-et-controls {
+	flex-wrap: nowrap !important;
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+.home-et-controls .btn,
+.home-et-controls .form-label {
+	white-space: nowrap;
+}
+
+.home-et-date-input {
+	min-width: 145px;
+}
+
+.home-et-reduction-select {
+	max-width: 90px;
+}
+
+.home-et-meta {
+	padding-top: 2px;
+}
+
+@media (max-width: 768px) {
+	.home-et-header,
+	.home-et-controls {
+		flex-wrap: wrap !important;
+		overflow-x: visible;
+	}
+}
+
+.home-et-table tbody td {
+	font-size: 0.9rem;
 }
 
 .auth-container {
@@ -947,7 +1023,8 @@ button:disabled {
 	background-color: #f9f9f9;
 	width: 100%;
 	min-height: 120px;
-	resize: vertical;
+	resize: none;
+	overflow: hidden;
 	box-sizing: border-box;
 }
 
