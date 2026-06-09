@@ -42,8 +42,9 @@ export class MapaSVGApp {
 		this.homeSectionCollapsed = {
 			ownMaps: false,
 			sharedMaps: true,
-			etImport: false,
-			weatherStation: false,
+			etImport: true,
+			weatherStation: true,
+			sprayerFlow: true,
 		};
 		this.editorCardState = {
 			agronicSummary: {
@@ -72,6 +73,11 @@ export class MapaSVGApp {
 			remainingSeconds: 0,
 			reductionPercent: 20,
 			requestedDate: defaultEtRequestedDate,
+		};
+		this.sprayerFlowConfig = {
+			nozzles: 14,
+			rowSpacing: 3.3,
+			speedKmH: 5,
 		};
 		this.handleAppClick = this.handleAppClick.bind(this);
 		this.handleBeforeUnload = this.handleBeforeUnload.bind(this);
@@ -157,6 +163,55 @@ export class MapaSVGApp {
 			reductionPercent,
 		};
 		this.render();
+	}
+
+	updateSprayerFlowConfig(values = {}, uiState = {}) {
+		const nextConfig = { ...this.sprayerFlowConfig };
+
+		if (Object.prototype.hasOwnProperty.call(values, "nozzles")) {
+			const nozzles = Number.parseInt(String(values.nozzles).replace(",", "."), 10);
+			if (Number.isFinite(nozzles) && nozzles > 0) {
+				nextConfig.nozzles = nozzles;
+			}
+		}
+
+		if (Object.prototype.hasOwnProperty.call(values, "rowSpacing")) {
+			const rowSpacing = Number.parseFloat(String(values.rowSpacing).replace(",", "."));
+			if (Number.isFinite(rowSpacing) && rowSpacing > 0) {
+				nextConfig.rowSpacing = rowSpacing;
+			}
+		}
+
+		if (Object.prototype.hasOwnProperty.call(values, "speedKmH")) {
+			const speedKmH = Number.parseFloat(String(values.speedKmH).replace(",", "."));
+			if (Number.isFinite(speedKmH) && speedKmH > 0) {
+				nextConfig.speedKmH = speedKmH;
+			}
+		}
+
+		this.sprayerFlowConfig = nextConfig;
+
+		const scrollX = window.scrollX;
+		const scrollY = window.scrollY;
+		const focusId = typeof uiState.focusId === "string" ? uiState.focusId : "";
+		const selectionStart = Number.isInteger(uiState.selectionStart) ? uiState.selectionStart : null;
+		const selectionEnd = Number.isInteger(uiState.selectionEnd) ? uiState.selectionEnd : null;
+
+		this.render();
+
+		window.scrollTo(scrollX, scrollY);
+
+		if (focusId) {
+			const focusedInput = document.getElementById(focusId);
+			if (focusedInput instanceof HTMLInputElement) {
+				focusedInput.focus({ preventScroll: true });
+				if (selectionStart !== null && selectionEnd !== null) {
+					const safeStart = Math.max(0, Math.min(selectionStart, focusedInput.value.length));
+					const safeEnd = Math.max(safeStart, Math.min(selectionEnd, focusedInput.value.length));
+					focusedInput.setSelectionRange(safeStart, safeEnd);
+				}
+			}
+		}
 	}
 
 	getAuthModeFromHash() {
@@ -1337,6 +1392,66 @@ export class MapaSVGApp {
 		});
 		document.getElementById("home-weather-station-reduction-percent")?.addEventListener("change", (event) => {
 			this.updateWeatherStationIdealReductionPercent(event.target.value);
+		});
+		document.getElementById("sprayer-nozzles-input")?.addEventListener("change", (event) => {
+			this.updateSprayerFlowConfig(
+				{ nozzles: event.target.value },
+				{
+					focusId: event.target.id,
+					selectionStart: event.target.selectionStart,
+					selectionEnd: event.target.selectionEnd,
+				},
+			);
+		});
+		document.getElementById("sprayer-nozzles-input")?.addEventListener("input", (event) => {
+			this.updateSprayerFlowConfig(
+				{ nozzles: event.target.value },
+				{
+					focusId: event.target.id,
+					selectionStart: event.target.selectionStart,
+					selectionEnd: event.target.selectionEnd,
+				},
+			);
+		});
+		document.getElementById("sprayer-row-spacing-input")?.addEventListener("change", (event) => {
+			this.updateSprayerFlowConfig(
+				{ rowSpacing: event.target.value },
+				{
+					focusId: event.target.id,
+					selectionStart: event.target.selectionStart,
+					selectionEnd: event.target.selectionEnd,
+				},
+			);
+		});
+		document.getElementById("sprayer-row-spacing-input")?.addEventListener("input", (event) => {
+			this.updateSprayerFlowConfig(
+				{ rowSpacing: event.target.value },
+				{
+					focusId: event.target.id,
+					selectionStart: event.target.selectionStart,
+					selectionEnd: event.target.selectionEnd,
+				},
+			);
+		});
+		document.getElementById("sprayer-speed-input")?.addEventListener("change", (event) => {
+			this.updateSprayerFlowConfig(
+				{ speedKmH: event.target.value },
+				{
+					focusId: event.target.id,
+					selectionStart: event.target.selectionStart,
+					selectionEnd: event.target.selectionEnd,
+				},
+			);
+		});
+		document.getElementById("sprayer-speed-input")?.addEventListener("input", (event) => {
+			this.updateSprayerFlowConfig(
+				{ speedKmH: event.target.value },
+				{
+					focusId: event.target.id,
+					selectionStart: event.target.selectionStart,
+					selectionEnd: event.target.selectionEnd,
+				},
+			);
 		});
 
 		if (!this.user) {

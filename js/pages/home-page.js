@@ -1,5 +1,6 @@
 import { escapeHtml, formatDate } from "../utils.js?v=__ASSET_VERSION__";
 import { renderHeader } from "./header.js?v=__ASSET_VERSION__";
+import { renderSprayerFlowCard } from "./sprayer-flow-card.js?v=__ASSET_VERSION__";
 
 function getDateSortValue(dateString) {
   const timestamp = Date.parse(dateString || "");
@@ -397,6 +398,7 @@ export function renderHomePage(app) {
         </div>
         ${renderEtImportSection(app)}
         ${renderWeatherStationSection(app)}
+        ${renderSprayerFlowCard(app)}
       </div>
     </div>
   `;
