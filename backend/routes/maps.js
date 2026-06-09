@@ -164,7 +164,7 @@ async function persistEtHistory(requestedDate, rows, userId) {
 
   try {
     await client.query("BEGIN");
-    await client.query("DELETE FROM et_history WHERE requested_date = $1", [requestedDate]);
+    await client.query("DELETE FROM et_history");
 
     for (const row of rows) {
       await client.query(
@@ -287,7 +287,7 @@ async function persistWeatherStationHistory(requestedDate, rows, userId) {
 
   try {
     await client.query("BEGIN");
-    await client.query("DELETE FROM weather_station_history WHERE requested_date = $1", [requestedDate]);
+    await client.query("DELETE FROM weather_station_history");
 
     for (const row of rows) {
       await client.query(
@@ -614,7 +614,7 @@ async function importEtFromIrristrat(dateLabel) {
 
     irristratStorageState = await context.storageState();
 
-    const rows = await page.evaluate(({ expectedDateLabel, etIconSelector }) => {
+    const rows = await page.evaluate(({ etIconSelector }) => {
       const titleText = String(document.title || "");
       const yearMatch = titleText.match(/'(\d{2})/);
       const year = yearMatch ? `20${yearMatch[1]}` : String(new Date().getFullYear());
@@ -625,33 +625,35 @@ async function importEtFromIrristrat(dateLabel) {
         return [];
       }
 
-      const hasExpectedDate = (row) => {
-        if (!expectedDateLabel) {
-          return false;
+      // Find the data row by locating the ET icon, then use the row above as the date header.
+      // This always returns whatever week IRRISTRAT currently shows on the page.
+      const dataRow = allRows.find((row) => row.querySelector(etIconSelector));
+      let headerRow = null;
+
+      if (dataRow) {
+        const dataIndex = allRows.indexOf(dataRow);
+        if (dataIndex > 0) {
+          headerRow = allRows[dataIndex - 1];
         }
+      }
 
-        return row.innerText.includes(expectedDateLabel);
-      };
-
-      const hasDateFormat = (row) => /\b\d{2}\/\d{2}\b/.test(row.innerText);
-
-      const headerRow = allRows.find(hasExpectedDate)
-        || allRows.find(hasDateFormat)
-        || null;
+      // Fallback: find first row with a date pattern (dd/mm)
+      if (!headerRow || !/\d{2}\/\d{2}/.test(headerRow.innerText)) {
+        headerRow = allRows.find((row) => /\b\d{2}\/\d{2}\b/.test(row.innerText)) || null;
+      }
 
       if (!headerRow) {
         return [];
       }
 
-      const headerIndex = allRows.indexOf(headerRow);
-      const dataRow = allRows[headerIndex + 1];
+      const effectiveDataRow = dataRow || allRows[allRows.indexOf(headerRow) + 1];
 
-      if (!dataRow || !headerRow.cells?.length || !dataRow.cells?.length) {
+      if (!effectiveDataRow || !headerRow.cells?.length || !effectiveDataRow.cells?.length) {
         return [];
       }
 
       return Array.from(headerRow.cells).map((headerCell, index) => {
-        const targetCell = dataRow.cells[index];
+        const targetCell = effectiveDataRow.cells[index];
         const originalDateText = String(headerCell.innerText || "").trim();
         const dateParts = originalDateText.match(/(\d{2})\/(\d{2})/);
         const fullDateIso = dateParts ? `${year}-${dateParts[2]}-${dateParts[1]}` : originalDateText;
@@ -689,7 +691,7 @@ async function importEtFromIrristrat(dateLabel) {
           tempMin,
         };
       }).filter((item) => item.data);
-    }, { expectedDateLabel: dateLabel, etIconSelector: etSelector });
+    }, { etIconSelector: etSelector });
 
     return rows;
   } finally {
@@ -869,26 +871,25 @@ mapsRouter.get("/", async (req, res) => {
 
 mapsRouter.post("/importar-et", async (req, res) => {
   try {
-    const requestedDate = normalizeRequestedDate(typeof req.body?.date === "string" ? req.body.date : "");
-    const dateLabel = formatDateLabel(requestedDate);
+    const requestedDate = normalizeRequestedDate("");
     const cacheTtlMs = Number(process.env.IRRISTRAT_CACHE_TTL_MS || 180000);
-    const cacheKey = dateLabel || "current";
+    const cacheKey = "current";
     const cacheEntry = etImportCache.get(cacheKey);
     const now = Date.now();
 
     if (cacheEntry && Number.isFinite(cacheTtlMs) && cacheTtlMs > 0 && (now - cacheEntry.timestamp) <= cacheTtlMs) {
-      const persistedHistory = await getEtHistoryByDate(requestedDate);
+      const latestHistory = await getLatestEtHistory();
       return res.json({
-        requestedDate,
-        data: persistedHistory.rows.length ? persistedHistory.rows : cacheEntry.data,
-        lastImportedAt: persistedHistory.lastImportedAt,
+        requestedDate: latestHistory.requestedDate,
+        data: latestHistory.rows.length ? latestHistory.rows : cacheEntry.data,
+        lastImportedAt: latestHistory.lastImportedAt,
         cached: true,
       });
     }
 
     const maxImportTimeMs = Number(process.env.IRRISTRAT_IMPORT_TIMEOUT_MS || 90000);
     const importedData = await withTimeout(
-      importEtFromIrristrat(dateLabel),
+      importEtFromIrristrat(""),
       Number.isFinite(maxImportTimeMs) ? maxImportTimeMs : 90000,
       "Tempo limite excedido ao importar ET. Tente novamente.",
     );
@@ -902,12 +903,12 @@ mapsRouter.post("/importar-et", async (req, res) => {
       data,
     });
 
-    const persistedHistory = await getEtHistoryByDate(requestedDate);
+    const latestHistory = await getLatestEtHistory();
 
     return res.json({
-      requestedDate,
-      data,
-      lastImportedAt: persistedHistory.lastImportedAt,
+      requestedDate: latestHistory.requestedDate,
+      data: latestHistory.rows.length ? latestHistory.rows : data,
+      lastImportedAt: latestHistory.lastImportedAt,
       cached: false,
     });
   } catch (error) {
@@ -952,18 +953,18 @@ mapsRouter.get("/et-history/latest", async (_req, res) => {
 
 mapsRouter.post("/importar-estacao-meteorologica", async (req, res) => {
   try {
-    const requestedDate = normalizeRequestedDate(typeof req.body?.date === "string" ? req.body.date : "");
+    const requestedDate = normalizeRequestedDate("");
     const cacheTtlMs = Number(process.env.IRRISTRAT_CACHE_TTL_MS || 180000);
-    const cacheKey = requestedDate || "current";
+    const cacheKey = "current";
     const cacheEntry = weatherStationImportCache.get(cacheKey);
     const now = Date.now();
 
     if (cacheEntry && Number.isFinite(cacheTtlMs) && cacheTtlMs > 0 && (now - cacheEntry.timestamp) <= cacheTtlMs) {
-      const persistedHistory = await getWeatherStationHistoryByDate(requestedDate);
+      const latestHistory = await getLatestWeatherStationHistory();
       return res.json({
-        requestedDate,
-        data: persistedHistory.rows.length ? persistedHistory.rows : cacheEntry.data,
-        lastImportedAt: persistedHistory.lastImportedAt,
+        requestedDate: latestHistory.requestedDate,
+        data: latestHistory.rows.length ? latestHistory.rows : cacheEntry.data,
+        lastImportedAt: latestHistory.lastImportedAt,
         cached: true,
       });
     }
@@ -982,12 +983,12 @@ mapsRouter.post("/importar-estacao-meteorologica", async (req, res) => {
       data,
     });
 
-    const persistedHistory = await getWeatherStationHistoryByDate(requestedDate);
+    const latestHistory = await getLatestWeatherStationHistory();
 
     return res.json({
-      requestedDate,
-      data,
-      lastImportedAt: persistedHistory.lastImportedAt,
+      requestedDate: latestHistory.requestedDate,
+      data: latestHistory.rows.length ? latestHistory.rows : data,
+      lastImportedAt: latestHistory.lastImportedAt,
       cached: false,
     });
   } catch (error) {

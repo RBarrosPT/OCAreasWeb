@@ -170,6 +170,45 @@ textarea:focus-visible {
 	font-size: 0.9rem;
 }
 
+.color-sector-summary-table th,
+.color-sector-summary-table td {
+	border-right: 1px solid #c9cfd6;
+}
+
+.color-sector-summary-table {
+	table-layout: auto;
+}
+
+.color-sector-summary-table > :not(caption) > * > * {
+	padding: 0.2rem 0.35rem;
+	font-size: 0.78rem;
+	line-height: 1.1;
+	white-space: nowrap;
+	text-align: center;
+}
+
+.color-sector-summary-table .color-sample {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	min-width: 12px;
+	border: 1px solid rgba(0, 0, 0, 0.35);
+	border-radius: 2px;
+}
+
+.color-sector-summary-table th:last-child,
+.color-sector-summary-table td:last-child {
+	border-right: none;
+}
+
+.color-sector-summary-table th:nth-child(9),
+.color-sector-summary-table td:nth-child(9),
+.color-sector-summary-table th:nth-child(11),
+.color-sector-summary-table td:nth-child(11) {
+	border-right-width: 3px;
+	border-right-color: #7f8a96;
+}
+
 .auth-container {
 	min-height: 100vh;
 	display: flex;
@@ -1182,6 +1221,10 @@ button:disabled {
 	#go-home-button,
 	#open-settings,
 	#logout-button {
+		display: none !important;
+	}
+
+	.editor-card-hide-on-print {
 		display: none !important;
 	}
 

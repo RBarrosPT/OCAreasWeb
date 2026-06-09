@@ -155,7 +155,7 @@ function formatEtDisplayDate(row) {
   const weekdayLabel = weekdays[parsedDate.getDay()] || "---";
   const [year, month, day] = isoDate.split("-");
 
-  return `${weekdayLabel} ${year}/${month}/${day}`;
+  return `${year}-${month}-${day} ${weekdayLabel}`;
 }
 
 function formatIdealEtValue(etValue, reductionPercent = 20) {
@@ -232,8 +232,7 @@ function renderEtImportSection(app) {
   const remainingSeconds = Math.max(0, Number(importState.remainingSeconds) || 0);
   const timeoutSeconds = 90;
   const elapsedSeconds = Math.min(timeoutSeconds, Math.max(1, timeoutSeconds - remainingSeconds + 1));
-  const importLabel = isLoading ? `A importar... (${elapsedSeconds}s / ${timeoutSeconds}s)` : "Importar ET";
-  const loadHistoryLabel = isLoading ? "A carregar..." : "Consultar histórico";
+  const importLabel = isLoading ? `A obter previsão... (${elapsedSeconds}s / ${timeoutSeconds}s)` : "Obter previsão";
   const isCollapsed = Boolean(app.homeSectionCollapsed?.etImport);
   const reductionOptions = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
     .map((value) => `<option value="${value}" ${value === reductionPercent ? "selected" : ""}>${value}%</option>`)
@@ -255,17 +254,12 @@ function renderEtImportSection(app) {
               <select id="home-et-reduction-percent" class="form-select form-select-sm home-et-reduction-select">
                 ${reductionOptions}
               </select>
-              <label for="home-et-date" class="form-label mb-0">Data</label>
-              <input type="date" id="home-et-date" class="form-control form-control-sm home-et-date-input" value="${escapeHtml(requestedDate)}">
-              <button type="button" class="btn btn-outline-secondary btn-sm" id="home-load-et-history" ${isLoading ? "disabled" : ""}>
-                ${loadHistoryLabel}
-              </button>
               <button type="button" class="btn btn-outline-primary btn-sm" id="home-import-et" ${isLoading ? "disabled" : ""}>
                 ${importLabel}
               </button>
             </div>
           </div>
-          ${lastImportedAt ? `<div class="home-et-meta text-muted small mt-2">Última importação: ${escapeHtml(formatDate(lastImportedAt))}</div>` : ""}
+          ${lastImportedAt ? `<div class="home-et-meta text-muted small mt-2">Última previsão obtida: ${escapeHtml(formatDate(lastImportedAt))}</div>` : ""}
           ${error ? `<div class="app-flash-message error mt-2" role="alert">${escapeHtml(error)}</div>` : ""}
           ${rows.length
             ? `
@@ -286,7 +280,7 @@ function renderEtImportSection(app) {
                 </table>
               </div>
             `
-            : '<div class="text-muted small mt-2">Sem dados ET guardados para a data selecionada.</div>'}
+            : '<div class="text-muted small mt-2">Sem previsão ET guardada. Clique em "Obter previsão" para importar.</div>'}
         </div>
       `}
     </div>
@@ -305,8 +299,7 @@ function renderWeatherStationSection(app) {
   const etIdealHeader = `ET (mm) ideal -${reductionPercent}%`;
   const error = stationState.error || "";
   const isLoading = Boolean(stationState.loading);
-  const importLabel = isLoading ? `A importar... (${elapsedSeconds}s / ${timeoutSeconds}s)` : "Importar leituras";
-  const loadHistoryLabel = isLoading ? "A carregar..." : "Consultar histórico";
+  const importLabel = isLoading ? `A obter leituras... (${elapsedSeconds}s / ${timeoutSeconds}s)` : "Obter leitura estação";
   const isCollapsed = Boolean(app.homeSectionCollapsed?.weatherStation);
   const reductionOptions = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
     .map((value) => `<option value="${value}" ${value === reductionPercent ? "selected" : ""}>${value}%</option>`)
@@ -328,17 +321,12 @@ function renderWeatherStationSection(app) {
               <select id="home-weather-station-reduction-percent" class="form-select form-select-sm home-et-reduction-select">
                 ${reductionOptions}
               </select>
-              <label for="home-weather-station-date" class="form-label mb-0">Data</label>
-              <input type="date" id="home-weather-station-date" class="form-control form-control-sm home-et-date-input" value="${escapeHtml(requestedDate)}">
-              <button type="button" class="btn btn-outline-secondary btn-sm" id="home-load-weather-station-history" ${isLoading ? "disabled" : ""}>
-                ${loadHistoryLabel}
-              </button>
               <button type="button" class="btn btn-outline-primary btn-sm" id="home-import-weather-station" ${isLoading ? "disabled" : ""}>
                 ${importLabel}
               </button>
             </div>
           </div>
-          ${lastImportedAt ? `<div class="home-et-meta text-muted small mt-2">Última importação: ${escapeHtml(formatDate(lastImportedAt))}</div>` : ""}
+          ${lastImportedAt ? `<div class="home-et-meta text-muted small mt-2">Última leitura obtida: ${escapeHtml(formatDate(lastImportedAt))}</div>` : ""}
           ${error ? `<div class="app-flash-message error mt-2" role="alert">${escapeHtml(error)}</div>` : ""}
           ${rows.length
             ? `
@@ -360,7 +348,7 @@ function renderWeatherStationSection(app) {
                 </table>
               </div>
             `
-            : '<div class="text-muted small mt-2">Sem dados da estação meteorológica guardados para a data selecionada.</div>'}
+            : '<div class="text-muted small mt-2">Sem leituras da estação meteorológica. Clique em "Obter leitura estação" para importar.</div>'}
         </div>
       `}
     </div>

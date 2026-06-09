@@ -45,6 +45,16 @@ export class MapaSVGApp {
 			etImport: false,
 			weatherStation: false,
 		};
+		this.editorCardState = {
+			agronicSummary: {
+				collapsed: false,
+				hideOnPrint: false,
+			},
+			editorEt: {
+				collapsed: false,
+				hideOnPrint: false,
+			},
+		};
 		this.etImportState = {
 			loading: false,
 			error: "",
@@ -540,26 +550,24 @@ export class MapaSVGApp {
 
 		const timeoutMs = 90000;
 		const timeoutSeconds = Math.ceil(timeoutMs / 1000);
-		const requestedDate = document.getElementById("home-et-date")?.value || this.etImportState.requestedDate;
 		this.etImportState = {
 			...this.etImportState,
 			loading: true,
 			error: "",
 			remainingSeconds: timeoutSeconds,
-			requestedDate,
 		};
 		this.startEtImportCountdown(timeoutSeconds);
 		this.render();
 
 		try {
-			const history = await api.importEt(requestedDate, timeoutMs);
+			const history = await api.importEt("", timeoutMs);
 			this.applyEtHistory(history);
-			this.setFlashMessage("success", `Importação ET concluída: ${this.etImportState.rows.length} registo(s).`);
+			this.setFlashMessage("success", `Previsão ET obtida: ${this.etImportState.rows.length} registo(s).`);
 		} catch (error) {
 			this.etImportState = {
 				...this.etImportState,
 				loading: false,
-				error: error.message || "Não foi possível importar dados ET.",
+				error: error.message || "Não foi possível obter a previsão ET.",
 				remainingSeconds: 0,
 			};
 		} finally {
@@ -610,21 +618,19 @@ export class MapaSVGApp {
 
 		const timeoutMs = 90000;
 		const timeoutSeconds = Math.ceil(timeoutMs / 1000);
-		const requestedDate = document.getElementById("home-weather-station-date")?.value || this.weatherStationState.requestedDate;
 		this.weatherStationState = {
 			...this.weatherStationState,
 			loading: true,
 			error: "",
 			remainingSeconds: timeoutSeconds,
-			requestedDate,
 		};
 		this.startWeatherStationImportCountdown(timeoutSeconds);
 		this.render();
 
 		try {
-			const history = await api.importWeatherStation(requestedDate, timeoutMs);
+			const history = await api.importWeatherStation("", timeoutMs);
 			this.applyWeatherStationHistory(history);
-			this.setFlashMessage("success", `Importação da estação meteorológica concluída: ${this.weatherStationState.rows.length} registo(s).`);
+			this.setFlashMessage("success", `Leituras da estação obtidas: ${this.weatherStationState.rows.length} registo(s).`);
 		} catch (error) {
 			this.weatherStationState = {
 				...this.weatherStationState,
@@ -1089,6 +1095,24 @@ export class MapaSVGApp {
 			return;
 		}
 
+		const editorCardCollapseButton = target.closest("button[data-editor-card-collapse]");
+		if (editorCardCollapseButton) {
+			event.preventDefault();
+			event.stopPropagation();
+			const cardKey = editorCardCollapseButton.getAttribute("data-editor-card-collapse");
+			this.toggleEditorCardCollapse(cardKey);
+			return;
+		}
+
+		const editorCardPrintButton = target.closest("button[data-editor-card-print-toggle]");
+		if (editorCardPrintButton) {
+			event.preventDefault();
+			event.stopPropagation();
+			const cardKey = editorCardPrintButton.getAttribute("data-editor-card-print-toggle");
+			this.toggleEditorCardPrintVisibility(cardKey);
+			return;
+		}
+
 		const deleteButton = target.closest(".home-maps-table [data-delete-id]");
 		if (deleteButton) {
 			event.preventDefault();
@@ -1125,6 +1149,38 @@ export class MapaSVGApp {
 			...this.homeSectionCollapsed,
 			[sectionKey]: !this.homeSectionCollapsed[sectionKey],
 		};
+		this.render();
+	}
+
+	toggleEditorCardCollapse(cardKey) {
+		if (!cardKey || !(cardKey in this.editorCardState)) {
+			return;
+		}
+
+		this.editorCardState = {
+			...this.editorCardState,
+			[cardKey]: {
+				...this.editorCardState[cardKey],
+				collapsed: !this.editorCardState[cardKey].collapsed,
+			},
+		};
+
+		this.render();
+	}
+
+	toggleEditorCardPrintVisibility(cardKey) {
+		if (!cardKey || !(cardKey in this.editorCardState)) {
+			return;
+		}
+
+		this.editorCardState = {
+			...this.editorCardState,
+			[cardKey]: {
+				...this.editorCardState[cardKey],
+				hideOnPrint: !this.editorCardState[cardKey].hideOnPrint,
+			},
+		};
+
 		this.render();
 	}
 
@@ -1273,17 +1329,11 @@ export class MapaSVGApp {
 		document.getElementById("home-import-et")?.addEventListener("click", async () => {
 			await this.importEtData();
 		});
-		document.getElementById("home-load-et-history")?.addEventListener("click", async () => {
-			await this.loadEtHistoryData();
-		});
 		document.getElementById("home-et-reduction-percent")?.addEventListener("change", (event) => {
 			this.updateEtIdealReductionPercent(event.target.value);
 		});
 		document.getElementById("home-import-weather-station")?.addEventListener("click", async () => {
 			await this.importWeatherStationData();
-		});
-		document.getElementById("home-load-weather-station-history")?.addEventListener("click", async () => {
-			await this.loadWeatherStationHistoryData();
 		});
 		document.getElementById("home-weather-station-reduction-percent")?.addEventListener("change", (event) => {
 			this.updateWeatherStationIdealReductionPercent(event.target.value);

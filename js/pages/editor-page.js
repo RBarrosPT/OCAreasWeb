@@ -173,11 +173,128 @@ function renderColorRow(app, colorItem) {
 }
 
 function renderColoredAreaSummary(app) {
-  const areaWithoutFirstColor = app.colors
-    .slice(1)
-    .reduce((total, colorItem) => total + parseFloat(app.getColorArea(colorItem.color)), 0);
+  const defaultColor = "#FFFFFF";
+  const selectedItems = getDataItems().filter((item) => {
+    const itemColor = String(app.itemColors[item.dataName] || defaultColor).toUpperCase();
+    return itemColor !== defaultColor;
+  });
 
-  return `<div class="legend-area-summary">Área total selecionada: <strong>${areaWithoutFirstColor.toFixed(2)} ha</strong></div>`;
+  const areaWithoutFirstColor = selectedItems.reduce((total, item) => total + (parseFloat(item?.area) || 0), 0);
+  const phase1Area = selectedItems.reduce((total, item) => {
+    const itemName = String(item?.dataName || "").trim().toUpperCase();
+    if (!itemName.startsWith("1")) {
+      return total;
+    }
+
+    return total + (parseFloat(item?.area) || 0);
+  }, 0);
+  const phase2Area = selectedItems.reduce((total, item) => {
+    const itemName = String(item?.dataName || "").trim().toUpperCase();
+    if (!itemName.startsWith("2")) {
+      return total;
+    }
+
+    return total + (parseFloat(item?.area) || 0);
+  }, 0);
+  const phase3Area = selectedItems.reduce((total, item) => {
+    const itemName = String(item?.dataName || "").trim().toUpperCase();
+    if (!itemName.startsWith("3")) {
+      return total;
+    }
+
+    return total + (parseFloat(item?.area) || 0);
+  }, 0);
+
+  return `<div class="legend-area-summary">Área total selecionada: <strong>${areaWithoutFirstColor.toFixed(2)} ha</strong> | FASE 1: <strong>${phase1Area.toFixed(2)} ha</strong> | FASE 2: <strong>${phase2Area.toFixed(2)} ha</strong> | FASE 3: <strong>${phase3Area.toFixed(2)} ha</strong></div>`;
+}
+
+function renderColorSectorSummaryCard(app) {
+  const cardState = app.editorCardState?.agronicSummary || { collapsed: false, hideOnPrint: false };
+  const isCollapsed = Boolean(cardState.collapsed);
+  const hideOnPrint = Boolean(cardState.hideOnPrint);
+  const printButtonLabel = hideOnPrint ? "Mostrar na impressão" : "Ocultar na impressão";
+
+  const rows = app.colors
+    .slice(1)
+    .map((colorItem) => {
+      const selectedItems = getDataItems().filter((item) => app.itemColors[item.dataName] === colorItem.color);
+      const setores = [...new Set(selectedItems
+        .map((item) => String(item?.setorData || "").trim())
+        .filter(Boolean))]
+        .sort((left, right) => {
+          const leftNumber = Number(left);
+          const rightNumber = Number(right);
+
+          if (Number.isFinite(leftNumber) && Number.isFinite(rightNumber)) {
+            return leftNumber - rightNumber;
+          }
+
+          return left.localeCompare(right, "pt-PT");
+        });
+
+      return {
+        colorItem,
+        setores,
+        quantidadeSetores: setores.length,
+        areaTotal: app.getColorArea(colorItem.color),
+      };
+    });
+
+  const maxSetores = rows.reduce((max, row) => Math.max(max, row.setores.length), 0);
+  const setorHeaders = Array.from({ length: maxSetores }, (_, index) => `<th>${index + 1}</th>`).join("");
+
+  const tableRows = rows.map((row) => {
+    const setorColumns = Array.from({ length: maxSetores }, (_, index) => {
+      const setorValue = row.setores[index] || "-";
+      return `<td>${escapeHtml(setorValue)}</td>`;
+    }).join("");
+
+    return `
+      <tr>
+        <td>
+          <div class="d-flex align-items-center gap-2">
+            <span class="color-sample" style="background-color: ${row.colorItem.color}; color: ${row.colorItem.text};" aria-hidden="true"></span>
+          </div>
+        </td>
+        ${setorColumns}
+        <td>${row.quantidadeSetores}</td>
+        <td>${escapeHtml(row.areaTotal)} ha</td>
+      </tr>
+    `;
+  }).join("");
+
+  return `
+    <div class="home-section card p-3 mt-3 ${hideOnPrint ? "editor-card-hide-on-print" : ""}">
+      <div class="home-card-header d-flex align-items-center justify-content-between gap-2">
+        <h3 class="mb-0">Resumo Setores Rega</h3>
+        <div class="d-flex align-items-center gap-1">
+          <button type="button" class="home-card-toggle btn btn-link btn-sm" data-editor-card-collapse="agronicSummary" aria-expanded="${String(!isCollapsed)}" aria-label="${isCollapsed ? "Expandir" : "Colapsar"} card Resumo Setores Rega">
+            <span class="home-card-toggle-icon ${isCollapsed ? "collapsed" : ""}">▾</span>
+          </button>
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-editor-card-print-toggle="agronicSummary" aria-pressed="${String(hideOnPrint)}">${printButtonLabel}</button>
+        </div>
+      </div>
+      ${isCollapsed ? "" : `
+        <div class="home-card-body">
+          <div class="table-responsive mt-2">
+            <table class="table table-sm table-striped align-middle mb-0 color-sector-summary-table">
+              <thead>
+                <tr>
+                  <th>Cor</th>
+                  ${setorHeaders}
+                  <th>Qtd. setores</th>
+                  <th>Área total</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${tableRows}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `}
+    </div>
+  `;
 }
 
 function renderNotesSection(app) {
@@ -207,7 +324,7 @@ function formatEtDisplayDate(row) {
   const weekdayLabel = weekdays[parsedDate.getDay()] || "---";
   const [year, month, day] = isoDate.split("-");
 
-  return `${weekdayLabel} ${year}/${month}/${day}`;
+  return `${year}-${month}-${day} ${weekdayLabel}`;
 }
 
 function formatIdealEtValue(etValue, reductionPercent = 20) {
@@ -247,6 +364,11 @@ function renderEditorEtRows(rows, reductionPercent) {
 }
 
 function renderEditorEtSection(app) {
+  const cardState = app.editorCardState?.editorEt || { collapsed: false, hideOnPrint: false };
+  const isCollapsed = Boolean(cardState.collapsed);
+  const hideOnPrint = Boolean(cardState.hideOnPrint);
+  const printButtonLabel = hideOnPrint ? "Mostrar na impressão" : "Ocultar na impressão";
+
   const importState = app.etImportState || {};
   const rows = Array.isArray(importState.rows) ? importState.rows : [];
   const lastImportedAt = importState.lastImportedAt || "";
@@ -257,41 +379,49 @@ function renderEditorEtSection(app) {
     .join("");
 
   return `
-    <div class="home-section card p-3 mt-3">
+    <div class="home-section card p-3 mt-3 ${hideOnPrint ? "editor-card-hide-on-print" : ""}">
       <div class="home-card-header d-flex align-items-center justify-content-between gap-2">
         <h3 class="mb-0">Evapotranspiração (ET) - PREVISÃO dados IRRISTRAT</h3>
-      </div>
-      <div class="home-card-body">
-        <div class="home-et-header d-flex align-items-center justify-content-start gap-2 flex-wrap">
-          <div class="home-et-controls d-flex align-items-center gap-2 flex-wrap">
-            <label for="home-et-reduction-percent" class="form-label mb-0">Fator de redução (plásticos)</label>
-            <select id="home-et-reduction-percent" class="form-select form-select-sm home-et-reduction-select">
-              ${reductionOptions}
-            </select>
-          </div>
+        <div class="d-flex align-items-center gap-1">
+          <button type="button" class="home-card-toggle btn btn-link btn-sm" data-editor-card-collapse="editorEt" aria-expanded="${String(!isCollapsed)}" aria-label="${isCollapsed ? "Expandir" : "Colapsar"} card Evapotranspiração">
+            <span class="home-card-toggle-icon ${isCollapsed ? "collapsed" : ""}">▾</span>
+          </button>
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-editor-card-print-toggle="editorEt" aria-pressed="${String(hideOnPrint)}">${printButtonLabel}</button>
         </div>
-        ${lastImportedAt ? `<div class="home-et-meta text-muted small mt-2">Última importação: ${escapeHtml(formatDate(lastImportedAt))}</div>` : ""}
-        ${rows.length
-          ? `
-            <div class="table-responsive mt-2">
-              <table class="table table-sm table-striped align-middle home-et-table mb-0">
-                <thead>
-                  <tr>
-                    <th>Data</th>
-                    <th>ET (mm)</th>
-                    <th>${escapeHtml(etIdealHeader)}</th>
-                    <th>Temp. ºC Máx.</th>
-                    <th>Temp. ºC Mín.</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${renderEditorEtRows(rows, reductionPercent)}
-                </tbody>
-              </table>
-            </div>
-          `
-          : '<div class="text-muted small mt-2">Sem dados ET guardados.</div>'}
       </div>
+      ${isCollapsed ? "" : `
+        <div class="home-card-body">
+          <div class="home-et-header d-flex align-items-center justify-content-start gap-2 flex-wrap">
+            <div class="home-et-controls d-flex align-items-center gap-2 flex-wrap">
+              <label for="home-et-reduction-percent" class="form-label mb-0">Fator de redução (plásticos)</label>
+              <select id="home-et-reduction-percent" class="form-select form-select-sm home-et-reduction-select">
+                ${reductionOptions}
+              </select>
+            </div>
+          </div>
+          ${lastImportedAt ? `<div class="home-et-meta text-muted small mt-2">Última importação: ${escapeHtml(formatDate(lastImportedAt))}</div>` : ""}
+          ${rows.length
+            ? `
+              <div class="table-responsive mt-2">
+                <table class="table table-sm table-striped align-middle home-et-table mb-0">
+                  <thead>
+                    <tr>
+                      <th>Data</th>
+                      <th>ET (mm)</th>
+                      <th>${escapeHtml(etIdealHeader)}</th>
+                      <th>Temp. ºC Máx.</th>
+                      <th>Temp. ºC Mín.</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${renderEditorEtRows(rows, reductionPercent)}
+                  </tbody>
+                </table>
+              </div>
+            `
+            : '<div class="text-muted small mt-2">Sem dados ET guardados.</div>'}
+        </div>
+      `}
     </div>
   `;
 }
@@ -395,7 +525,7 @@ function renderSavedSetsSection(app) {
 }
 
 function renderSidebar(app) {
-  const canViewEditorEtCard = app.user?.username === "ricardo_barros";
+  const canViewRestrictedCards = app.user?.username === "ricardo_barros";
 
   return `
     <div class="color-palette col-12 col-xl-6">
@@ -403,7 +533,8 @@ function renderSidebar(app) {
       ${renderColoredAreaSummary(app)}
       ${app.colors.map((colorItem) => renderColorRow(app, colorItem)).join("")}
       ${renderNotesSection(app)}
-      ${canViewEditorEtCard ? renderEditorEtSection(app) : ""}
+      ${canViewRestrictedCards ? renderColorSectorSummaryCard(app) : ""}
+      ${canViewRestrictedCards ? renderEditorEtSection(app) : ""}
       ${renderSavedSetsSection(app)}
     </div>
   `;
