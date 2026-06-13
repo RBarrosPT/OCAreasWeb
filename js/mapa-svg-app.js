@@ -3,6 +3,7 @@ import { api } from "./api.js?v=__ASSET_VERSION__";
 import { downloadJsonFile, escapeHtml, getDataItems, normalizeStateSignature, readFileAsText } from "./utils.js?v=__ASSET_VERSION__";
 import { renderAuthPage } from "./pages/auth-page.js?v=__ASSET_VERSION__";
 import { renderHomePage } from "./pages/home-page.js?v=__ASSET_VERSION__";
+import { renderHomeCardPage } from "./pages/home-card-page.js?v=__ASSET_VERSION__";
 import { renderEditorPage } from "./pages/editor-page.js?v=__ASSET_VERSION__";
 
 export class MapaSVGApp {
@@ -26,6 +27,7 @@ export class MapaSVGApp {
 		this.currentPermission = "owner";
 		this.currentIsPublic = false;
 		this.viewMode = "home";
+		this.homeCardPage = null;
 		this.lastSavedSignature = "";
 		this.user = null;
 		this.shares = [];
@@ -45,6 +47,7 @@ export class MapaSVGApp {
 			etImport: true,
 			weatherStation: true,
 			sprayerFlow: true,
+			lhaCalculator: true,
 		};
 		this.editorCardState = {
 			agronicSummary: {
@@ -78,6 +81,26 @@ export class MapaSVGApp {
 			nozzles: 14,
 			rowSpacing: 3.3,
 			speedKmH: 5,
+		};
+		this.lhaCalculatorConfig = {
+			caudal: {
+				litrosHectare: 400,
+				larguraTrabalho: 5,
+				velocidade: 6,
+				numBoquilhas: 10,
+			},
+			produtoAplicado: {
+				caudalBoquilha: 2.5,
+				numBoquilhas: 12,
+				larguraTrabalho: 4.5,
+				velocidade: 5,
+			},
+			velocidade: {
+				caudalBoquilha: 3,
+				numBoquilhas: 10,
+				larguraTrabalho: 5,
+				litrosHectare: 450,
+			},
 		};
 		this.handleAppClick = this.handleAppClick.bind(this);
 		this.handleBeforeUnload = this.handleBeforeUnload.bind(this);
@@ -190,6 +213,50 @@ export class MapaSVGApp {
 		}
 
 		this.sprayerFlowConfig = nextConfig;
+
+		const scrollX = window.scrollX;
+		const scrollY = window.scrollY;
+		const focusId = typeof uiState.focusId === "string" ? uiState.focusId : "";
+		const selectionStart = Number.isInteger(uiState.selectionStart) ? uiState.selectionStart : null;
+		const selectionEnd = Number.isInteger(uiState.selectionEnd) ? uiState.selectionEnd : null;
+
+		this.render();
+
+		window.scrollTo(scrollX, scrollY);
+
+		if (focusId) {
+			const focusedInput = document.getElementById(focusId);
+			if (focusedInput instanceof HTMLInputElement) {
+				focusedInput.focus({ preventScroll: true });
+				if (selectionStart !== null && selectionEnd !== null) {
+					const safeStart = Math.max(0, Math.min(selectionStart, focusedInput.value.length));
+					const safeEnd = Math.max(safeStart, Math.min(selectionEnd, focusedInput.value.length));
+					focusedInput.setSelectionRange(safeStart, safeEnd);
+				}
+			}
+		}
+	}
+
+	updateLhaCalculatorConfig(sectionKey, fieldKey, value, uiState = {}) {
+		if (!sectionKey || !fieldKey || !(sectionKey in this.lhaCalculatorConfig)) {
+			return;
+		}
+
+		const currentSection = this.lhaCalculatorConfig[sectionKey];
+		if (!currentSection || !(fieldKey in currentSection)) {
+			return;
+		}
+
+		const parsedValue = Number.parseFloat(String(value ?? "").replace(",", "."));
+		const normalizedValue = Number.isFinite(parsedValue) && parsedValue > 0 ? parsedValue : currentSection[fieldKey];
+
+		this.lhaCalculatorConfig = {
+			...this.lhaCalculatorConfig,
+			[sectionKey]: {
+				...currentSection,
+				[fieldKey]: normalizedValue,
+			},
+		};
 
 		const scrollX = window.scrollX;
 		const scrollY = window.scrollY;
@@ -1012,6 +1079,28 @@ export class MapaSVGApp {
 		}
 
 		this.viewMode = "home";
+		this.homeCardPage = null;
+		this.render();
+	}
+
+	openHomeCardPage(cardKey) {
+		const allowedCards = ["sharedMaps", "etImport", "weatherStation", "sprayerFlow", "lhaCalculator", "nozzleReferences"];
+		if (!allowedCards.includes(cardKey)) {
+			return;
+		}
+
+		this.homeSectionCollapsed = {
+			...this.homeSectionCollapsed,
+			[cardKey]: false,
+		};
+		this.homeCardPage = cardKey;
+		this.viewMode = "homeCard";
+		this.render();
+	}
+
+	closeHomeCardPage() {
+		this.homeCardPage = null;
+		this.viewMode = "home";
 		this.render();
 	}
 
@@ -1031,6 +1120,13 @@ export class MapaSVGApp {
 			return;
 		}
 
+		if (this.viewMode === "homeCard") {
+			app.innerHTML = renderHomeCardPage(this);
+			this.attachEventListeners();
+			this.initializeHomeDataTables();
+			return;
+		}
+
 		app.innerHTML = renderEditorPage(this);
 
 		this.attachEventListeners();
@@ -1038,7 +1134,9 @@ export class MapaSVGApp {
 
 	initializeHomeDataTables() {
 		if (this.viewMode !== "home") {
-			return;
+			if (this.viewMode !== "homeCard") {
+				return;
+			}
 		}
 
 		const jq = window.jQuery;
@@ -1046,7 +1144,7 @@ export class MapaSVGApp {
 			return;
 		}
 
-		["own-maps-table", "shared-maps-table"].forEach((tableId) => {
+		["own-maps-table", "shared-maps-page-table"].forEach((tableId) => {
 			const table = document.getElementById(tableId);
 			if (!table) {
 				return;
@@ -1056,6 +1154,7 @@ export class MapaSVGApp {
 				jq(table).DataTable().destroy();
 			}
 
+			const isOwnMapsTable = tableId === "own-maps-table";
 			jq(table).DataTable({
 				pageLength: 10,
 				lengthChange: true,
@@ -1064,7 +1163,7 @@ export class MapaSVGApp {
 				columnDefs: [{ targets: [6], orderable: false, searchable: false }],
 				language: {
 					search: "Pesquisar:",
-					lengthMenu: "Mostrar _MENU_ mapas",
+					lengthMenu: `Mostrar _MENU_ ${isOwnMapsTable ? "mapas" : "mapas partilhados"}`,
 					zeroRecords: "Sem resultados",
 					info: "A mostrar _START_ a _END_ de _TOTAL_ mapas",
 					infoEmpty: "Sem mapas",
@@ -1381,6 +1480,32 @@ export class MapaSVGApp {
 			event.target.value = "";
 		});
 		document.getElementById("home-new-map")?.addEventListener("click", () => this.handleNewSet());
+		document.getElementById("home-menu-toggle")?.addEventListener("click", () => {
+			const menuItems = document.getElementById("home-side-menu-items");
+			const toggle = document.getElementById("home-menu-toggle");
+			if (!menuItems || !toggle) {
+				return;
+			}
+
+			const willOpen = !menuItems.classList.contains("is-open");
+			menuItems.classList.toggle("is-open", willOpen);
+			toggle.setAttribute("aria-expanded", String(willOpen));
+		});
+		document.querySelectorAll("[data-home-card-nav]").forEach((button) => {
+			button.addEventListener("click", () => {
+				const cardKey = button.getAttribute("data-home-card-nav");
+				const menuItems = document.getElementById("home-side-menu-items");
+				const toggle = document.getElementById("home-menu-toggle");
+				if (window.matchMedia("(max-width: 768px)").matches && menuItems) {
+					menuItems.classList.remove("is-open");
+					if (toggle) {
+						toggle.setAttribute("aria-expanded", "false");
+					}
+				}
+				this.openHomeCardPage(cardKey);
+			});
+		});
+		document.getElementById("home-card-back")?.addEventListener("click", () => this.closeHomeCardPage());
 		document.getElementById("home-import-et")?.addEventListener("click", async () => {
 			await this.importEtData();
 		});
@@ -1403,27 +1528,7 @@ export class MapaSVGApp {
 				},
 			);
 		});
-		document.getElementById("sprayer-nozzles-input")?.addEventListener("input", (event) => {
-			this.updateSprayerFlowConfig(
-				{ nozzles: event.target.value },
-				{
-					focusId: event.target.id,
-					selectionStart: event.target.selectionStart,
-					selectionEnd: event.target.selectionEnd,
-				},
-			);
-		});
 		document.getElementById("sprayer-row-spacing-input")?.addEventListener("change", (event) => {
-			this.updateSprayerFlowConfig(
-				{ rowSpacing: event.target.value },
-				{
-					focusId: event.target.id,
-					selectionStart: event.target.selectionStart,
-					selectionEnd: event.target.selectionEnd,
-				},
-			);
-		});
-		document.getElementById("sprayer-row-spacing-input")?.addEventListener("input", (event) => {
 			this.updateSprayerFlowConfig(
 				{ rowSpacing: event.target.value },
 				{
@@ -1443,16 +1548,41 @@ export class MapaSVGApp {
 				},
 			);
 		});
-		document.getElementById("sprayer-speed-input")?.addEventListener("input", (event) => {
-			this.updateSprayerFlowConfig(
-				{ speedKmH: event.target.value },
-				{
-					focusId: event.target.id,
-					selectionStart: event.target.selectionStart,
-					selectionEnd: event.target.selectionEnd,
-				},
-			);
-		});
+
+		const attachLhaInput = (inputId, sectionKey, fieldKey) => {
+			const input = document.getElementById(inputId);
+			if (!input) {
+				return;
+			}
+
+			const handleInputUpdate = (event) => {
+				this.updateLhaCalculatorConfig(
+					sectionKey,
+					fieldKey,
+					event.target.value,
+					{
+						focusId: event.target.id,
+						selectionStart: event.target.selectionStart,
+						selectionEnd: event.target.selectionEnd,
+					},
+				);
+			};
+
+			input.addEventListener("change", handleInputUpdate);
+		};
+
+		attachLhaInput("lha-caudal-litros-hectare", "caudal", "litrosHectare");
+		attachLhaInput("lha-caudal-largura", "caudal", "larguraTrabalho");
+		attachLhaInput("lha-caudal-velocidade", "caudal", "velocidade");
+		attachLhaInput("lha-caudal-boquilhas", "caudal", "numBoquilhas");
+		attachLhaInput("lha-produto-caudal", "produtoAplicado", "caudalBoquilha");
+		attachLhaInput("lha-produto-boquilhas", "produtoAplicado", "numBoquilhas");
+		attachLhaInput("lha-produto-largura", "produtoAplicado", "larguraTrabalho");
+		attachLhaInput("lha-produto-velocidade", "produtoAplicado", "velocidade");
+		attachLhaInput("lha-velocidade-caudal", "velocidade", "caudalBoquilha");
+		attachLhaInput("lha-velocidade-boquilhas", "velocidade", "numBoquilhas");
+		attachLhaInput("lha-velocidade-largura", "velocidade", "larguraTrabalho");
+		attachLhaInput("lha-velocidade-litros-hectare", "velocidade", "litrosHectare");
 
 		if (!this.user) {
 			return;
