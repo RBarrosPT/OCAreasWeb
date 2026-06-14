@@ -114,8 +114,8 @@ export function renderSprayerFlowCard(app) {
   return `
     <div class="home-section card p-3">
       <div class="home-card-header d-flex align-items-center justify-content-between gap-2">
-        <h3 class="mb-0">Calculo débito pulverizadores MAGGIO eletrostático</h3>
-        <button type="button" class="home-card-toggle btn btn-link" data-home-section-toggle="sprayerFlow" aria-expanded="${String(!isCollapsed)}" aria-label="${isCollapsed ? "Expandir" : "Colapsar"} card Calculo débito pulverizadores">
+        <h3 class="mb-0">${escapeHtml(app.t("sprayerFlowTitle"))}</h3>
+        <button type="button" class="home-card-toggle btn btn-link" data-home-section-toggle="sprayerFlow" aria-expanded="${String(!isCollapsed)}" aria-label="${isCollapsed ? app.t("expand") : app.t("navCollapse")} ${escapeHtml(app.t("sprayerFlowTitle"))}">
           <span class="home-card-toggle-icon ${isCollapsed ? "collapsed" : ""}">▾</span>
         </button>
       </div>

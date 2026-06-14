@@ -48,13 +48,13 @@ function renderSharedMapsDataTable(app, maps, tableId) {
       <table id="${tableId}" class="table table-striped table-hover align-middle w-100 home-maps-table">
         <thead>
           <tr>
-            <th>Nome do mapa</th>
-            <th>Atualizado</th>
-            <th>Proprietário</th>
-            <th>Permissão</th>
-            <th>Nº de Parcelas</th>
-            <th>Área</th>
-            <th>Ações</th>
+            <th>${escapeHtml(app.t("mapsTableMapName"))}</th>
+            <th>${escapeHtml(app.t("mapsTableUpdated"))}</th>
+            <th>${escapeHtml(app.t("mapsTableOwner"))}</th>
+            <th>${escapeHtml(app.t("mapsTablePermission"))}</th>
+            <th>${escapeHtml(app.t("mapsTableParcels"))}</th>
+            <th>${escapeHtml(app.t("mapsTableArea"))}</th>
+            <th>${escapeHtml(app.t("mapsTableActions"))}</th>
           </tr>
         </thead>
         <tbody>
@@ -67,7 +67,7 @@ function renderSharedMapsDataTable(app, maps, tableId) {
 
 export function renderSharedMapsCard(app, options = {}) {
   const tableId = options.tableId || "shared-maps-page-table";
-  const title = options.title || "Mapas Partilhados Comigo";
+  const title = options.title || app.t("sharedMapsTitle");
   const sharedMaps = app.savedSets.filter((item) => item.permission !== "owner");
   const isCollapsed = Boolean(app.homeSectionCollapsed?.sharedMaps);
 
@@ -75,11 +75,11 @@ export function renderSharedMapsCard(app, options = {}) {
     <div class="home-section card p-3">
       <div class="home-card-header d-flex align-items-center justify-content-between gap-2">
         <h3 class="mb-0">${escapeHtml(title)}</h3>
-        <button type="button" class="home-card-toggle btn btn-link" data-home-section-toggle="sharedMaps" aria-expanded="${String(!isCollapsed)}" aria-label="${isCollapsed ? "Expandir" : "Colapsar"} card Mapas Partilhados Comigo">
+        <button type="button" class="home-card-toggle btn btn-link" data-home-section-toggle="sharedMaps" aria-expanded="${String(!isCollapsed)}" aria-label="${isCollapsed ? app.t("expand") : app.t("navCollapse")} ${escapeHtml(app.t("sharedMapsTitle"))}">
           <span class="home-card-toggle-icon ${isCollapsed ? "collapsed" : ""}">▾</span>
         </button>
       </div>
-      ${isCollapsed ? "" : `<div class="home-card-body">${sharedMaps.length ? renderSharedMapsDataTable(app, sharedMaps, tableId) : '<div class="empty-saved-sets">Sem mapas partilhados.</div>'}</div>`}
+      ${isCollapsed ? "" : `<div class="home-card-body">${sharedMaps.length ? renderSharedMapsDataTable(app, sharedMaps, tableId) : `<div class="empty-saved-sets">${escapeHtml(app.t("emptySharedMaps"))}</div>`}</div>`}
     </div>
   `;
 }

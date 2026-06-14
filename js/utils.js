@@ -1,3 +1,5 @@
+import { getCurrentLanguage, getLocaleForLanguage, translate } from "./i18n.js?v=__ASSET_VERSION__";
+
 export function getDataItems() {
 	return Array.isArray(globalThis.dadosOc) ? globalThis.dadosOc : [];
 }
@@ -13,10 +15,10 @@ export function escapeHtml(value) {
 
 export function formatDate(dateString) {
 	if (!dateString) {
-		return "Sem data";
+		return translate(getCurrentLanguage(), "noDate");
 	}
 
-	return new Intl.DateTimeFormat("pt-PT", {
+	return new Intl.DateTimeFormat(getLocaleForLanguage(getCurrentLanguage()), {
 		dateStyle: "short",
 		timeStyle: "short",
 	}).format(new Date(dateString));
@@ -51,7 +53,7 @@ export function readFileAsText(file) {
 	return new Promise((resolve, reject) => {
 		const reader = new FileReader();
 		reader.onload = () => resolve(String(reader.result || ""));
-		reader.onerror = () => reject(new Error("Não foi possível ler o ficheiro selecionado."));
+		reader.onerror = () => reject(new Error(translate(getCurrentLanguage(), "flashImportError")));
 		reader.readAsText(file);
 	});
 }

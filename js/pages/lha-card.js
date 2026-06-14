@@ -123,8 +123,8 @@ export function renderLhaCard(app) {
   return `
     <div class="home-section card p-3">
       <div class="home-card-header d-flex align-items-center justify-content-between gap-2">
-        <h3 class="mb-0">Cálculo L/Ha</h3>
-        <button type="button" class="home-card-toggle btn btn-link" data-home-section-toggle="lhaCalculator" aria-expanded="${String(!isCollapsed)}" aria-label="${isCollapsed ? "Expandir" : "Colapsar"} card Cálculo L/Ha">
+        <h3 class="mb-0">${escapeHtml(app.t("lhaCalculatorTitle"))}</h3>
+        <button type="button" class="home-card-toggle btn btn-link" data-home-section-toggle="lhaCalculator" aria-expanded="${String(!isCollapsed)}" aria-label="${isCollapsed ? app.t("expand") : app.t("navCollapse")} ${escapeHtml(app.t("lhaCalculatorTitle"))}">
           <span class="home-card-toggle-icon ${isCollapsed ? "collapsed" : ""}">▾</span>
         </button>
       </div>

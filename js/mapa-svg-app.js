@@ -1,6 +1,7 @@
 import { COLORS } from "./config.js?v=__ASSET_VERSION__";
 import { api } from "./api.js?v=__ASSET_VERSION__";
 import { downloadJsonFile, escapeHtml, getDataItems, normalizeStateSignature, readFileAsText } from "./utils.js?v=__ASSET_VERSION__";
+import { getStoredLanguage, setStoredLanguage, translate } from "./i18n.js?v=__ASSET_VERSION__";
 import { renderAuthPage } from "./pages/auth-page.js?v=__ASSET_VERSION__";
 import { renderHomePage } from "./pages/home-page.js?v=__ASSET_VERSION__";
 import { renderHomeCardPage } from "./pages/home-card-page.js?v=__ASSET_VERSION__";
@@ -105,6 +106,8 @@ export class MapaSVGApp {
 		this.handleAppClick = this.handleAppClick.bind(this);
 		this.handleBeforeUnload = this.handleBeforeUnload.bind(this);
 		this.handleHashChange = this.handleHashChange.bind(this);
+		this.language = setStoredLanguage(getStoredLanguage());
+		this.t = (key, params = {}) => translate(this.language, key, params);
 		this.init();
 	}
 
@@ -127,6 +130,16 @@ export class MapaSVGApp {
 			await this.refreshMaps();
 		}
 
+		this.render();
+	}
+
+	setLanguage(language) {
+		const nextLanguage = setStoredLanguage(language);
+		if (nextLanguage === this.language) {
+			return;
+		}
+
+		this.language = nextLanguage;
 		this.render();
 	}
 
@@ -370,7 +383,7 @@ export class MapaSVGApp {
 	}
 
 	generateSetName() {
-		const baseName = "Novo Mapa";
+		const baseName = this.t("createMapBaseName");
 		const existingNames = new Set(this.savedSets.map((item) => item.name));
 		let index = this.savedSets.length + 1;
 
@@ -547,7 +560,7 @@ export class MapaSVGApp {
 			return true;
 		}
 
-		return window.confirm("Existem alterações por guardar. Pretende descartá-las?");
+		return window.confirm(this.t("confirmDiscardChanges"));
 	}
 
 	async loadSet(setId, skipDirtyCheck = false) {
@@ -1408,6 +1421,13 @@ export class MapaSVGApp {
 	}
 
 	attachEventListeners() {
+		document.querySelectorAll("[data-language-switch]").forEach((button) => {
+			button.addEventListener("click", () => {
+				const language = button.getAttribute("data-language-switch");
+				this.setLanguage(language);
+			});
+		});
+
 		document.getElementById("auth-submit")?.addEventListener("click", () => this.handleAuthSubmit(this.authMode));
 		document.getElementById("auth-switch-mode")?.addEventListener("click", () => {
 			this.setAuthMode(this.authMode === "register" ? "login" : "register");
@@ -1426,7 +1446,7 @@ export class MapaSVGApp {
 			const isVisible = input.type === "text";
 			input.type = isVisible ? "password" : "text";
 			btn.setAttribute("aria-pressed", String(!isVisible));
-			btn.setAttribute("aria-label", isVisible ? "Mostrar password" : "Esconder password");
+			btn.setAttribute("aria-label", isVisible ? this.t("passwordToggleShow") : this.t("passwordToggleHide"));
 		});
 
 		document.getElementById("auth-password-confirm-toggle")?.addEventListener("click", () => {
@@ -1436,7 +1456,7 @@ export class MapaSVGApp {
 			const isVisible = input.type === "text";
 			input.type = isVisible ? "password" : "text";
 			btn.setAttribute("aria-pressed", String(!isVisible));
-			btn.setAttribute("aria-label", isVisible ? "Mostrar confirmação da password" : "Esconder confirmação da password");
+			btn.setAttribute("aria-label", isVisible ? this.t("passwordToggleShowConfirm") : this.t("passwordToggleHideConfirm"));
 		});
 
 		document.getElementById("auth-username")?.addEventListener("input", (e) => {

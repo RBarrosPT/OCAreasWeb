@@ -7,15 +7,6 @@ import { renderNozzleReferenceCard } from "./home-cards/nozzle-reference-card.js
 import { renderSprayerFlowCard } from "./sprayer-flow-card.js?v=__ASSET_VERSION__";
 import { renderLhaCard } from "./lha-card.js?v=__ASSET_VERSION__";
 
-const HOME_CARD_TITLES = {
-  sharedMaps: "Mapas Partilhados Comigo",
-  etImport: "Evapotranspiração (ET) - PREVISÃO dados IRRISTRAT",
-  weatherStation: "Leituras estação metrológica - dados IRRISTRAT",
-  sprayerFlow: "Calculo débito pulverizadores MAGGIO eletrostático",
-  lhaCalculator: "Cálculo L/Ha",
-  nozzleReferences: "Tabelas Referencia Bicos",
-};
-
 function renderFlashMessage(app) {
   if (!app.flashMessage?.text) {
     return "";
@@ -27,24 +18,28 @@ function renderFlashMessage(app) {
 function renderCardContent(app) {
   switch (app.homeCardPage) {
     case "sharedMaps":
-      return renderSharedMapsCard(app, { tableId: "shared-maps-page-table", title: HOME_CARD_TITLES.sharedMaps });
+      return renderSharedMapsCard(app, { tableId: "shared-maps-page-table", title: app.t("sharedMapsTitle") });
     case "etImport":
-      return renderEtForecastCard(app, { title: HOME_CARD_TITLES.etImport });
+      return renderEtForecastCard(app, { title: app.t("etImportTitle") });
     case "weatherStation":
-      return renderWeatherStationCard(app, { title: HOME_CARD_TITLES.weatherStation });
+      return renderWeatherStationCard(app, { title: app.t("weatherStationTitle") });
     case "sprayerFlow":
       return renderSprayerFlowCard(app);
     case "lhaCalculator":
       return renderLhaCard(app);
     case "nozzleReferences":
-      return renderNozzleReferenceCard({ title: HOME_CARD_TITLES.nozzleReferences });
+      return renderNozzleReferenceCard({ title: app.t("nozzleReferencesTitle") });
     default:
       return "";
   }
 }
 
 export function renderHomeCardPage(app) {
-  const currentTitle = HOME_CARD_TITLES[app.homeCardPage] || "Card";
+  const currentTitle =
+    app.homeCardPage === "sharedMaps" ? app.t("sharedMapsTitle") :
+    app.homeCardPage === "weatherStation" ? app.t("weatherStationTitle") :
+    app.homeCardPage === "nozzleReferences" ? app.t("nozzleReferencesTitle") :
+    app.t("cardTitleDefault");
 
   return `
     <div class="container-fluid">
@@ -52,7 +47,7 @@ export function renderHomeCardPage(app) {
       <div class="home-container container py-3">
         ${renderFlashMessage(app)}
         <div class="home-card-page-toolbar d-flex align-items-center justify-content-between gap-2 flex-wrap">
-          <button type="button" class="btn btn-outline-secondary" id="home-card-back">Voltar à página principal</button>
+          <button type="button" class="btn btn-outline-secondary" id="home-card-back">${app.t("cardBack")}</button>
           <span class="home-card-page-title">${escapeHtml(currentTitle)}</span>
         </div>
         ${renderCardContent(app)}

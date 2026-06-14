@@ -1,46 +1,60 @@
 import { escapeHtml } from "../utils.js?v=__ASSET_VERSION__";
 
+function renderLanguageSelector(app) {
+  return `
+    <div class="d-flex justify-content-end mb-3">
+      <div class="btn-group" role="group" aria-label="${escapeHtml(app.t("selectLanguage"))}">
+        ${["pt", "en", "es"].map((language) => {
+          const isActive = app.language === language;
+          return `<button type="button" class="btn ${isActive ? "btn-primary" : "btn-outline-secondary"} btn-sm" data-language-switch="${language}" aria-pressed="${String(isActive)}">${escapeHtml(app.t(`language${language.toUpperCase()}`))}</button>`;
+        }).join("")}
+      </div>
+    </div>
+  `;
+}
+
 export function renderRegisterPage(app) {
   const error = app.authError ? `<div class="auth-error">${escapeHtml(app.authError)}</div>` : "";
 
   return `
     <div class="auth-container container-fluid">
       <div class="auth-card card shadow-sm p-3 p-md-4">
-        <h1 class="h4 mb-2">Outro Chão - Mapas</h1>
-        <h2 class="h6 mb-1">Criar conta</h2>
-        <p class="text-muted mb-3">Registo de novo utilizador.</p>
+        ${renderLanguageSelector(app)}
+        <h1 class="h4 mb-2">${escapeHtml(app.t("welcomeTitle"))}</h1>
+        <h2 class="h6 mb-1">${escapeHtml(app.t("createAccountTitle"))}</h2>
+        <p class="text-muted mb-3">${escapeHtml(app.t("registerDescription"))}</p>
         ${error}
 
-        <label class="set-name-label" for="auth-email">Email autorizado</label>
+        <label class="set-name-label" for="auth-email">${escapeHtml(app.t("emailAuthorizedLabel"))}</label>
         <input id="auth-email" class="set-name-input form-control" type="email" maxlength="160" placeholder="email@dominio.pt" autocomplete="email">
         <ul class="email-rules mb-3">
-          <li>O email tem de estar previamente autorizado pelo administrador.</li>
-          <li>Após o registo, o email autorizado não pode ser reutilizado para outro registo.</li>
+          <li>${escapeHtml(app.t("domainsAreControlledByAdmin"))}</li>
+          <li>${escapeHtml(app.t("emailReuseNotice"))}</li>
         </ul>
 
-        <label class="set-name-label" for="auth-username">Utilizador</label>
-        <input id="auth-username" class="set-name-input form-control" type="text" maxlength="80" placeholder="utilizador" autocomplete="username">
+        <label class="set-name-label" for="auth-username">${escapeHtml(app.t("username"))}</label>
+        <input id="auth-username" class="set-name-input form-control" type="text" maxlength="80" placeholder="${escapeHtml(app.t("username"))}" autocomplete="username">
         <ul class="auth-rules mb-3" id="rules-username">
-          <li data-rule="u-min">Mínimo 6 caracteres</li>
-          <li data-rule="u-chars">Apenas letras (A-Z), números (0-9), ponto (.) ou underscore (_)</li>
-          <li data-rule="u-nospace">Sem espaços ou outros símbolos</li>
-          <li data-rule="u-case">Não diferencia maiúsculas/minúsculas (será convertido automaticamente)</li>
+          <li data-rule="u-min">${escapeHtml(app.t("usernameRulesMin"))}</li>
+          <li data-rule="u-chars">${escapeHtml(app.t("usernameRulesChars"))}</li>
+          <li data-rule="u-nospace">${escapeHtml(app.t("usernameRulesNoSpace"))}</li>
+          <li data-rule="u-case">${escapeHtml(app.t("usernameRulesCase"))}</li>
         </ul>
 
-        <label class="set-name-label" for="auth-password">Password</label>
+        <label class="set-name-label" for="auth-password">${escapeHtml(app.t("password"))}</label>
         <div class="password-wrapper">
-          <input id="auth-password" class="set-name-input form-control" type="password" maxlength="120" placeholder="password" autocomplete="current-password">
-          <button type="button" class="password-toggle btn btn-outline-secondary" id="auth-password-toggle" aria-label="Mostrar password" aria-pressed="false">
+          <input id="auth-password" class="set-name-input form-control" type="password" maxlength="120" placeholder="${escapeHtml(app.t("password"))}" autocomplete="current-password">
+          <button type="button" class="password-toggle btn btn-outline-secondary" id="auth-password-toggle" aria-label="${escapeHtml(app.t("passwordToggleShow"))}" aria-pressed="false">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
               <circle cx="12" cy="12" r="3"/>
             </svg>
           </button>
         </div>
-        <label class="set-name-label" for="auth-password-confirm">Confirmar password</label>
+        <label class="set-name-label" for="auth-password-confirm">${escapeHtml(app.t("passwordConfirm"))}</label>
         <div class="password-wrapper">
-          <input id="auth-password-confirm" class="set-name-input form-control" type="password" maxlength="120" placeholder="confirmar password" autocomplete="new-password">
-          <button type="button" class="password-toggle btn btn-outline-secondary" id="auth-password-confirm-toggle" aria-label="Mostrar confirmação da password" aria-pressed="false">
+          <input id="auth-password-confirm" class="set-name-input form-control" type="password" maxlength="120" placeholder="${escapeHtml(app.t("passwordConfirm"))}" autocomplete="new-password">
+          <button type="button" class="password-toggle btn btn-outline-secondary" id="auth-password-confirm-toggle" aria-label="${escapeHtml(app.t("passwordToggleShowConfirm"))}" aria-pressed="false">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
               <circle cx="12" cy="12" r="3"/>
@@ -48,17 +62,17 @@ export function renderRegisterPage(app) {
           </button>
         </div>
         <ul class="auth-rules mb-3" id="rules-password">
-          <li data-rule="p-min">Mínimo 9 caracteres</li>
-          <li data-rule="p-upper">Pelo menos 1 letra maiúscula (A-Z)</li>
-          <li data-rule="p-lower">Pelo menos 1 letra minúscula (a-z)</li>
-          <li data-rule="p-digit">Pelo menos 1 número (0-9)</li>
-          <li data-rule="p-symbol">Pelo menos 1 símbolo (ex: ! @ # $ %)</li>
-          <li data-rule="p-match">A confirmação da password deve coincidir</li>
+          <li data-rule="p-min">${escapeHtml(app.t("passwordRulesMin"))}</li>
+          <li data-rule="p-upper">${escapeHtml(app.t("passwordRulesUpper"))}</li>
+          <li data-rule="p-lower">${escapeHtml(app.t("passwordRulesLower"))}</li>
+          <li data-rule="p-digit">${escapeHtml(app.t("passwordRulesDigit"))}</li>
+          <li data-rule="p-symbol">${escapeHtml(app.t("passwordRulesSymbol"))}</li>
+          <li data-rule="p-match">${escapeHtml(app.t("passwordConfirmMismatch"))}</li>
         </ul>
 
         <div class="saved-sets-actions d-flex gap-2 flex-wrap">
-          <button type="button" class="toggle-button btn btn-primary" id="auth-submit">Registar</button>
-          <button type="button" class="secondary-button btn btn-outline-secondary" id="auth-switch-mode">Já tenho conta</button>
+          <button type="button" class="toggle-button btn btn-primary" id="auth-submit">${escapeHtml(app.t("registerButton"))}</button>
+          <button type="button" class="secondary-button btn btn-outline-secondary" id="auth-switch-mode">${escapeHtml(app.t("switchToLogin"))}</button>
         </div>
       </div>
     </div>

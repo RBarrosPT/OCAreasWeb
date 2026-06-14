@@ -75,13 +75,13 @@ function renderOwnMapsDataTable(app, maps, tableId) {
       <table id="${tableId}" class="table table-striped table-hover align-middle w-100 home-maps-table">
         <thead>
           <tr>
-            <th>Nome do mapa</th>
-            <th>Atualizado</th>
-            <th>Proprietário</th>
-            <th>Partilha com</th>
-            <th>Nº de Parcelas</th>
-            <th>Área</th>
-            <th>Ações</th>
+            <th>${escapeHtml(app.t("mapsTableMapName"))}</th>
+            <th>${escapeHtml(app.t("mapsTableUpdated"))}</th>
+            <th>${escapeHtml(app.t("mapsTableOwner"))}</th>
+            <th>${escapeHtml(app.t("mapsTablePermission"))}</th>
+            <th>${escapeHtml(app.t("mapsTableParcels"))}</th>
+            <th>${escapeHtml(app.t("mapsTableArea"))}</th>
+            <th>${escapeHtml(app.t("mapsTableActions"))}</th>
           </tr>
         </thead>
         <tbody>
@@ -96,13 +96,14 @@ export function renderHomePage(app) {
   const ownMaps = app.savedSets.filter((item) => item.permission === "owner");
   const canManageBackups = app.user?.username === "ricardo_barros";
   const ownMapsCollapsed = Boolean(app.homeSectionCollapsed?.ownMaps);
+  const feedbackEmail = "mailto:rjgdlbarros@gmail.com?subject=" + encodeURIComponent(app.t("feedbackNoteTitle"));
   const menuItems = [
-    { key: "sharedMaps", title: "Mapas Partilhados Comigo" },
-    { key: "etImport", title: "Evapotranspiração (ET) - PREVISÃO dados IRRISTRAT" },
-    { key: "weatherStation", title: "Leituras estação metrológica - dados IRRISTRAT" },
-    { key: "sprayerFlow", title: "Calculo débito pulverizadores MAGGIO eletrostático" },
-    { key: "lhaCalculator", title: "Cálculo L/Ha" },
-    { key: "nozzleReferences", title: "Tabelas Referencia Bicos" },
+    { key: "sharedMaps", title: app.t("sharedMapsTitle") },
+    { key: "etImport", title: app.t("etImportTitle") },
+    { key: "weatherStation", title: app.t("weatherStationTitle") },
+    { key: "sprayerFlow", title: app.t("sprayerFlowTitle") },
+    { key: "lhaCalculator", title: app.t("lhaCalculatorTitle") },
+    { key: "nozzleReferences", title: app.t("nozzleReferencesTitle") },
   ];
 
   return `
@@ -111,9 +112,9 @@ export function renderHomePage(app) {
       <div class="home-container container py-3">
         ${renderFlashMessage(app)}
         <div class="home-toolbar d-flex align-items-center gap-2 flex-wrap">
-          <aside class="home-side-menu" aria-label="Menu de cartões">
+          <aside class="home-side-menu" aria-label="${escapeHtml(app.t("homeMenuTitle"))}">
             <div class="home-side-menu-header">
-              <button type="button" class="btn btn-primary home-menu-toggle" id="home-menu-toggle" aria-controls="home-side-menu-items" aria-expanded="false" aria-label="Abrir menu de cartões">☰ MENU</button>
+              <button type="button" class="btn btn-primary home-menu-toggle" id="home-menu-toggle" aria-controls="home-side-menu-items" aria-expanded="false" aria-label="${escapeHtml(app.t("cardMenuAria"))}">${escapeHtml(app.t("homeMenuToggle"))}</button>
             </div>
             <div class="home-side-menu-items" id="home-side-menu-items">
               
@@ -124,24 +125,27 @@ export function renderHomePage(app) {
               `).join("")}
               ${canManageBackups ? `
                 <div class="home-side-menu-actions">
-                  <button type="button" class="btn btn-outline-primary home-side-menu-item" id="home-backup-maps">Cópia de segurança</button>
-                  <button type="button" class="btn btn-outline-secondary home-side-menu-item" id="home-restore-maps">Restaurar cópia de segurança</button>
+                  <button type="button" class="btn btn-outline-primary home-side-menu-item" id="home-backup-maps">${escapeHtml(app.t("backup"))}</button>
+                  <button type="button" class="btn btn-outline-secondary home-side-menu-item" id="home-restore-maps">${escapeHtml(app.t("restoreBackup"))}</button>
                   <input type="file" id="home-restore-file" class="visually-hidden" accept="application/json,.json">
                 </div>
               ` : ""}
             </div>
           </aside>
-          <button type="button" class="btn btn-success ms-auto" id="home-new-map">Novo mapa</button>
+          <button type="button" class="btn btn-success ms-auto" id="home-new-map">${escapeHtml(app.t("newMap"))}</button>
         </div>
         <div class="home-main-content">
           <div class="home-section card p-3">
             <div class="home-card-header d-flex align-items-center justify-content-between gap-2">
-              <h3>Os Meus Mapas</h3>
-              <button type="button" class="home-card-toggle btn btn-link" data-home-section-toggle="ownMaps" aria-expanded="${String(!ownMapsCollapsed)}" aria-label="${ownMapsCollapsed ? "Expandir" : "Colapsar"} card Os Meus Mapas">
+              <h3>${escapeHtml(app.t("myMapsTitle"))}</h3>
+              <button type="button" class="home-card-toggle btn btn-link" data-home-section-toggle="ownMaps" aria-expanded="${String(!ownMapsCollapsed)}" aria-label="${ownMapsCollapsed ? app.t("expand") : app.t("navCollapse")} ${escapeHtml(app.t("myMapsTitle"))}">
                 <span class="home-card-toggle-icon ${ownMapsCollapsed ? "collapsed" : ""}">▾</span>
               </button>
             </div>
-            ${ownMapsCollapsed ? "" : `<div class="home-card-body">${ownMaps.length ? renderOwnMapsDataTable(app, ownMaps, "own-maps-table") : '<div class="empty-saved-sets">Sem mapas próprios.</div>'}</div>`}
+            ${ownMapsCollapsed ? "" : `<div class="home-card-body">${ownMaps.length ? renderOwnMapsDataTable(app, ownMaps, "own-maps-table") : `<div class="empty-saved-sets">${escapeHtml(app.t("emptySavedMaps"))}</div>`}</div>`}
+          </div>
+          <div class="alert alert-info mt-3 mb-0" role="note">
+            <strong>${escapeHtml(app.t("feedbackNoteTitle"))}:</strong> ${escapeHtml(app.t("feedbackNoteBody"))} <a href="${escapeHtml(feedbackEmail)}">email</a>
           </div>
         </div>
       </div>

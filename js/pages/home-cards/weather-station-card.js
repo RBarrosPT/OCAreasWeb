@@ -55,9 +55,9 @@ export function renderWeatherStationCard(app, options = {}) {
   const etIdealHeader = `ET (mm) ideal -${reductionPercent}%`;
   const error = stationState.error || "";
   const isLoading = Boolean(stationState.loading);
-  const importLabel = isLoading ? `A obter leituras... (${elapsedSeconds}s / ${timeoutSeconds}s)` : "Obter leitura estação";
+  const importLabel = isLoading ? app.t("loadingWeatherStation", { elapsed: elapsedSeconds, timeout: timeoutSeconds }) : "Obter leitura estação";
   const isCollapsed = Boolean(app.homeSectionCollapsed?.weatherStation);
-  const title = options.title || "Leituras estação metrológica - dados IRRISTRAT";
+  const title = options.title || app.t("weatherStationTitle");
   const reductionOptions = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
     .map((value) => `<option value="${value}" ${value === reductionPercent ? "selected" : ""}>${value}%</option>`)
     .join("");
@@ -66,7 +66,7 @@ export function renderWeatherStationCard(app, options = {}) {
     <div class="home-section card p-3">
       <div class="home-card-header d-flex align-items-center justify-content-between gap-2">
         <h3 class="mb-0">${escapeHtml(title)}</h3>
-        <button type="button" class="home-card-toggle btn btn-link" data-home-section-toggle="weatherStation" aria-expanded="${String(!isCollapsed)}" aria-label="${isCollapsed ? "Expandir" : "Colapsar"} card Leituras estação metrológica">
+        <button type="button" class="home-card-toggle btn btn-link" data-home-section-toggle="weatherStation" aria-expanded="${String(!isCollapsed)}" aria-label="${isCollapsed ? app.t("expand") : app.t("navCollapse")} ${escapeHtml(title)}">
           <span class="home-card-toggle-icon ${isCollapsed ? "collapsed" : ""}">▾</span>
         </button>
       </div>
@@ -83,7 +83,7 @@ export function renderWeatherStationCard(app, options = {}) {
               </button>
             </div>
           </div>
-          ${lastImportedAt ? `<div class="home-et-meta text-muted small mt-2">Última leitura obtida: ${escapeHtml(formatDate(lastImportedAt))}</div>` : ""}
+          ${lastImportedAt ? `<div class="home-et-meta text-muted small mt-2">${escapeHtml(app.t("lastWeatherReading", { date: formatDate(lastImportedAt) }))}</div>` : ""}
           ${error ? `<div class="app-flash-message error mt-2" role="alert">${escapeHtml(error)}</div>` : ""}
           ${rows.length
             ? `
@@ -105,7 +105,7 @@ export function renderWeatherStationCard(app, options = {}) {
                 </table>
               </div>
             `
-            : '<div class="text-muted small mt-2">Sem leituras da estação meteorológica. Clique em "Obter leitura estação" para importar.</div>'}
+            : `<div class="text-muted small mt-2">${escapeHtml(app.t("emptyWeatherStation"))}</div>`}
         </div>
       `}
     </div>

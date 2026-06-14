@@ -65,9 +65,9 @@ export function renderEtForecastCard(app, options = {}) {
   const remainingSeconds = Math.max(0, Number(importState.remainingSeconds) || 0);
   const timeoutSeconds = 90;
   const elapsedSeconds = Math.min(timeoutSeconds, Math.max(1, timeoutSeconds - remainingSeconds + 1));
-  const importLabel = isLoading ? `A obter previsão... (${elapsedSeconds}s / ${timeoutSeconds}s)` : "Obter previsão";
+  const importLabel = isLoading ? app.t("loadingEtForecast", { elapsed: elapsedSeconds, timeout: timeoutSeconds }) : "Obter previsão";
   const isCollapsed = Boolean(app.homeSectionCollapsed?.etImport);
-  const title = options.title || "Evapotranspiração (ET) - PREVISÃO dados IRRISTRAT";
+  const title = options.title || app.t("etImportTitle");
   const reductionOptions = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
     .map((value) => `<option value="${value}" ${value === reductionPercent ? "selected" : ""}>${value}%</option>`)
     .join("");
@@ -76,7 +76,7 @@ export function renderEtForecastCard(app, options = {}) {
     <div class="home-section card p-3">
       <div class="home-card-header d-flex align-items-center justify-content-between gap-2">
         <h3 class="mb-0">${escapeHtml(title)}</h3>
-        <button type="button" class="home-card-toggle btn btn-link" data-home-section-toggle="etImport" aria-expanded="${String(!isCollapsed)}" aria-label="${isCollapsed ? "Expandir" : "Colapsar"} card Evapotranspiração">
+        <button type="button" class="home-card-toggle btn btn-link" data-home-section-toggle="etImport" aria-expanded="${String(!isCollapsed)}" aria-label="${isCollapsed ? app.t("expand") : app.t("navCollapse")} ${escapeHtml(title)}">
           <span class="home-card-toggle-icon ${isCollapsed ? "collapsed" : ""}">▾</span>
         </button>
       </div>
@@ -93,7 +93,7 @@ export function renderEtForecastCard(app, options = {}) {
               </button>
             </div>
           </div>
-          ${lastImportedAt ? `<div class="home-et-meta text-muted small mt-2">Última previsão obtida: ${escapeHtml(formatDate(lastImportedAt))}</div>` : ""}
+          ${lastImportedAt ? `<div class="home-et-meta text-muted small mt-2">${escapeHtml(app.t("lastEtForecast", { date: formatDate(lastImportedAt) }))}</div>` : ""}
           ${error ? `<div class="app-flash-message error mt-2" role="alert">${escapeHtml(error)}</div>` : ""}
           ${rows.length
             ? `
@@ -114,7 +114,7 @@ export function renderEtForecastCard(app, options = {}) {
                 </table>
               </div>
             `
-            : '<div class="text-muted small mt-2">Sem previsão ET guardada. Clique em "Obter previsão" para importar.</div>'}
+            : `<div class="text-muted small mt-2">${escapeHtml(app.t("emptyEtForecast"))}</div>`}
         </div>
       `}
     </div>
