@@ -40,6 +40,78 @@ function renderDeleteButtonLabel() {
   `;
 }
 
+function formatGameLocalDate(value) {
+  const rawValue = String(value || "").trim();
+  if (!rawValue) {
+    return "-";
+  }
+
+  const usDateWithOptionalTime = rawValue.match(/^(\d{2})\/(\d{2})\/(\d{4})(?:\s+(.*))?$/);
+  if (usDateWithOptionalTime) {
+    const [, month, day, year, time = ""] = usDateWithOptionalTime;
+    return time ? `${year}/${month}/${day} ${time}` : `${year}/${month}/${day}`;
+  }
+
+  const parsedTimestamp = Date.parse(rawValue);
+  if (!Number.isNaN(parsedTimestamp)) {
+    const parsed = new Date(parsedTimestamp);
+    const year = String(parsed.getFullYear());
+    const month = String(parsed.getMonth() + 1).padStart(2, "0");
+    const day = String(parsed.getDate()).padStart(2, "0");
+    return `${year}/${month}/${day}`;
+  }
+
+  return rawValue;
+}
+
+function renderGamesRows(app) {
+  return app.gamesPopupState.games.map((game) => {
+    const localDate = escapeHtml(formatGameLocalDate(game.localDate || game.date || "-"));
+    const group = escapeHtml(game.group || "-");
+    const homeTeam = escapeHtml(game.homeTeam || "-");
+    const awayTeam = escapeHtml(game.awayTeam || "-");
+
+    return `
+      <tr>
+        <td>${localDate}</td>
+        <td>${group}</td>
+        <td>${homeTeam} vs ${awayTeam}</td>
+      </tr>
+    `;
+  }).join("");
+}
+
+function renderGamesPopupBody(app) {
+  if (app.gamesPopupState.loading) {
+    return `<p class="mb-0">${escapeHtml(app.t("gamesPopupLoading"))}</p>`;
+  }
+
+  if (app.gamesPopupState.error) {
+    return `<div class="alert alert-danger mb-0" role="alert">${escapeHtml(app.gamesPopupState.error || app.t("gamesPopupError"))}</div>`;
+  }
+
+  if (!app.gamesPopupState.games.length) {
+    return `<p class="mb-0">${escapeHtml(app.t("gamesPopupEmpty"))}</p>`;
+  }
+
+  return `
+    <div class="table-responsive">
+      <table class="table table-sm table-striped align-middle mb-0 home-games-table">
+        <thead>
+          <tr>
+            <th>${escapeHtml(app.t("gamesPopupTime"))}</th>
+            <th>${escapeHtml(app.t("gamesPopupGroup"))}</th>
+            <th>${escapeHtml(app.t("gamesPopupTeams"))}</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${renderGamesRows(app)}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
 function renderOwnMapRow(app, item) {
   const owner = item.ownerUsername;
   const updatedAt = escapeHtml(formatDate(item.updatedAt));
@@ -132,6 +204,9 @@ export function renderHomePage(app) {
               ` : ""}
             </div>
           </aside>
+          <button type="button" class="btn btn-outline-primary home-games-button" id="home-open-games-popup">
+            <span>${escapeHtml(app.t("gamesPopupOpen"))}</span>
+          </button>
           <button type="button" class="btn btn-success ms-auto" id="home-new-map">${escapeHtml(app.t("newMap"))}</button>
         </div>
         <div class="home-main-content">
@@ -146,6 +221,20 @@ export function renderHomePage(app) {
           </div>
           <div class="alert alert-info mt-3 mb-0" role="note">
             <strong>${escapeHtml(app.t("feedbackNoteTitle"))}:</strong> ${escapeHtml(app.t("feedbackNoteBody"))} <a href="${escapeHtml(feedbackEmail)}">email</a>
+          </div>
+        </div>
+        <div class="home-games-popup-overlay ${app.gamesPopupState.open ? "is-open" : ""}" id="home-games-popup-overlay" ${app.gamesPopupState.open ? "" : "hidden"}>
+          <div class="home-games-popup card" role="dialog" aria-modal="true" aria-labelledby="home-games-popup-title">
+            <div class="card-header d-flex align-items-center justify-content-between gap-2">
+              <h4 class="mb-0" id="home-games-popup-title">${escapeHtml(app.t("gamesPopupTitle"))}</h4>
+              <button type="button" class="btn btn-sm btn-outline-secondary" id="home-close-games-popup">${escapeHtml(app.t("gamesPopupClose"))}</button>
+            </div>
+            <div class="card-body">
+              <div class="home-games-popup-logo-wrap">
+                <img src="assets/FIFA-2026-1.png?v=__ASSET_VERSION__" alt="FIFA 2026 World Cup" class="home-games-popup-logo">
+              </div>
+              ${renderGamesPopupBody(app)}
+            </div>
           </div>
         </div>
       </div>

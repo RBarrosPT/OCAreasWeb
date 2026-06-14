@@ -86,6 +86,15 @@ export const api = {
     return data.maps || [];
   },
 
+  async getTodayGames() {
+    const data = await request("/games/today", { token: getStoredToken() });
+    return {
+      today: String(data?.today || ""),
+      count: Number(data?.count || 0),
+      games: Array.isArray(data?.games) ? data.games : [],
+    };
+  },
+
   async backupMaps() {
     const data = await request("/maps/backup", { token: getStoredToken() });
     return data;

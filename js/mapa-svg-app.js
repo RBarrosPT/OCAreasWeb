@@ -78,6 +78,13 @@ export class MapaSVGApp {
 			reductionPercent: 20,
 			requestedDate: defaultEtRequestedDate,
 		};
+		this.gamesPopupState = {
+			open: false,
+			loading: false,
+			error: "",
+			games: [],
+			lastLoadedDate: "",
+		};
 		this.sprayerFlowConfig = {
 			nozzles: 14,
 			rowSpacing: 3.3,
@@ -813,6 +820,52 @@ export class MapaSVGApp {
 		this.render();
 	}
 
+	async loadTodayGames() {
+		this.gamesPopupState = {
+			...this.gamesPopupState,
+			loading: true,
+			error: "",
+		};
+		this.render();
+
+		try {
+			const payload = await api.getTodayGames();
+			this.gamesPopupState = {
+				...this.gamesPopupState,
+				loading: false,
+				error: "",
+				games: Array.isArray(payload?.games) ? payload.games : [],
+				lastLoadedDate: String(payload?.today || ""),
+			};
+		} catch {
+			this.gamesPopupState = {
+				...this.gamesPopupState,
+				loading: false,
+				error: this.t("gamesPopupError"),
+				games: [],
+			};
+		}
+
+		this.render();
+	}
+
+	async openGamesPopup() {
+		this.gamesPopupState = {
+			...this.gamesPopupState,
+			open: true,
+		};
+		this.render();
+		await this.loadTodayGames();
+	}
+
+	closeGamesPopup() {
+		this.gamesPopupState = {
+			...this.gamesPopupState,
+			open: false,
+		};
+		this.render();
+	}
+
 	startEtImportCountdown(startSeconds) {
 		this.stopEtImportCountdown();
 
@@ -1058,6 +1111,13 @@ export class MapaSVGApp {
 			reductionPercent: 20,
 			requestedDate: new Date().toISOString().slice(0, 10),
 		};
+		this.gamesPopupState = {
+			open: false,
+			loading: false,
+			error: "",
+			games: [],
+			lastLoadedDate: "",
+		};
 		this.resetWorkingSet();
 		this.viewMode = "home";
 		this.render();
@@ -1093,6 +1153,10 @@ export class MapaSVGApp {
 
 		this.viewMode = "home";
 		this.homeCardPage = null;
+		this.gamesPopupState = {
+			...this.gamesPopupState,
+			open: false,
+		};
 		this.render();
 	}
 
@@ -1498,6 +1562,17 @@ export class MapaSVGApp {
 			const [file] = event.target.files || [];
 			await this.restoreMapsFromBackupFile(file);
 			event.target.value = "";
+		});
+		document.getElementById("home-open-games-popup")?.addEventListener("click", async () => {
+			await this.openGamesPopup();
+		});
+		document.getElementById("home-close-games-popup")?.addEventListener("click", () => {
+			this.closeGamesPopup();
+		});
+		document.getElementById("home-games-popup-overlay")?.addEventListener("click", (event) => {
+			if (event.target === event.currentTarget) {
+				this.closeGamesPopup();
+			}
 		});
 		document.getElementById("home-new-map")?.addEventListener("click", () => this.handleNewSet());
 		document.getElementById("home-menu-toggle")?.addEventListener("click", () => {

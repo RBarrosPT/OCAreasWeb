@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import { initDb } from "./db/init-db.js";
 import { requireAuth } from "./middleware/auth.js";
 import { authRouter } from "./routes/auth.js";
+import { gamesRouter } from "./routes/games.js";
 import { mapsRouter } from "./routes/maps.js";
 import { usersRouter } from "./routes/users.js";
 
@@ -71,6 +72,7 @@ app.get("/api/health", (_req, res) => {
 // Rotas públicas de autenticação.
 app.use("/api/auth", authRouter);
 // Rotas protegidas por JWT.
+app.use("/api/games", requireAuth, gamesRouter);
 app.use("/api/maps", requireAuth, mapsRouter);
 app.use("/api/users", requireAuth, usersRouter);
 
